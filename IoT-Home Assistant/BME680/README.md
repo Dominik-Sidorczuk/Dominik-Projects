@@ -18,7 +18,8 @@ Projekt umożliwia monitorowanie parametrów powietrza w pomieszczeniach. Dane s
 * Budowa: Podłącz czujnik BME680 do płytki ESP32 zgodnie ze schematem:
     | ESP32 | BME680 |      Opis     |
     |:-----:|:------:|:-------------:|
-    |  GND  |   GND  | Masa (Ground) |
+    |  GND  |   GND  | Masa (Ground)    |
+    |  3.3V |  VCC   | Zasilanie (Power) |
     | SDA (21)| SDA  | Linia danych (Data line) |
     |SCL (22) | SCL  |Linia zegara (Clock line) | 
 * Wgranie kodu: Skompiluj i wgraj kod na płytkę ESP32.
@@ -35,5 +36,5 @@ Po poprawnej konfiguracji i wgraniu kodu, ESP32 rozpocznie pomiary jakości powi
 ### Zdjęcia
 
 Autamatyczne rozpoznanie i dodanie encji - MQTT Discovery.
-![MQTT Discovery](IoT-Home Assistant/BME680/Rejestr Encji.png)
+!([IoT-Home Assistant/BME680/Rejestr Encji.png](https://github.com/Dominik-Sidorczuk/Dominik-Projects/blob/6deba60d3a3490e79efc4fb63e84bc6821081a18/IoT-Home%20Assistant/BME680/Rejestr%20Encji.png))
 
