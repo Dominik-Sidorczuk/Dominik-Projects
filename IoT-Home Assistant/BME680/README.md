@@ -36,5 +36,5 @@ Po poprawnej konfiguracji i wgraniu kodu, ESP32 rozpocznie pomiary jakości powi
 ### Zdjęcia
 
 Autamatyczne rozpoznanie i dodanie encji - MQTT Discovery.
-!([IoT-Home Assistant/BME680/Rejestr Encji.png](https://github.com/Dominik-Sidorczuk/Dominik-Projects/blob/6deba60d3a3490e79efc4fb63e84bc6821081a18/IoT-Home%20Assistant/BME680/Rejestr%20Encji.png))
+![MQTT](https://github.com/Dominik-Sidorczuk/Dominik-Projects/blob/6deba60d3a3490e79efc4fb63e84bc6821081a18/IoT-Home%20Assistant/BME680/Rejestr%20Encji.png)
 
