@@ -40,3 +40,7 @@ Autamatyczne rozpoznanie i dodanie encji - MQTT Discovery.
 Wizualiazcja.
 ![Wizualizacja](https://github.com/Dominik-Sidorczuk/Dominik-Projects/blob/efc5b9a1097368c17dba098c42a4a3315f340e1f/IoT-Home%20Assistant/BME680/Wizualizacja.png)
 
+### To do To do
+
+![H3He](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.amazon.pl%2FPanther-Journal-Cream-White-Look%2Fdp%2FB087R5QMHX&psig=AOvVaw1-aH_eH75Xh4npc0WxKcUO&ust=1720721963620000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCKieiP6KnYcDFQAAAAAdAAAAABAJ)
+
