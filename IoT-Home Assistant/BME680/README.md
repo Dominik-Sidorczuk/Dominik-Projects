@@ -40,7 +40,9 @@ Autamatyczne rozpoznanie i dodanie encji - MQTT Discovery.
 Wizualiazcja.
 ![Wizualizacja](https://github.com/Dominik-Sidorczuk/Dominik-Projects/blob/efc5b9a1097368c17dba098c42a4a3315f340e1f/IoT-Home%20Assistant/BME680/Wizualizacja.png)
 
+
 ### To do To do
-
 ![H3He](https://pbs.twimg.com/media/Dc35uDvW4AEAdA5.jpg)
-
+* Zastosowanie normalnej biblioteki do publikowania MQTT
+* Nie dopuszcenie do spalenie sensorów, oczekiwanie na kolejne od chińczyka i dodanie do stacji kolejnych sensorów. Uśredniająć Odczyty temp i wilgotności z SHT41, oraz odczyt względengo natężenia światła VEML7700.
+* Sprawdzenie poboru prądu z beterii INA3221, i dodanie ewentualnego deep sleep z okresowym 30min wysyłaniem wiadomości.
