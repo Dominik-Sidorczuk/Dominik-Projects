@@ -34,6 +34,6 @@ Po poprawnej konfiguracji i wgraniu kodu, ESP32 rozpocznie pomiary jakości powi
 
 ### Zdjęcia
 
-Autamatyczne rozpoznanie i dodanie encji.
-![Schemat połączeń płytki ESP32 z czujnikiem BME680]([https://example.com/schemat_polaczen.png](https://github.com/Dominik-Sidorczuk/Dominik-Projects/blob/main/IoT-Home%20Assistant/BME680/Rejestr%20Encji.png))
+Autamatyczne rozpoznanie i dodanie encji - MQTT Discovery.
+![MQTT Discovery](IoT-Home Assistant/BME680/Rejestr Encji.png)
 
