@@ -44,5 +44,5 @@ Wizualiazcja.
 ### To do To do
 ![H3He](https://pbs.twimg.com/media/Dc35uDvW4AEAdA5.jpg)
 * Zastosowanie normalnej biblioteki do publikowania MQTT
-* Nie dopuszcenie do spalenie sensorów, oczekiwanie na kolejne od chińczyka i dodanie do stacji kolejnych sensorów. Uśredniająć Odczyty temp i wilgotności z SHT41, oraz odczyt względengo natężenia światła VEML7700.
+* Nie dopuszcenie do spalenie sensorów, oczekiwanie na kolejne od chińczyka. Uśrednić odczyty temp i hig z SHT41, oraz dodać odczyt względengo natężenia światła VEML7700.
 * Sprawdzenie poboru prądu z beterii INA3221, i dodanie ewentualnego deep sleep z okresowym 30min wysyłaniem wiadomości.
