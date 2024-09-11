@@ -8,3 +8,5 @@ Test/pairplot.png
 Test/Razem.png
 Test/Untitled.ipynb
 Test/.ipynb_checkpoints/Untitled-checkpoint.ipynb
+Minst/mnist_test.csv
+Minst/mnist_train.csv
