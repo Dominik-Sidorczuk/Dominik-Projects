@@ -38,11 +38,10 @@ Po poprawnej konfiguracji i wgraniu kodu, ESP32 rozpocznie pomiary jakości powi
 Automatyczne rozpoznanie i dodanie encji - MQTT Discovery.
 ![MQTT](https://github.com/Dominik-Sidorczuk/Dominik-Projects/blob/6deba60d3a3490e79efc4fb63e84bc6821081a18/IoT-Home%20Assistant/BME680/Rejestr%20Encji.png)
 Wizualiazcja.
-![Wizualizacja](https://github.com/Dominik-Sidorczuk/Dominik-Projects/blob/efc5b9a1097368c17dba098c42a4a3315f340e1f/IoT-Home%20Assistant/BME680/Wizualizacja.png)
+![Wizualizacja](https://github.com/Dominik-Sidorczuk/Dominik-Projects/blob/b5a0e79701ff10dbc32ec35678fa2172683b1805/IoT-Home%20Assistant/BME680/Wizualizacja.png)
 
 
 ### To do To do
 ![H3He](https://pbs.twimg.com/media/Dc35uDvW4AEAdA5.jpg)
 * Zastosowanie normalnej biblioteki do publikowania MQTT
-* Nie dopuszcenie do spalenie sensorów, oczekiwanie na kolejne od chińczyka. Uśrednić odczyty temp i hig z SHT41, oraz dodać odczyt względengo natężenia światła VEML7700.
 * Sprawdzenie poboru prądu z beterii INA3221, i dodanie ewentualnego deep sleep z okresowym 30min wysyłaniem wiadomości.
