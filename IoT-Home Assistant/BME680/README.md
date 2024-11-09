@@ -41,72 +41,72 @@ Wizualiazcja.
 ![Wizualizacja](https://github.com/Dominik-Sidorczuk/Dominik-Projects/blob/b5a0e79701ff10dbc32ec35678fa2172683b1805/IoT-Home%20Assistant/BME680/Wizualizacja.png)
 
 ### Automatyzacja klimatyzacji YAML
-alias: Sterowanie klimatyzacją na podstawie stanu HVAC
-description: ""
-mode: restart
-triggers:
-  - entity_id: sensor.klimatyzacja_hvac_action
-    trigger: state
-actions:
-  - choose:
-      - conditions:
-          - condition: state
-            entity_id: sensor.klimatyzacja_hvac_action
-            state: cooling
-        sequence:
-          - data:
-              entity_id: remote.ir_pilot
-              device: Klimatyzcja
-              command: ONN/OFF
-              num_repeats: 1
-              delay_secs: 0.4
-            action: remote.send_command
-      - conditions:
-          - condition: state
-            entity_id: sensor.klimatyzacja_hvac_action
-            state: idle
-        sequence:
-          - data:
-              entity_id: remote.ir_pilot
-              device: Klimatyzacja
-              command: "OFF"
-              num_repeats: 1
-              delay_secs: 0.4
-            action: remote.send_command
-    default: []
 
+    alias: Sterowanie klimatyzacją na podstawie stanu HVAC
+    description: ""
+    mode: restart
+    triggers:
+        - entity_id: sensor.klimatyzacja_hvac_action
+          trigger: state
+    actions:
+        - choose:
+            - conditions:
+                - condition: state
+                  entity_id: sensor.klimatyzacja_hvac_action
+                  state: cooling
+              sequence:
+                - data:
+                    entity_id: remote.ir_pilot
+                    device: Klimatyzacja
+                    command: ONN/OFF
+                    num_repeats: 1
+                    delay_secs: 0.4
+                  action: remote.send_command
+            - conditions:
+                - condition: state
+                  entity_id: sensor.klimatyzacja_hvac_action
+                  state: idle
+              sequence:
+                - data:
+                    entity_id: remote.ir_pilot
+                    device: Klimatyzacja
+                    command: "OFF"
+                    num_repeats: 1
+                    delay_secs: 0.4
+                  action: remote.send_command
+            default: []
 
 ### HASmartThermostat (HACS) 
 
-# climate.yaml
-climate:
-  - platform: smart_thermostat
-    name: Klimatyzacja Smart
-    unique_id: smart_thermostat_klimatyzacja
-    target_sensor: sensor.stacja_1_stacja_1_94e686029614_temperature
-    heater: input_boolean.stan_klimatyzacji_on_off
-    min_temp: 21
-    max_temp: 29
-    keep_alive: 60
-    target_temp: 26.6
-    cold_tolerance: 0.6
-    hot_tolerance: 0.4
-    target_temp_step: 0.1
-    ac_mode: true
-    kp: 5.5   ## Wartości zostały automatycznie wystrojonie
-    ki: 0.5   ## Możliwe poprzez dodanie flagiautotune 
-    kd: 500   ## autotune: "rule"
-    output_min: 0
-    output_max: 100
-    min_off_cycle_duration: 90
+    # climate.yaml
+    climate:
+        - platform: smart_thermostat
+          name: Klimatyzacja Smart
+          unique_id: smart_thermostat_klimatyzacja
+          target_sensor: sensor.stacja_1_stacja_1_94e686029614_temperature
+          heater: input_boolean.stan_klimatyzacji_on_off
+          min_temp: 21
+          max_temp: 29
+          keep_alive: 60
+          target_temp: 26.6
+          cold_tolerance: 0.6
+          hot_tolerance: 0.4
+          target_temp_step: 0.1
+          ac_mode: true
+          kp: 5.5      ## Wartości zostały automatycznie wystrojonie
+          ki: 0.5      ## Możliwe poprzez dodanie flagiautotune 
+          kd: 500      ## autotune: "rule"
+          output_min: 0
+          output_max: 100
+          min_off_cycle_duration: 90
 
-sensor:
-  - platform: template
-    sensors:
-      klimatyzacja_hvac_action:
-        friendly_name: "Stan działania klimatyzacji"
-        value_template: "{{ state_attr('climate.klimatyzacja_smart', 'hvac_action') }}"
+    sensor:
+        - platform: template
+          sensors:
+            klimatyzacja_hvac_action:
+              friendly_name: "Stan działania klimatyzacji"
+              value_template: "{{ state_attr('climate.klimatyzacja_smart', 'hvac_action') }}"
 
-input_boolean:
-  stan_klimatyzacji_on_off: 
-    name: Stan klimatyzacji on/off
+    input_boolean:
+      stan_klimatyzacji_on_off: 
+        name: Stan klimatyzacji on/off
