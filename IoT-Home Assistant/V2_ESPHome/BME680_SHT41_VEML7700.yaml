@@ -1,0 +1,173 @@
+esphome:
+  name: stacja-XXXXXX
+  friendly_name: Stacja XXXXXX
+
+esp32:
+  board: esp32dev
+  framework:
+    type: arduino
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: ""
+
+ota:
+  - platform: esphome
+    password: ""
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+  ap:
+    ssid: "Stacja-Kuchnia Fallback Hotspot"
+    password: "foDsXgdIkkU8"
+
+captive_portal: {}
+
+globals:
+  - id: veml7700_ambient_light_value
+    type: float
+    restore_value: no  
+    initial_value: '0.0'
+  - id: veml7700_full_spectrum_value
+    type: float
+    restore_value: no
+    initial_value: '0.0'
+
+i2c:
+  sda: 21  # Złólty
+  scl: 22  # Pomarańczowy
+  # scan: true  
+  frequency: 100kHz 
+
+#BSEC2 BME680
+bme68x_bsec2_i2c:
+  address: 0x77
+  model: bme680
+  operating_age: 28d
+  sample_rate: LP
+  supply_voltage: 3.3V
+
+# BME680
+sensor:
+  - platform: bme68x_bsec2
+    temperature:
+      name: "BME680 Temperature"
+      id: bme680_temperature
+      accuracy_decimals: 2
+      internal: true
+    pressure:
+      name: "BME680 Pressure"
+      id: bme680_pressure
+      accuracy_decimals: 2
+      filters:
+      - sliding_window_moving_average:
+            window_size: 10 
+            send_every: 10
+    humidity:
+      name: "BME680 Humidity"
+      id: bme680_humidity
+      accuracy_decimals: 2
+      internal: true
+    iaq_static:
+      name: "BME680 IAQ"
+      id: bme680_iaq
+      filters:
+      - sliding_window_moving_average:
+            window_size: 10 
+            send_every: 10
+    iaq_accuracy:
+      name: "BME680 IAQ Accuracy"
+
+  # SHT41
+  - platform: sht4x
+    temperature:
+      name: "SHT41 Temperature"
+      id: sht41_temperature
+      accuracy_decimals: 2
+      internal: true
+    humidity:
+      name: "SHT41 Humidity"
+      id: sht41_humidity
+      accuracy_decimals: 2
+      internal: true
+    address: 0x44 
+    update_interval: 3s
+
+  - platform: template
+    name: "Average Temperature"
+    id: weighted_average_temperature
+    unit_of_measurement: "°C"
+    accuracy_decimals: 2
+    icon: "mdi:thermometer"
+    update_interval: 3s
+    lambda: |-
+      float bme_temp = id(bme680_temperature).state;
+      float sht_temp = id(sht41_temperature).state;
+      float weight_bme = 0.35;
+      float weight_sht = 0.65;
+
+      if (isnan(bme_temp) || isnan(sht_temp)) {
+        return NAN;
+      } else {
+        return (bme_temp * weight_bme) + (sht_temp * weight_sht);
+      }
+    filters:
+      - sliding_window_moving_average:
+            window_size: 10 
+            send_every: 10
+
+  - platform: template
+    name: "Average Humidity"  
+    id: weighted_average_humidity  
+    unit_of_measurement: "%"  
+    accuracy_decimals: 2
+    icon: "mdi:water-percent"  
+    update_interval: 3s
+    lambda: |-
+      float bme_hum = id(bme680_humidity).state;
+      float sht_hum = id(sht41_humidity).state; 
+      float weight_bme_hum = 0.4; 
+      float weight_sht_hum = 0.6;
+
+      if (isnan(bme_hum) || isnan(sht_hum)) {
+        return NAN;
+      } else {
+        return (bme_hum * weight_bme_hum) + (sht_hum * weight_sht_hum);
+      }
+    filters:
+      - sliding_window_moving_average:
+          window_size: 10
+          send_every: 10
+
+  - platform: veml7700
+    address: 0x10
+    id: veml7700_sensor
+    update_interval: 3s
+    full_spectrum:
+      name: "Full Spectrum Light"
+      id: full_spectrum  
+      on_value:  
+        then:
+          - lambda: |-
+              id(veml7700_full_spectrum_value) = x;
+
+  # Czujnik dla Full Spectrum 
+  - platform: template
+    name: "Full Spectrum Light"
+    id: kitchen_full_spectrum_light_filtered
+    unit_of_measurement: "lx"
+    accuracy_decimals: 3
+    icon: "mdi:white-balance-sunny"
+    update_interval: 3s
+    lambda: |-
+      return id(veml7700_full_spectrum_value);
+    filters:
+      - sliding_window_moving_average:
+          window_size: 10
+          send_every: 10
