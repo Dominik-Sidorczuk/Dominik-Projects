@@ -43,9 +43,9 @@ i2c:
   sda: 21  # Złólty
   scl: 22  # Pomarańczowy
   # scan: true  
-  frequency: 100kHz 
+  frequency: 400kHz 
 
-#BSEC2 BME680
+#BSEC BME680
 bme68x_bsec2_i2c:
   address: 0x77
   model: bme680
@@ -151,23 +151,75 @@ sensor:
     update_interval: 3s
     full_spectrum:
       name: "Full Spectrum Light"
-      id: full_spectrum  
-      on_value:  
-        then:
-          - lambda: |-
-              id(veml7700_full_spectrum_value) = x;
-
-  # Czujnik dla Full Spectrum 
-  - platform: template
-    name: "Full Spectrum Light"
-    id: kitchen_full_spectrum_light_filtered
-    unit_of_measurement: "lx"
-    accuracy_decimals: 3
-    icon: "mdi:white-balance-sunny"
+      filters:
+        - sliding_window_moving_average:
+            window_size: 10
+            send_every: 10
+      unit_of_measurement: "lx"
+      accuracy_decimals: 3
+      icon: "mdi:white-balance-sunny"
+  
+  - platform: sen5x
+    id: sen55
+    pm_1_0:
+      name: " PM <1µm Weight concentration"
+      id: pm_1_0
+      accuracy_decimals: 0
+      filters:
+        - sliding_window_moving_average:
+            window_size: 10
+            send_every: 10
+    pm_2_5:
+      name: " PM <2.5µm Weight concentration"
+      id: pm_2_5
+      accuracy_decimals: 0
+      filters:
+        - sliding_window_moving_average:
+            window_size: 10
+            send_every: 10
+    pm_4_0:
+      name: " PM <4µm Weight concentration"
+      id: pm_4_0
+      accuracy_decimals: 0
+      filters:
+        - sliding_window_moving_average:
+            window_size: 10
+            send_every: 10
+    pm_10_0:
+      name: " PM <10µm Weight concentration"
+      id: pm_10_0
+      accuracy_decimals: 0
+      filters:
+        - sliding_window_moving_average:
+            window_size: 10
+            send_every: 10
+    voc:
+      name: "VOC"
+      algorithm_tuning:
+        index_offset: 100
+        learning_time_offset_hours: 72
+        learning_time_gain_hours: 72
+        gating_max_duration_minutes: 90
+        std_initial: 40
+        gain_factor: 230
+      filters:
+        - sliding_window_moving_average:
+            window_size: 10
+            send_every: 10
+    nox:
+      name: "NOx"
+      accuracy_decimals: 1
+      algorithm_tuning:
+        index_offset: 100
+        learning_time_offset_hours: 72
+        learning_time_gain_hours: 72
+        gating_max_duration_minutes: 180
+        std_initial: 50
+        gain_factor: 230
+      filters:
+        - sliding_window_moving_average:
+            window_size: 10
+            send_every: 10
+    acceleration_mode: low
+    store_baseline: true 
     update_interval: 3s
-    lambda: |-
-      return id(veml7700_full_spectrum_value);
-    filters:
-      - sliding_window_moving_average:
-          window_size: 10
-          send_every: 10
