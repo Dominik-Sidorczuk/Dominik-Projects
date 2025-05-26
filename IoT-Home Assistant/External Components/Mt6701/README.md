@@ -98,9 +98,9 @@ sensor:
     #   # icon: "mdi:counter" # Optional: Default is mdi:counter (as per sensor.py)
     # ... and so on for other optional sensors including SSI diagnostic sensors.
     # Remember to add default icon and accuracy_decimals for each in their detailed descriptions.
+```
 
-
-* **`## Configuration Details`**  
+## Parameters
 
 These parameters are configured directly under the `platform: mt6701` block.
 
@@ -138,7 +138,7 @@ These parameters are configured directly under the `platform: mt6701` block.
     * *Why change it?* To adjust the responsiveness versus smoothness of the RPM readings. If RPM values are jumpy, lower the frequency. If the RPM reading lags too much behind actual speed changes, increase it.
     * **Example:** `velocity_filter_cutoff_frequency: "5Hz"`
 
-*#### `i2c` Interface Block
+#### `i2c` Interface Block
 
 Use this block if you are connecting the MT6701 via the I²C interface.
 
@@ -147,7 +147,7 @@ Use this block if you are connecting the MT6701 via the I²C interface.
 i2c:
   address: 0x06       # Optional. Defaults to 0x06.
   i2c_id:             # Optional. Specify if using a non-default I2C bus.
-
+```
 
 ### Sensor Entity Configuration
 
