@@ -9,17 +9,12 @@ This component is designed for applications requiring precise and high-resolutio
 * **High-Resolution Absolute Angle:** 14-bit resolution (16384 counts per revolution) for precise 0-360° readings.
 * **Accumulated Tracking:** Tracks total rotation (degrees, radians, raw counts) across multiple turns.
 * **Velocity Measurement:** Calculates rotational speed in Revolutions Per Minute (RPM) with an optional configurable EMA low-pass filter.
+
 * **Dual Interface Support:**
     * **I²C Interface:** Simple communication for angle reading.
     * **SSI (Synchronous Serial Interface):** 3-wire SPI-like interface for angle data, diagnostic status, and CRC.
 * **SSI Diagnostic Information:** Magnetic field strength, loss of track status, push-button detection, and CRC-6/ITU data integrity check.
 * **Highly Configurable:** Customize zero offset, direction of rotation, SSI clock speed, update interval, and exposed sensor entities.
-
-## Prerequisites
-
-1.  **MT6701 Sensor:** The MagnTek MT6701 chip.
-2.  **Diametrically Magnetized Magnet:** A suitable magnet **must** be mounted axially above the sensor according to the MT6701 datasheet. This is critical for operation.
-3.  **ESPhome:** A working ESPhome installation (recent version recommended).
 
 ## Supported Interfaces
 
@@ -30,52 +25,93 @@ This component is designed for applications requiring precise and high-resolutio
 
 ### Method 1: External Components (Recommended)
 
-1.  Add to your device's YAML (e.g., `your_device.yaml`):
+1.  Add the following to your device's YAML configuration file (e.g., `your_device.yaml`):
     ```yaml
     external_components:
-      - source: github://<YOUR_GITHUB_USERNAME>/<YOUR_REPOSITORY_NAME>@main # Change to the actual GitHub repository URL
+      - source: github://Dominik-Sidorczuk/Dominik-Projects/IoT-Home%20Assistant/External%20Components@main
         components: [ mt6701 ]
     ```
-2.  Configure the `mt6701` sensor platform (see [Configuration Details](#configuration-details)).
+    **Important Notes:**
+    * The URL above points directly to your component within the `Dominik-Projects` repository. Using `%20` for spaces in the URL path is good practice.
+    * It is strongly recommended that after publishing a stable version of your component, you create a **version tag** in Git (e.g., `v1.0.0`) and use that tag instead of `@main` in the URL above (e.g., `...External%20Components@v1.0.0`). This will ensure users are using a stable, tested version of the component.
+
+    Alternatively, you can use the more verbose configuration format, which can be clearer for complex paths:
+    ```yaml
+    external_components:
+      - source:
+          type: github
+          username: Dominik-Sidorczuk
+          repo: Dominik-Projects
+          ref: main # 👉 Remember to change to a version tag, e.g., v1.0.0
+          path: "IoT-Home Assistant/External Components"
+        components: [ mt6701 ]
+    ```
+
+2.  Configure the `mt6701` sensor platform as per the [Configuration Details](#configuration-details) section.
 
 ### Method 2: Manual Installation
 
-1.  Create `custom_components/mt6701/` in your ESPhome configuration directory.
-2.  Copy component files (`sensor.py`, `mt6701.hpp`, `mt6701.cpp`, `README.md`, `__init__.py`) into this directory.
-3.  Configure the `mt6701` sensor platform (see [Configuration Details](#configuration-details)).
+1.  Create a directory named `custom_components/mt6701/` within your main ESPhome configuration directory.
+2.  Copy the following component files from the [GitHub repository](https://github.com/Dominik-Sidorczuk/Dominik-Projects/tree/main/IoT-Home%20Assistant/External%20Components/Mt6701) into the newly created `custom_components/mt6701/` directory:
+    * `sensor.py`
+    * `mt6701.h`
+    * `mt6701.cpp`
+
+3.  Configure the `mt6701` sensor platform as per the [Configuration Details](#configuration-details) section.
+
+    **Note:** This method is less recommended as it does not provide automatic component updates.
 
 ## Configuration Details
 
 This section provides a detailed explanation of all configuration parameters for the `mt6701` sensor platform.
 
 The basic structure of the component configuration is as follows:
+
 ```yaml
 sensor:
   - platform: mt6701
     # Component-level parameters (described below):
-    id:                     # Optional
-    update_interval:        # Optional, defaults to 60s
-    zero_offset:            # Optional, defaults to "0.0°"
-    direction_inverted:     # Optional, defaults to false
-    velocity_filter_cutoff_frequency: # Optional, defaults to "10Hz"
+    id: my_mt6701_sensor      # Optional: ID for this component instance
+    update_interval: 50ms     # Optional, defaults to 60s. Recommended: 10ms-100ms for encoders.
+    zero_offset: "0.0deg"     # Optional, defaults to "0.0deg". Example: "15.5deg", "-2.1rad"
+    direction_inverted: false # Optional, defaults to false.
+    velocity_filter_cutoff_frequency: "10Hz" # Optional, defaults to "10Hz". Set to "0Hz" to disable.
 
-    # Interface configuration (REQUIRED - choose I2C or SSI block):
+    # Interface configuration (REQUIRED - choose ONE: i2c OR ssi block):
     interface:
-      # I2C interface block OR SSI interface block (described below)
+      # Option 1: I2C Interface (example)
+      # i2c:
+      #   address: 0x06
+      #   # i2c_id: bus_a # If using a non-default I2C bus
+
+      # Option 2: SSI Interface (example)
+      ssi:
+        cs_pin: GPIO5 # REQUIRED for SSI
+        # You can use spi_id OR clk_pin & miso_pin:
+        # spi_id: spi_bus_1 # If using a global SPI bus
+        clk_pin: GPIO18 # If not using spi_id
+        miso_pin: GPIO19 # If not using spi_id
+        clock_speed: 4MHz # Optional, defaults to 4MHz. Max ~15.6MHz for MT6701.
 
     # Sensor entity configurations (angle is REQUIRED, others optional):
-    angle:                  # REQUIRED
-      name:                 # REQUIRED
-      # ... other_standard_sensor_options (described with each entity)
+    angle: # REQUIRED
+      name: "MT6701 Angle" # REQUIRED: Name for Home Assistant
+      # accuracy_decimals: 1 # Optional: Default is 1 for angle
+      # icon: "mdi:rotate-right" # Optional: Default is mdi:rotate-right
 
     # Optional sensor entities (add similar blocks if needed, described below):
     # accumulated_angle:
-    #   name: ...
+    #   name: "MT6701 Total Rotation"
     # velocity_rpm:
-    #   name: ...
-    # ... and so on for other optional sensors
-    ### Component-Level Configuration Parameters
-These parameters are configured directly under the `platform: mt6701` block.
+    #   name: "MT6701 Speed"
+    # raw_count:
+    #   name: "MT6701 Raw Count"
+    # ... and so on for other optional sensors including SSI diagnostic sensors.
+
+
+### Component-Level Configuration Parameters
+
+ These parameters are configured directly under the `platform: mt6701` block.
 
 * **`id`** (Optional)
     * **Type:** `ID`
@@ -93,7 +129,7 @@ These parameters are configured directly under the `platform: mt6701` block.
 * **`zero_offset`** (Optional)
     * **Type:** `Angle` (string, e.g., `"0.0°"`, `"15.2deg"`, `"-0.1rad"`)
     * **Default:** `"0.0°"`
-    * **Description:** Defines a custom zero (0°) position for the angle sensor readings. The raw angle from the sensor is adjusted by this offset. For example, if the sensor reports 30° and `zero_offset` is `"10°"`, the angle sensor will output 20°. If `zero_offset` is `"-10°"`, it will output 40°.
+    * **Description:** Defines a custom zero (0°) position for the angle sensor readings. The raw angle from the sensor is adjusted by this offset before being reported. For example, if the sensor's raw reading is 30° and `zero_offset` is `"10°"`, the `angle` sensor will output 20°. If `zero_offset` is `"-10°"`, it will output 40°. The final angle is normalized to the 0-360° range.
     * *Why change it?* To align the sensor's reported zero position with a specific mechanical reference point on your device (e.g., when a knob pointer is at the "0" mark on a panel).
     * **Example:** `zero_offset: "45.0deg"`
 
@@ -108,12 +144,8 @@ These parameters are configured directly under the `platform: mt6701` block.
     * **Type:** `Frequency` (string, e.g., `"10Hz"`, `"0.5Hz"`)
     * **Default:** `"10Hz"`
     * **Description:** Configures the cutoff frequency for the Exponential Moving Average (EMA) low-pass filter applied to the `velocity_rpm` readings. This helps to smooth out noisy velocity measurements. A lower frequency means more smoothing but slower response to changes in speed.
-    * *Why change it?* To adjust the responsiveness versus smoothness of the RPM readings. If RPM values are jumpy, lower the frequency. If the RPM reading lags too much behind actual speed changes, increase it. Set to `"0Hz"` to disable the filter entirely.
+    * *Why change it?* To adjust the responsiveness versus smoothness of the RPM readings. If RPM values are jumpy, lower the frequency. If the RPM reading lags too much behind actual speed changes, increase it. Set to `"0Hz"` to disable the filter (or use a minimal internal alpha factor).
     * **Example:** `velocity_filter_cutoff_frequency: "5Hz"`
-
-    ### `interface` (Required)
-
-This block is required and specifies which communication interface to use. You must choose either `i2c` or `ssi`.
 
 #### `i2c` Interface Block
 
@@ -227,48 +259,6 @@ For each piece of data you want to expose from the MT6701 to Home Assistant, you
           name: "Total Rotation Radians" # REQUIRED: Name in Home Assistant
           accuracy_decimals: 2          # Optional: Display with 2 decimal places
         ```
-**SSI Interface Only Sensor Entities:**
-These sensors are only available and will only be created if the `ssi` interface is configured.
-
-* **`magnetic_field_status`** (Sensor, Optional, SSI only)
-    * **Description:** Reports the magnetic field quality based on `Mg[1:0]` bits from the SSI data stream. This is crucial for ensuring the magnet is correctly positioned and the sensor is operating reliably.
-    * **Unit:** None (integer status code)
-    * **Values and Meanings:**
-        * `0`: Normal (magnetic field strength is optimal)
-        * `1`: Magnetic field is too strong (magnet may be too close or too powerful)
-        * `2`: Magnetic field is too weak (magnet may be too far, too weak, or misaligned)
-    * **Configuration Example under `platform: mt6701`:**
-        ```yaml
-        magnetic_field_status: # This block name enables this sensor
-          name: "Encoder Magnetic Field" # REQUIRED: Name in Home Assistant
-          icon: "mdi:magnet-on"         # Optional: Custom icon
-        ```
-
-* **`loss_of_track_status`** (Sensor, Optional, SSI only)
-    * **Description:** Indicates if the sensor has lost track of the magnet's position, based on the `Mg[3]` bit from the SSI data stream. This can happen if the rotation is too fast for the current `update_interval` and `clock_speed`, or if there are severe magnetic field issues.
-    * **Unit:** None (integer status code)
-    * **Values and Meanings:**
-        * `0`: Normal (tracking OK)
-        * `1`: Loss of Track (sensor could not determine position reliably)
-    * **Configuration Example under `platform: mt6701`:**
-        ```yaml
-        loss_of_track_status: # This block name enables this sensor
-          name: "Encoder Tracking Status" # REQUIRED: Name in Home Assistant
-          icon: "mdi:radar"              # Optional: Custom icon
-        ```
-
-* **`push_button_ssi`** (Binary Sensor, Optional, SSI only)
-    * **Description:** Detects a push-button action via the `Mg[2]` bit in the SSI stream. This bit changes state if the magnet is pressed axially (pushed down) towards the sensor IC, assuming the magnet and its mounting allow for such movement. This entity will be created as a `binary_sensor` in Home Assistant.
-    * **States:** `ON` (pressed), `OFF` (not pressed)
-    * **Configuration Example under `platform: mt6701`:**
-        ```yaml
-        # Note: This creates a binary_sensor, not a regular sensor.
-        # The configuration block for it goes directly under 'platform: mt6701',
-        # similar to how 'angle' or 'velocity_rpm' are defined.
-        push_button_ssi: # This block name enables this binary sensor
-          name: "Encoder Push Button"    # REQUIRED: Name in Home Assistant
-          device_class: "moving"        # Optional: Standard device class for binary sensors
-                                        # Helps Home Assistant pick a better icon/representation.
 ## Full Configuration Examples
 
 Below are complete, heavily commented examples demonstrating how to use the MT6701 component with both I²C and SSI interfaces. You can adapt these for your specific ESPhome device configuration.
@@ -361,8 +351,7 @@ sensor:
     raw_count:
       name: "Rotary Raw Count (I2C)"
       # This sensor provides the raw 14-bit value (0-16383) from the encoder.
-      # It's useful for debugging, understanding the sensor's direct output, or for custom calculations.        ```       
-
+      # It's useful for debugging, understanding the sensor's direct output, or for custom calculations.
 
 ### Example 2: SSI Interface Configuration
 
@@ -464,7 +453,7 @@ sensor:
       icon: "mdi:alert-circle-check-outline" # Custom icon.
 
     # For 'push_button_ssi', this configuration under 'platform: mt6701' will create a Binary Sensor entity.
-    push_button_ssi: 
+    push_button_ssi:
       name: "Rotary Push Button (SSI)"
       # This binary sensor reflects the state of the `Mg[2]` bit in the SSI data stream.
       # This bit is typically used to detect an axial press of the magnet (pushing it towards the sensor IC),
