@@ -29,9 +29,6 @@ This component is designed for applications requiring precise and high-resolutio
       - source: github://Dominik-Sidorczuk/Dominik-Projects/IoT-Home%20Assistant/External%20Components@main
         components: [ mt6701 ]
     ```
-    **Important Notes:**
-    * The URL above points directly to your component within the `Dominik-Projects` repository. Using `%20` for spaces in the URL path is good practice.
-    * It is strongly recommended that after publishing a stable version of your component, you create a **version tag** in Git (e.g., `v1.0.0`) and use that tag instead of `@main` in the URL above (e.g., `...External%20Components@v1.0.0`). This will ensure users are using a stable, tested version of the component.
 
     Alternatively, you can use the more verbose configuration format, which can be clearer for complex paths:
     ```yaml
@@ -40,7 +37,7 @@ This component is designed for applications requiring precise and high-resolutio
           type: github
           username: Dominik-Sidorczuk
           repo: Dominik-Projects
-          ref: main # 👉 Remember to change to a version tag, e.g., v1.0.0
+          ref: main 
           path: "IoT-Home Assistant/External Components"
         components: [ mt6701 ]
     ```
@@ -54,8 +51,6 @@ This component is designed for applications requiring precise and high-resolutio
     * `sensor.py`
     * `mt6701.h`
     * `mt6701.cpp`
-    * `README.md` (optional, for your reference)
-    * `__init__.py`
 3.  Configure the `mt6701` sensor platform as per the [Configuration Details](#configuration-details) section.
 
     **Note:** This method is less recommended as it does not provide automatic component updates.
@@ -83,15 +78,6 @@ sensor:
       #   address: 0x06
       #   # i2c_id: bus_a # If using a non-default I2C bus
 
-      # Option 2: SSI Interface (example)
-      ssi:
-        cs_pin: GPIO5 # REQUIRED for SSI
-        # You can use spi_id OR clk_pin & miso_pin:
-        # spi_id: spi_bus_1 # If using a global SPI bus
-        clk_pin: GPIO18 # If not using spi_id
-        miso_pin: GPIO19 # If not using spi_id
-        clock_speed: 4MHz # Optional, defaults to 4MHz. Max ~15.6MHz for MT6701.
-
     # Sensor entity configurations (angle is REQUIRED, others optional):
     angle: # REQUIRED
       name: "MT6701 Angle" # REQUIRED: Name for Home Assistant
@@ -113,10 +99,12 @@ sensor:
     #   # icon: "mdi:counter" # Optional: Default is mdi:counter (as per sensor.py)
     # ... and so on for other optional sensors including SSI diagnostic sensors.
     # Remember to add default icon and accuracy_decimals for each in their detailed descriptions.
+#
+```yaml
 
 ### Component-Level Configuration Parameters
 
- These parameters are configured directly under the `platform: mt6701` block.
+These parameters are configured directly under the `platform: mt6701` block.
 
 * **`id`** (Optional)
     * **Type:** `ID`
@@ -152,7 +140,7 @@ sensor:
     * *Why change it?* To adjust the responsiveness versus smoothness of the RPM readings. If RPM values are jumpy, lower the frequency. If the RPM reading lags too much behind actual speed changes, increase it.
     * **Example:** `velocity_filter_cutoff_frequency: "5Hz"`
 
-#### `i2c` Interface Block
+*#### `i2c` Interface Block
 
 Use this block if you are connecting the MT6701 via the I²C interface.
 
@@ -161,7 +149,7 @@ Use this block if you are connecting the MT6701 via the I²C interface.
 i2c:
   address: 0x06       # Optional. Defaults to 0x06.
   i2c_id:             # Optional. Specify if using a non-default I2C bus.
-|
+
 
 ### Sensor Entity Configuration
 
