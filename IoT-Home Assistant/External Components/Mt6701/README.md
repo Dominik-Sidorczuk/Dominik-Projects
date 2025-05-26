@@ -100,7 +100,8 @@ sensor:
     # Remember to add default icon and accuracy_decimals for each in their detailed descriptions.
 
 
-* **`## Configuration Details`**
+* **`## Configuration Details`**  
+
 These parameters are configured directly under the `platform: mt6701` block.
 
 * **`id`** (Optional)
