@@ -97,9 +97,13 @@ sensor:
     #   # accuracy_decimals: 0 # Optional: Default is 0 (as per sensor.py)
     #   # icon: "mdi:counter" # Optional: Default is mdi:counter (as per sensor.py)
     # ... and so on for other optional sensors including SSI diagnostic sensors.
-    # Remember to add default icon and accuracy_decimals for each in their detailed descriptions.
+    # Remember to add default icon and accuracy_decimals for each in their detailed descriptions.
+```yaml
 
 ---
+
+* **`## Configuration Details
+
 These parameters are configured directly under the `platform: mt6701` block.
 
 * **`id`** (Optional)
