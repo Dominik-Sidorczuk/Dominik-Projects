@@ -64,7 +64,6 @@ The basic structure of the component configuration is as follows:
 ```yaml
 sensor:
   - platform: mt6701
-    # Component-level parameters (described below):
     id: my_mt6701_sensor      # Optional: ID for this component instance
     update_interval: 50ms     # Optional, defaults to 60s. Recommended: 10ms-100ms for encoders.
     zero_offset: "0.0deg"     # Optional, defaults to "0.0deg". Example: "15.5deg", "-2.1rad"
@@ -98,12 +97,9 @@ sensor:
     #   # accuracy_decimals: 0 # Optional: Default is 0 (as per sensor.py)
     #   # icon: "mdi:counter" # Optional: Default is mdi:counter (as per sensor.py)
     # ... and so on for other optional sensors including SSI diagnostic sensors.
-    # Remember to add default icon and accuracy_decimals for each in their detailed descriptions.
-#
-```yaml
+    # Remember to add default icon and accuracy_decimals for each in their detailed descriptions.
 
-### Component-Level Configuration Parameters
-
+---
 These parameters are configured directly under the `platform: mt6701` block.
 
 * **`id`** (Optional)
