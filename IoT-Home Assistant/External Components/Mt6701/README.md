@@ -343,6 +343,7 @@ sensor:
       name: "Rotary Raw Count (I2C)"
       # This sensor provides the raw 14-bit value (0-16383) from the encoder.
       # It's useful for debugging, understanding the sensor's direct output, or for custom calculations.
+```
 
 ### Example 2: SSI Interface Configuration
 
