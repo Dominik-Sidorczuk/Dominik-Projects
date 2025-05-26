@@ -21,8 +21,6 @@ This component is designed for applications requiring precise and high-resolutio
 * **I²C:** Default address `0x06`.
 * **SSI (Synchronous Serial Interface):** Operates in **SPI Mode 2** (CPOL=1, CPHA=0). Requires `cs_pin`, `clk_pin`, `miso_pin`.
 
-## Installation
-
 ### Method 1: External Components (Recommended)
 
 1.  Add the following to your device's YAML configuration file (e.g., `your_device.yaml`):
@@ -56,7 +54,8 @@ This component is designed for applications requiring precise and high-resolutio
     * `sensor.py`
     * `mt6701.h`
     * `mt6701.cpp`
-
+    * `README.md` (optional, for your reference)
+    * `__init__.py`
 3.  Configure the `mt6701` sensor platform as per the [Configuration Details](#configuration-details) section.
 
     **Note:** This method is less recommended as it does not provide automatic component updates.
@@ -96,18 +95,24 @@ sensor:
     # Sensor entity configurations (angle is REQUIRED, others optional):
     angle: # REQUIRED
       name: "MT6701 Angle" # REQUIRED: Name for Home Assistant
-      # accuracy_decimals: 1 # Optional: Default is 1 for angle
-      # icon: "mdi:rotate-right" # Optional: Default is mdi:rotate-right
+      # accuracy_decimals: 1 # Optional: Default is 1 for angle (as per sensor.py)
+      # icon: "mdi:rotate-right" # Optional: Default is mdi:rotate-right (as per sensor.py)
 
     # Optional sensor entities (add similar blocks if needed, described below):
     # accumulated_angle:
     #   name: "MT6701 Total Rotation"
+    #   # accuracy_decimals: 1 # Optional: Default is 1 (as per sensor.py)
+    #   # icon: "mdi:sigma" # Optional: Default is mdi:sigma (as per sensor.py)
     # velocity_rpm:
     #   name: "MT6701 Speed"
+    #   # accuracy_decimals: 1 # Optional: Default is 1 (as per sensor.py)
+    #   # icon: "mdi:speedometer" # Optional: Default is mdi:speedometer (as per sensor.py)
     # raw_count:
     #   name: "MT6701 Raw Count"
+    #   # accuracy_decimals: 0 # Optional: Default is 0 (as per sensor.py)
+    #   # icon: "mdi:counter" # Optional: Default is mdi:counter (as per sensor.py)
     # ... and so on for other optional sensors including SSI diagnostic sensors.
-
+    # Remember to add default icon and accuracy_decimals for each in their detailed descriptions.
 
 ### Component-Level Configuration Parameters
 
@@ -121,7 +126,7 @@ sensor:
 
 * **`update_interval`** (Optional)
     * **Type:** `Time` (e.g., `50ms`, `1s`)
-    * **Default:** `60s`
+    * **Default:** `60s` (standard ESPhome polling component default)
     * **Description:** Specifies how often the sensor should be polled for new data.
     * *Why change it?* The default `60s` is very infrequent for a rotary encoder. For responsive tracking of rotation, you'll want a much shorter interval. For user interfaces or motor control, values between `10ms` and `100ms` are common. Shorter intervals increase ESP CPU load and bus traffic.
     * **Example:** `update_interval: 20ms`
@@ -143,8 +148,8 @@ sensor:
 * **`velocity_filter_cutoff_frequency`** (Optional)
     * **Type:** `Frequency` (string, e.g., `"10Hz"`, `"0.5Hz"`)
     * **Default:** `"10Hz"`
-    * **Description:** Configures the cutoff frequency for the Exponential Moving Average (EMA) low-pass filter applied to the `velocity_rpm` readings. This helps to smooth out noisy velocity measurements. A lower frequency means more smoothing but slower response to changes in speed.
-    * *Why change it?* To adjust the responsiveness versus smoothness of the RPM readings. If RPM values are jumpy, lower the frequency. If the RPM reading lags too much behind actual speed changes, increase it. Set to `"0Hz"` to disable the filter (or use a minimal internal alpha factor).
+    * **Description:** Configures the cutoff frequency for the Exponential Moving Average (EMA) low-pass filter applied to the `velocity_rpm` readings. This helps to smooth out noisy velocity measurements. A lower frequency means more smoothing but slower response to changes in speed. Set to `"0Hz"` to completely disable the filter.
+    * *Why change it?* To adjust the responsiveness versus smoothness of the RPM readings. If RPM values are jumpy, lower the frequency. If the RPM reading lags too much behind actual speed changes, increase it.
     * **Example:** `velocity_filter_cutoff_frequency: "5Hz"`
 
 #### `i2c` Interface Block
