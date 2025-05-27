@@ -25,21 +25,14 @@ This component is designed for applications requiring precise and high-resolutio
 
 1.  Add the following to your device's YAML configuration file (e.g., `your_device.yaml`):
     ```yaml
-    external_components:
-      - source: github://Dominik-Sidorczuk/Dominik-Projects/IoT-Home%20Assistant/External%20Components@main
-        components: [ mt6701 ]
-    ```
-
-    Alternatively, you can use the more verbose configuration format, which can be clearer for complex paths:
-    ```yaml
-    external_components:
-      - source:
-          type: github
-          username: Dominik-Sidorczuk
-          repo: Dominik-Projects
-          ref: main 
-          path: "IoT-Home Assistant/External Components"
-        components: [ mt6701 ]
+  external_components:
+    - source:
+        type: git
+        url: https://github.com/Dominik-Sidorczuk/Dominik-Projects.git
+        ref: main 
+        path: IoT-Home Assistant/esphome-custom-components/esphome/components
+      components:
+        - Mt6701
     ```
 
 2.  Configure the `mt6701` sensor platform as per the [Configuration Details](#configuration-details) section.
