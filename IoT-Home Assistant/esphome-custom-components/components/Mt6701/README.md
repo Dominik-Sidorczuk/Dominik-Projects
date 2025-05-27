@@ -314,7 +314,7 @@ This example shows a common setup using the I²C interface, including several op
 # This is an example configuration for the MT6701 sensor using the I2C interface.
 # It demonstrates common settings and a few optional sensor entities.
 
-# Substitute your ESP board type if not esp32
+# Substitute your ESP board type if not esp32.
 # For ESP8266, you might use 'esp8266: board: d1_mini' for example.
 esp32:
   board: esp32dev
@@ -322,7 +322,7 @@ esp32:
     type: esp-idf # Or 'arduino' if preferred
 
 # Enable logging for debugging.
-# In production, you might set level to INFO or WARNING for less verbose output.
+# In production, you might set the level to INFO or WARNING for less verbose output.
 logger:
   level: DEBUG
 
@@ -330,8 +330,8 @@ logger:
 # Adjust sda and scl pins if your board uses different ones.
 # For ESP8266, default I2C pins are usually D2 (SDA) and D1 (SCL).
 i2c:
-  sda: GPIO21       # Data pin for I2C communication.
-  scl: GPIO22       # Clock pin for I2C communication.
+  sda: GPIO21      # Data pin for I2C communication.
+  scl: GPIO22      # Clock pin for I2C communication.
   scan: true        # Recommended during setup: logs found I2C devices at ESP startup,
                     # which helps verify the MT6701 is connected and detected at the expected address.
   id: bus_i2c_main  # Optional ID. Useful if you have multiple I2C buses or want to reference this bus explicitly.
@@ -339,62 +339,87 @@ i2c:
 # MT6701 Sensor Platform Configuration
 sensor:
   - platform: mt6701
+    id: my_i2c_encoder # Optional: A unique ID for this component instance for easier referencing.
+
     # --- Interface Configuration: Using I2C ---
     interface:
       i2c:
-        address: 0x06       # The default I2C address for the MT6701 sensor.
-                            # Only change this if your specific sensor module has a different address.
-        i2c_id: bus_i2c_main # Specify which I2C bus to use. This matches the ID from the 'i2c:' block above.
-                            # This is optional if you only have one I2C bus defined.
+        address: 0x06          # Optional. Defaults to 0x06, the standard MT6701 I2C address.
+                               # Only change this if your specific sensor module has a different address.
+        i2c_id: bus_i2c_main   # Optional. Specify which I2C bus to use if you have multiple defined.
+                               # This matches the ID from the 'i2c:' block above.
 
     # --- General Operational Parameters ---
-    update_interval: 30ms   # How often to read data from the sensor. 30ms provides fairly responsive feedback.
-                            # For faster UI updates or control loops, you might go down to 10-20ms.
-                            # For slower changing values, you can increase this to reduce CPU load (e.g., 100ms, 250ms).
+    update_interval: 30ms      # How often to read data from the sensor. 30ms provides fairly responsive feedback.
+                               # For faster UI updates or control loops, you might go down to 10-20ms.
+                               # For slower changing values, you can increase this to reduce CPU load (e.g., 100ms, 250ms).
 
-    zero_offset: "-10.0deg" # Calibrates the sensor's zero position.
-                            # Example: If your physical knob points to its "0" mark, but the sensor raw angle is 10 degrees,
-                            # setting zero_offset to "-10.0deg" (or "350.0deg") will make the 'angle' sensor report 0.
-                            # If the raw angle is 350 degrees (-10 from 360), set this to "10.0deg".
+    zero_offset_degrees: "-10.0deg" # Optional, default "0.0deg". Calibrates the sensor's 'zero' reading.
+                                  # Example: If your physical knob points to its "0" mark, but the sensor's raw angle is 10 degrees,
+                                  # setting 'zero_offset_degrees' to "-10.0deg" (or "350.0deg") will make the 'angle' sensor report 0.
 
-    direction_inverted: false # Set to 'true' if the angle/count increases when you turn the knob counter-clockwise
-                              # (or otherwise opposite to your expectation). Default (false) usually means
-                              # clockwise rotation results in an increasing angle.
+    direction_inverted: false    # Optional, default 'false'. Set to 'true' if the angle/count increases
+                                 # when you turn the knob counter-clockwise (or otherwise opposite to your expectation).
+                                 # Default (false) usually means clockwise rotation results in an increasing angle.
 
-    velocity_filter_cutoff_frequency: "12Hz" # Cutoff frequency for the Exponential Moving Average (EMA) filter
-                                            # applied to RPM (velocity) readings. This helps smooth out the speed value.
-                                            # Higher values = more responsive to speed changes, but potentially more "jittery".
-                                            # Lower values = smoother speed readings, but with more lag.
-                                            # Set to "0Hz" to disable the filter completely if you want raw RPM calculations.
+    # Velocity calculation and filtering parameters
+    velocity_filter_type: "BUTTERWORTH_2ND_ORDER"  # Optional, default "EMA". Filter type for RPM.
+                                                   # Options: "NONE", "EMA", "BUTTERWORTH_2ND_ORDER".
+                                                   # "BUTTERWORTH_2ND_ORDER" provides smoother results.
+
+    velocity_filter_cutoff_frequency: "8Hz" # Optional, default "10Hz". Cutoff for the selected velocity filter (EMA or Butterworth).
+                                            # Lower values = more smoothing, but also more lag in response to speed changes.
+                                            # Higher values = less smoothing, quicker response, but potentially more "jittery" readings.
+                                            # This parameter has no effect if 'velocity_filter_type' is "NONE".
+
+    min_velocity_update_period: "2ms"   # Optional, default "1ms". Minimum time delta (dt) between raw angle readings
+                                        # used for velocity calculation. Prevents issues with division by a very small dt,
+                                        # which can lead to extremely noisy velocity spikes, especially with short 'update_interval' values.
 
     # --- Main Angle Sensor (This 'angle:' block is REQUIRED) ---
     angle:
       name: "Rotary Encoder Angle (I2C)" # Name that will be displayed in Home Assistant for this sensor.
       id: encoder_angle_i2c             # Optional ID. Useful if you want to refer to this sensor
-                                        # from other parts of your ESPhome YAML, like in automations or scripts.
+                                        # from other parts of your ESPhome YAML (e.g., in automations or scripts).
       accuracy_decimals: 1              # Display the angle with 1 decimal place in Home Assistant (e.g., 123.5°).
-      # Example of using standard ESPhome filters:
+      # Example of using standard ESPhome filters to reduce noise or update frequency:
       filters:
         - or: # This filter combination reports a new value if EITHER condition is met:
             - delta: 0.5 # Condition 1: Report if the angle has changed by at least 0.5 degrees since the last report.
-            - throttle: 1s # Condition 2: Or, report the current value at least every 1 second, even if it hasn't changed by 0.5 degrees.
-                           # This ensures HA gets periodic updates even for static positions.
+            - throttle: 1s # Condition 2: Or, report the current value at least every 1 second,
+                           # even if it hasn't changed by 0.5 degrees. This ensures HA gets periodic updates.
 
-    # --- Optional Sensor Entities (add blocks for any you need) ---
+    # --- Optional Sensor Entities (Uncomment and configure any others you need) ---
+    # These provide additional views of the sensor data.
     accumulated_angle:
       name: "Rotary Total Rotation (I2C)"
       accuracy_decimals: 0 # Display total accumulated degrees without decimal places.
 
     velocity_rpm:
       name: "Rotary Speed (I2C)"
-      accuracy_decimals: 1          # Display RPM with 1 decimal place.
-      unit_of_measurement: "RPM"    # Default unit is already RPM, but shown for explicitness.
-      icon: "mdi:rotate-3d-variant" # Example of setting a custom icon in Home Assistant.
+      accuracy_decimals: 1           # Display RPM with 1 decimal place.
+      icon: "mdi:speedometer"        # Example of a common icon for speed.
 
     raw_count:
       name: "Rotary Raw Count (I2C)"
-      # This sensor provides the raw 14-bit value (0-16383) from the encoder.
-      # It's useful for debugging, understanding the sensor's direct output, or for custom calculations.
+      # This sensor provides the raw 14-bit value (0-16383) directly from the encoder.
+      # It's not affected by zero_offset_degrees or direction_inverted. Useful for debugging or custom calculations.
+
+    # Further optional sensors (uncomment to enable):
+    # raw_radians:
+    #   name: "Rotary Raw Radians (I2C)"
+    #   accuracy_decimals: 3
+    #
+    # accumulated_count:
+    #   name: "Rotary Total Raw Counts (I2C)"
+    #
+    # accumulated_radians:
+    #   name: "Rotary Total Radians (I2C)"
+    #   accuracy_decimals: 2
+
+    # Note: SSI-specific diagnostic sensors (like magnetic_field_status, loss_of_track_status, 
+    # push_button_ssi, ssi_crc_error_count) are NOT available when using the I2C interface
+    # as I2C communication with MT6701 typically only provides angle data.
 ```
 
 ### Example 2: SSI Interface Configuration
