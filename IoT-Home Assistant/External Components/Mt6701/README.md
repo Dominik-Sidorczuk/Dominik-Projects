@@ -62,42 +62,78 @@ This section provides a detailed explanation of all configuration parameters for
 The basic structure of the component configuration is as follows:
 
 ```yaml
+# This defines a sensor platform based on the mt6701 component
 sensor:
   - platform: mt6701
-    id: my_mt6701_sensor      # Optional: ID for this component instance
+    id: my_mt6701_sensor      # Optional: A unique ID for this MT6701 component instance.
     update_interval: 50ms     # Optional, defaults to 60s. Recommended: 10ms-100ms for encoders.
-    zero_offset: "0.0deg"     # Optional, defaults to "0.0deg". Example: "15.5deg", "-2.1rad"
-    direction_inverted: false # Optional, defaults to false.
-    velocity_filter_cutoff_frequency: "10Hz" # Optional, defaults to "10Hz". Set to "0Hz" to disable.
+                              # This determines how frequently all sensor data is read and processed.
 
-    # Interface configuration (REQUIRED - choose ONE: i2c OR ssi block):
+    # --- Operational Parameters (see "Parameters" section below for details) ---
+    zero_offset_degrees: "0.0deg"  # Optional, default "0.0deg". Adjusts the reported zero position.
+    direction_inverted: false    # Optional, default false. Inverts the direction of rotation.
+    velocity_filter_type: "EMA"  # Optional, default "EMA". Options: NONE, EMA, BUTTERWORTH_2ND_ORDER.
+    velocity_filter_cutoff_frequency: "10Hz" # Optional, default "10Hz". Cutoff for the velocity filter.
+    min_velocity_update_period: "1ms" # Optional, default "1ms". Minimum dt for velocity calculation.
+
+    # --- Interface Configuration (REQUIRED - choose ONE: i2c OR ssi block) ---
     interface:
-      # Option 1: I2C Interface (example)
-      # i2c:
-      #   address: 0x06
-      #   # i2c_id: bus_a # If using a non-default I2C bus
+      # Option 1: I2C Interface Configuration Block (Example)
+      # If using I2C, uncomment and configure this block.
+      i2c:
+        address: 0x06        # Optional. Defaults to 0x06, the standard MT6701 I2C address.
+        # i2c_id: bus_a      # Optional. Use if you have multiple I2C buses and need to specify one.
 
-    # Sensor entity configurations (angle is REQUIRED, others optional):
-    angle: # REQUIRED
-      name: "MT6701 Angle" # REQUIRED: Name for Home Assistant
-      # accuracy_decimals: 1 # Optional: Default is 1 for angle (as per sensor.py)
-      # icon: "mdi:rotate-right" # Optional: Default is mdi:rotate-right (as per sensor.py)
+      # Option 2: SSI (SPI) Interface Configuration Block (Example)
+      # If using SSI, comment out the i2c block and uncomment/configure this ssi block.
+      # ssi:
+      #   cs_pin: GPIO5            # REQUIRED for SSI: Chip Select pin.
+      #   # spi_id: my_spi_bus     # Optional: Use a pre-defined global SPI bus.
+      #   # If not using spi_id, you must define clk_pin and miso_pin here:
+      #   # clk_pin: GPIO18
+      #   # miso_pin: GPIO19
+      #   # clock_speed: 4MHz      # Optional: Default is 4MHz. Max recommended is ~15MHz.
+      #   # mode: 2                # Optional: Default is 2 (CPOL=1, CPHA=0). VERIFY FOR YOUR SENSOR!
+                                 # Mode 3 (CPOL=1, CPHA=1) might be needed for rising edge sampling.
 
-    # Optional sensor entities (add similar blocks if needed, described below):
+    # --- Sensor Entity Configurations (at least 'angle' is REQUIRED) ---
+    # Define which sensor values you want to expose to Home Assistant.
+    # The 'angle' sensor is mandatory. All others are optional.
+
+    angle: # REQUIRED sensor entity
+      name: "MT6701 Angle"        # REQUIRED: Name for this sensor in Home Assistant.
+      # id: my_angle_sensor       # Optional: Local ID for this specific sensor entity.
+      # accuracy_decimals: 1      # Optional: Number of decimal places (default defined in sensor.py).
+      # icon: "mdi:rotate-right"  # Optional: Icon (default defined in sensor.py).
+
+    # --- Optional Sensor Entities ---
+    # Uncomment and configure any of these optional sensors as needed.
+    # Refer to the "Available Sensor Entities" section for details on each.
+    #
     # accumulated_angle:
     #   name: "MT6701 Total Rotation"
-    #   # accuracy_decimals: 1 # Optional: Default is 1 (as per sensor.py)
-    #   # icon: "mdi:sigma" # Optional: Default is mdi:sigma (as per sensor.py)
+    #
     # velocity_rpm:
     #   name: "MT6701 Speed"
-    #   # accuracy_decimals: 1 # Optional: Default is 1 (as per sensor.py)
-    #   # icon: "mdi:speedometer" # Optional: Default is mdi:speedometer (as per sensor.py)
+    #
     # raw_count:
     #   name: "MT6701 Raw Count"
-    #   # accuracy_decimals: 0 # Optional: Default is 0 (as per sensor.py)
-    #   # icon: "mdi:counter" # Optional: Default is mdi:counter (as per sensor.py)
-    # ... and so on for other optional sensors including SSI diagnostic sensors.
-    # Remember to add default icon and accuracy_decimals for each in their detailed descriptions.
+    #
+    # # ... and so on for:
+    # # raw_radians, accumulated_count, accumulated_radians
+    #
+    # # SSI-specific sensors (only configure if using the 'ssi' interface):
+    # # magnetic_field_status:
+    # #   name: "MT6701 Mag Field Status"
+    # #
+    # # loss_of_track_status:
+    # #   name: "MT6701 Track Status"
+    # #
+    # # push_button_ssi: # This will be a binary_sensor
+    # #   name: "MT6701 Push Button"
+    # #
+    # # ssi_crc_error_count:
+    # #   name: "MT6701 SSI CRC Errors"
 ```
 
 ## Parameters
@@ -117,12 +153,11 @@ These parameters are configured directly under the `platform: mt6701` block.
     * *Why change it?* The default `60s` is very infrequent for a rotary encoder. For responsive tracking of rotation, you'll want a much shorter interval. For user interfaces or motor control, values between `10ms` and `100ms` are common. Shorter intervals increase ESP CPU load and bus traffic.
     * **Example:** `update_interval: 20ms`
 
-* **`zero_offset`** (Optional)
-    * **Type:** `Angle` (string, e.g., `"0.0°"`, `"15.2deg"`, `"-0.1rad"`)
+* **`zero_offset_degrees`** (Optional)  * **Type:** `Angle` (string, e.g., `"0.0°"`, `"15.2deg"`, `"-0.1rad"`)
     * **Default:** `"0.0°"`
-    * **Description:** Defines a custom zero (0°) position for the angle sensor readings. The raw angle from the sensor is adjusted by this offset before being reported. For example, if the sensor's raw reading is 30° and `zero_offset` is `"10°"`, the `angle` sensor will output 20°. If `zero_offset` is `"-10°"`, it will output 40°. The final angle is normalized to the 0-360° range.
+    * **Description:** Defines a custom zero (0°) position for the angle sensor readings. The raw angle from the sensor is adjusted by this offset before being reported. For example, if the sensor's raw reading is 30° and `zero_offset_degrees` is `"10°"`, the `angle` sensor will output 20°. If `zero_offset_degrees` is `"-10°"`, it will output 40°. The final angle is normalized to the 0-360° range.
     * *Why change it?* To align the sensor's reported zero position with a specific mechanical reference point on your device (e.g., when a knob pointer is at the "0" mark on a panel).
-    * **Example:** `zero_offset: "45.0deg"`
+    * **Example:** `zero_offset_degrees: "45.0deg"`
 
 * **`direction_inverted`** (Optional)
     * **Type:** `boolean` (`true` or `false`)
@@ -131,12 +166,29 @@ These parameters are configured directly under the `platform: mt6701` block.
     * *Why change it?* If the sensor reports increasing values for counter-clockwise rotation (or vice-versa) and you want to standardize it or match a specific mechanical behavior.
     * **Example:** `direction_inverted: true`
 
+* **`velocity_filter_type`** (Optional)
+    * **Type:** `string` (one of `NONE`, `EMA`, `BUTTERWORTH_2ND_ORDER`)
+    * **Default:** `"EMA"`
+    * **Description:** Selects the type of low-pass filter applied to the `velocity_rpm` readings.
+        * `NONE`: No filter is applied. Velocity readings will be raw and potentially noisy.
+        * `EMA`: A first-order Exponential Moving Average filter. Provides basic smoothing.
+        * `BUTTERWORTH_2ND_ORDER`: A second-order Butterworth filter. Offers better smoothing and a flatter passband compared to EMA, but is slightly more computationally intensive.
+    * *Why change it?* To choose the desired level and type of smoothing for velocity readings based on application needs. `NONE` for immediate response, `EMA` for simple smoothing, `BUTTERWORTH_2ND_ORDER` for more advanced smoothing.
+    * **Example:** `velocity_filter_type: "BUTTERWORTH_2ND_ORDER"`
+
 * **`velocity_filter_cutoff_frequency`** (Optional)
     * **Type:** `Frequency` (string, e.g., `"10Hz"`, `"0.5Hz"`)
     * **Default:** `"10Hz"`
-    * **Description:** Configures the cutoff frequency for the Exponential Moving Average (EMA) low-pass filter applied to the `velocity_rpm` readings. This helps to smooth out noisy velocity measurements. A lower frequency means more smoothing but slower response to changes in speed. Set to `"0Hz"` to completely disable the filter.
+    * **Description:** Configures the cutoff frequency for the selected low-pass filter (`EMA` or `BUTTERWORTH_2ND_ORDER`) applied to the `velocity_rpm` readings. This helps to smooth out noisy velocity measurements. A lower frequency means more smoothing but slower response to changes in speed. This parameter has no effect if `velocity_filter_type` is `NONE`. Set to `"0Hz"` to effectively disable the selected filter (though setting type to `NONE` is preferred).
     * *Why change it?* To adjust the responsiveness versus smoothness of the RPM readings. If RPM values are jumpy, lower the frequency. If the RPM reading lags too much behind actual speed changes, increase it.
     * **Example:** `velocity_filter_cutoff_frequency: "5Hz"`
+
+* **`min_velocity_update_period`** (Optional)
+    * **Type:** `Time Period` (string, e.g., `"1ms"`, `"500us"`)
+    * **Default:** `"1ms"`
+    * **Description:** Specifies the minimum time delta (dt) between raw angle readings that will be used for velocity calculation. If the actual time since the last reading is less than this value, the velocity will not be recalculated in that cycle (it will either report the previous filtered value or 0 if it's the first sample). This prevents issues with division by a very small `dt` which can lead to extremely noisy or erroneous velocity spikes, especially with very short `update_interval` values.
+    * *Why change it?* If you are using a very fast `update_interval` (e.g., sub-millisecond) and observe velocity spikes, you might slightly increase this value. For most use cases, the default of `1ms` should be adequate.
+    * **Example:** `min_velocity_update_period: "2ms"`
 
 #### `i2c` Interface Block
 
