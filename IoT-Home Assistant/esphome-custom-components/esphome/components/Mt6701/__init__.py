@@ -1,4 +1,4 @@
-# Python script for ESPHome to define the MT6701 sensor component's 
+# Python script for ESPHome to define the MT6701 sensor component's
 # YAML configuration schema and C++ code generation.
 
 import esphome.codegen as cg
@@ -7,71 +7,23 @@ from esphome.components import i2c, sensor, spi, binary_sensor
 from esphome.const import (
     CONF_ID,
     CONF_ADDRESS,
-    # CONF_CS_PIN, # Automatically handled by spi.spi_device_schema for the CS pin object
-    # CONF_CLOCK_SPEED, # Automatically handled by spi.spi_device_schema
     UNIT_DEGREES,
     UNIT_REVOLUTIONS_PER_MINUTE,
-    UNIT_HERTZ,
-    UNIT_EMPTY, # For raw counts
-    ICON_ROTATE_RIGHT,
-    ICON_SPEEDOMETER,
-    ICON_MAGNET_ON, # For magnetic field status
-    ICON_RADAR, # For loss of track status
-    ICON_COUNTER, # For count-based sensors
-    ICON_ALERT_OCTAGON, # For CRC errors
-    ICON_ANGLE_ACUTE, # For radian measurements
+    UNIT_EMPTY, # For raw counts or typeless numeric values
     STATE_CLASS_MEASUREMENT,
-    STATE_CLASS_TOTAL_INCREASING, # For counters that only go up (like error counts)
+    STATE_CLASS_TOTAL_INCREASING, # For counters that only go up
     DEVICE_CLASS_ROTATION,
     DEVICE_CLASS_BUTTON,
-    # CONF_TYPE, # Using custom CONF_VELOCITY_FILTER_TYPE for clarity
-    # CONF_MIN_UPDATE_INTERVAL, # Using custom CONF_MIN_VELOCITY_UPDATE_PERIOD for clarity
 )
 
-# Custom unit and icon definitions (if any beyond standard)
-UNIT_RADIANS = "rad"
-ICON_SIGMA = "mdi:sigma" # Icon for accumulated values or standard deviation-like metrics
-
-# --- Configuration Keys (custom to this component) ---
-# CONF_MT6701_ID is implicitly handled by cv.GenerateID() mapping to CONF_ID
-# It defines the YAML key for the component's ID if specified by user.
-
-# Interface selection keys
-CONF_INTERFACE = "interface"
-CONF_I2C = "i2c"
-CONF_SSI = "ssi" # Synchronous Serial Interface (implemented over SPI)
-
-# Core sensor entity keys (user-defined names in YAML)
-CONF_MAIN_ANGLE_SENSOR = "angle"
-CONF_ACCUMULATED_ANGLE = "accumulated_angle"
-CONF_VELOCITY_RPM = "velocity_rpm"
-
-# Raw/alternative sensor entity keys
-CONF_RAW_COUNT = "raw_count"
-CONF_RAW_RADIANS = "raw_radians"
-CONF_ACCUMULATED_COUNT = "accumulated_count"
-CONF_ACCUMULATED_RADIANS = "accumulated_radians"
-
-# SSI-specific status entity keys
-CONF_MAGNETIC_FIELD_STATUS = "magnetic_field_status"
-CONF_LOSS_OF_TRACK_STATUS = "loss_of_track_status"
-CONF_PUSH_BUTTON_SSI = "push_button_ssi"
-CONF_SSI_CRC_ERROR_COUNT = "ssi_crc_error_count"
-
-# Component operational parameter keys
-CONF_ZERO_OFFSET_DEGREES = "zero_offset_degrees" # YAML key for zero offset setting
-CONF_DIRECTION_INVERTED = "direction_inverted"
-CONF_VELOCITY_FILTER_TYPE = "velocity_filter_type"
-CONF_VELOCITY_FILTER_CUTOFF_FREQUENCY = "velocity_filter_cutoff_frequency" # YAML key for filter cutoff
-CONF_MIN_VELOCITY_UPDATE_PERIOD = "min_velocity_update_period"
-
-# --- C++ Namespace and Class Definitions ---
-mt6701_ns = cg.esphome_ns.namespace("esphome::mt6701") # C++ namespace
+# --- Custom Definitions ---
+# C++ Namespace and Class for the component
+mt6701_ns = cg.esphome_ns.namespace("esphome::mt6701")
 MT6701SensorComponent = mt6701_ns.class_(
     "MT6701SensorComponent", cg.PollingComponent, i2c.I2CDevice, spi.SPIDevice
-) # C++ class, inheriting from PollingComponent and relevant device types
+)
 
-# Mirror C++ VelocityFilterType enum for Python-side validation
+# Velocity Filter C++ Enum Definition
 VelocityFilterType = mt6701_ns.enum("VelocityFilterType")
 VELOCITY_FILTER_TYPES_MAP = {
     "NONE": VelocityFilterType.NONE,
@@ -79,169 +31,215 @@ VELOCITY_FILTER_TYPES_MAP = {
     "BUTTERWORTH_2ND_ORDER": VelocityFilterType.BUTTERWORTH_2ND_ORDER,
 }
 
-# --- Configuration Schemas for Interfaces ---
-I2C_INTERFACE_SCHEMA = i2c.i2c_device_schema(default_address=0x06) # Standard I2C device schema
+# Custom Units for Sensors
+UNIT_RADIANS = "rad"
 
-# SSI (SPI) Interface Schema
-# Note on MT6701 SPI/SSI Mode:
-# Datasheet typically states: SCLK idles HIGH (CPOL=1). Data is valid on RISING edge of SCLK.
-# For ESPHome SPI with CPOL=1 (CLOCK_POLARITY_HIGH):
-#   - CLOCK_PHASE_LEADING_EDGE (CPHA=0 in some nomenclatures) samples on FALLING edge. (This is SPI Mode 2)
-#   - CLOCK_PHASE_TRAILING_EDGE (CPHA=1 in some nomenclatures) samples on RISING edge. (This is SPI Mode 3)
-# The C++ code is currently configured for CLOCK_POLARITY_HIGH and CLOCK_PHASE_LEADING_EDGE.
-# This schema's default_mode=2 (CPOL=1, CPHA=0) aligns with that C++ configuration.
-# **CRITICAL**: This mode MUST be verified against your specific MT6701 datasheet and hardware.
-# If data should be sampled on the RISING edge, SPI Mode 3 (default_mode=3 for spi.spi_device_schema) is likely needed,
-# and the C++ SPIDevice template parameters should also be updated to spi::CLOCK_PHASE_TRAILING_EDGE.
+# Custom Icons (MDI strings) for Sensors and Binary Sensors
+ICON_ANGLE_DEGREES = "mdi:rotate-right"
+ICON_ACCUMULATED_ANGLE = "mdi:sigma"
+ICON_VELOCITY_RPM = "mdi:speedometer"
+ICON_RAW_COUNT = "mdi:counter"
+ICON_RAW_RADIANS = "mdi:angle-acute"
+ICON_ACCUMULATED_COUNT = "mdi:counter"
+ICON_ACCUMULATED_RADIANS = "mdi:angle-acute"
+ICON_MAGNETIC_FIELD_STATUS = "mdi:magnet-on"
+ICON_LOSS_OF_TRACK_STATUS = "mdi:radar"
+ICON_PUSH_BUTTON = "mdi:button-pointer" # Example, often overridden by device_class default
+ICON_SSI_CRC_ERROR_COUNT = "mdi:alert-octagon"
+
+
+# --- Configuration Keys ---
+# Interface Selection Keys
+CONF_INTERFACE = "interface"
+CONF_I2C = "i2c" # Used as a key within CONF_INTERFACE for I2C settings
+CONF_SSI = "ssi" # Used as a key within CONF_INTERFACE for SSI/SPI settings
+
+# General Component Settings
+CONF_ZERO_OFFSET_DEGREES = "zero_offset_degrees"
+CONF_DIRECTION_INVERTED = "direction_inverted"
+CONF_VELOCITY_FILTER_TYPE = "velocity_filter_type"
+CONF_VELOCITY_FILTER_CUTOFF_FREQUENCY = "velocity_filter_cutoff_frequency"
+CONF_MIN_VELOCITY_UPDATE_PERIOD = "min_velocity_update_period"
+
+# Sensor Entity Configuration Keys
+CONF_MAIN_ANGLE_SENSOR = "angle"
+CONF_ACCUMULATED_ANGLE = "accumulated_angle"
+CONF_VELOCITY_RPM = "velocity_rpm"
+CONF_RAW_COUNT = "raw_count"
+CONF_RAW_RADIANS = "raw_radians"
+CONF_ACCUMULATED_COUNT = "accumulated_count"
+CONF_ACCUMULATED_RADIANS = "accumulated_radians"
+CONF_MAGNETIC_FIELD_STATUS = "magnetic_field_status"
+CONF_LOSS_OF_TRACK_STATUS = "loss_of_track_status"
+CONF_SSI_CRC_ERROR_COUNT = "ssi_crc_error_count"
+
+# Binary Sensor Entity Configuration Keys
+CONF_PUSH_BUTTON_SSI = "push_button_ssi" # Specific to SSI interface
+
+
+# --- Interface Schemas ---
+# I2C Interface Schema: Defines configuration options for I2C communication.
+# Default I2C address for MT6701 is typically 0x06.
+I2C_INTERFACE_SCHEMA = i2c.i2c_device_schema(default_address=0x06)
+
+# SSI (Synchronous Serial Interface) over SPI Schema: Defines options for SPI.
+# MT6701's SSI mode is implemented using an SPI peripheral.
+# - MOSI (Master Out Slave In) pin is not used by MT6701 for read-only angle data.
+# - SPI Mode 2 (CPOL=1, CPHA=0) is a common setting; verify with the MT6701 datasheet.
 SSI_INTERFACE_SCHEMA = spi.spi_device_schema(
-    cs_pin_required=True,    # Chip Select is mandatory for MT6701 SSI
-    clk_pin_required=True,   # Clock pin is mandatory
-    miso_pin_required=True,  # MT6701's Data Out (DO) is ESP's MISO
-    mosi_pin_required=False, # MOSI is not used for reading from MT6701 via SSI
-    default_mode=2           # Corresponds to CPOL=1, CPHA=0. VERIFY THIS!
-).extend(
-    {
-        # CONF_CLOCK_SPEED is part of spi.spi_device_schema() and is automatically
-        # handled. It will be available in C++ via this->spi_settings_.data_rate.
-    }
+    cs_pin_required=True,    # Chip Select pin is mandatory
+    clk_pin_required=True,   # Clock pin (SCLK) is mandatory
+    miso_pin_required=True,  # Master In Slave Out (DO on MT6701) is mandatory
+    mosi_pin_required=False, # Master Out Slave In (DI on MT6701) is not used for reads
+    default_mode=2           # SPI mode, e.g., CPOL=1, CPHA=0
 )
 
-# --- Main Configuration Schema for the MT6701 Component ---
+# --- Main Component Configuration Schema ---
 CONFIG_SCHEMA = cv.Schema(
     {
-        cv.GenerateID(): cv.declare_id(MT6701SensorComponent), # Generates CONF_ID for the component instance
-        cv.Required(CONF_INTERFACE): cv.typed_schema( # User must specify one interface
+        cv.GenerateID(): cv.declare_id(MT6701SensorComponent), # Assigns an ID to the component instance
+
+        # Interface selection: User must choose either I2C or SSI (SPI)
+        cv.Required(CONF_INTERFACE): cv.typed_schema(
             {
                 CONF_I2C: I2C_INTERFACE_SCHEMA,
                 CONF_SSI: SSI_INTERFACE_SCHEMA,
             },
-            lower=True, # Converts keys "i2c", "ssi" to lowercase
+            lower=True, # Converts the selected interface key (e.g., "I2C") to lowercase ("i2c")
         ),
 
-        # Operational parameters
+        # General operational settings for the sensor
         cv.Optional(CONF_ZERO_OFFSET_DEGREES, default="0.0°"): cv.angle,
         cv.Optional(CONF_DIRECTION_INVERTED, default=False): cv.boolean,
         cv.Optional(CONF_VELOCITY_FILTER_TYPE, default="EMA"): cv.enum(
-            VELOCITY_FILTER_TYPES_MAP, upper=True # Validate against defined filter types
+            VELOCITY_FILTER_TYPES_MAP, upper=True # Allow uppercase enum keys in YAML
         ),
         cv.Optional(CONF_VELOCITY_FILTER_CUTOFF_FREQUENCY, default="10Hz"): cv.positive_frequency,
         cv.Optional(CONF_MIN_VELOCITY_UPDATE_PERIOD, default="1ms"): cv.positive_time_period_microseconds,
 
-        # Core sensor outputs (at least 'angle' is required)
+        # --- Sensor Entity Definitions ---
+        # Main angle sensor (primary output of the component)
         cv.Required(CONF_MAIN_ANGLE_SENSOR): sensor.sensor_schema(
             unit_of_measurement=UNIT_DEGREES,
-            icon=ICON_ROTATE_RIGHT,
+            icon=ICON_ANGLE_DEGREES,
             accuracy_decimals=1,
             state_class=STATE_CLASS_MEASUREMENT,
             device_class=DEVICE_CLASS_ROTATION,
         ),
+        # Optional sensor for accumulated (unwrapped) angle
         cv.Optional(CONF_ACCUMULATED_ANGLE): sensor.sensor_schema(
             unit_of_measurement=UNIT_DEGREES,
-            icon=ICON_SIGMA,
+            icon=ICON_ACCUMULATED_ANGLE,
             accuracy_decimals=1,
-            state_class=STATE_CLASS_MEASUREMENT, # Accumulated angle can be positive or negative
+            state_class=STATE_CLASS_MEASUREMENT, # Can go up/down if direction changes affect it
             device_class=DEVICE_CLASS_ROTATION,
         ),
+        # Optional sensor for rotational velocity in RPM
         cv.Optional(CONF_VELOCITY_RPM): sensor.sensor_schema(
             unit_of_measurement=UNIT_REVOLUTIONS_PER_MINUTE,
-            icon=ICON_SPEEDOMETER,
+            icon=ICON_VELOCITY_RPM,
             accuracy_decimals=1,
             state_class=STATE_CLASS_MEASUREMENT,
         ),
 
-        # Raw/alternative sensor outputs (optional)
+        # Optional sensors for raw data (useful for diagnostics or alternative representations)
         cv.Optional(CONF_RAW_COUNT): sensor.sensor_schema(
-            unit_of_measurement=UNIT_EMPTY, # Raw counts from the sensor
-            icon=ICON_COUNTER,
+            unit_of_measurement=UNIT_EMPTY, # Represents raw numeric counts from the sensor
+            icon=ICON_RAW_COUNT,
             accuracy_decimals=0,
             state_class=STATE_CLASS_MEASUREMENT,
         ),
         cv.Optional(CONF_RAW_RADIANS): sensor.sensor_schema(
             unit_of_measurement=UNIT_RADIANS,
-            icon=ICON_ANGLE_ACUTE,
+            icon=ICON_RAW_RADIANS,
             accuracy_decimals=3,
             state_class=STATE_CLASS_MEASUREMENT,
         ),
         cv.Optional(CONF_ACCUMULATED_COUNT): sensor.sensor_schema(
-            unit_of_measurement=UNIT_EMPTY, # Accumulated raw counts
-            icon=ICON_COUNTER,
+            unit_of_measurement=UNIT_EMPTY,
+            icon=ICON_ACCUMULATED_COUNT,
             accuracy_decimals=0,
-            state_class=STATE_CLASS_MEASUREMENT, # Can be positive or negative
+            state_class=STATE_CLASS_MEASUREMENT,
         ),
         cv.Optional(CONF_ACCUMULATED_RADIANS): sensor.sensor_schema(
             unit_of_measurement=UNIT_RADIANS,
-            icon=ICON_ANGLE_ACUTE,
+            icon=ICON_ACCUMULATED_RADIANS,
             accuracy_decimals=2,
             state_class=STATE_CLASS_MEASUREMENT,
         ),
-        
-        # SSI-specific status outputs (optional, only relevant for SSI interface)
+
+        # Optional sensors for status and diagnostics
         cv.Optional(CONF_MAGNETIC_FIELD_STATUS): sensor.sensor_schema(
-            icon=ICON_MAGNET_ON,
+            unit_of_measurement=UNIT_EMPTY, # Assuming numeric status codes
+            icon=ICON_MAGNETIC_FIELD_STATUS,
             accuracy_decimals=0,
-            state_class=STATE_CLASS_MEASUREMENT,
-            # Reports Mg[1:0] status: e.g., 0=Normal, 1=Too Strong, 2=Too Weak
+            state_class=STATE_CLASS_MEASUREMENT, # Represents the current state
         ),
         cv.Optional(CONF_LOSS_OF_TRACK_STATUS): sensor.sensor_schema(
-            icon=ICON_RADAR, 
+            unit_of_measurement=UNIT_EMPTY, # Assuming numeric status codes
+            icon=ICON_LOSS_OF_TRACK_STATUS,
             accuracy_decimals=0,
-            state_class=STATE_CLASS_MEASUREMENT,
-            # Reports Mg[3] status: e.g., 0=Normal, 1=Loss of Track
-        ),
-        cv.Optional(CONF_PUSH_BUTTON_SSI): binary_sensor.binary_sensor_schema(
-            device_class=DEVICE_CLASS_BUTTON,
-            # Reports Mg[2] status: e.g., 0=Not Pressed, 1=Pressed
+            state_class=STATE_CLASS_MEASUREMENT, # Represents the current state
         ),
         cv.Optional(CONF_SSI_CRC_ERROR_COUNT): sensor.sensor_schema(
-            icon=ICON_ALERT_OCTAGON,
+            unit_of_measurement=UNIT_EMPTY, # Count of errors
+            icon=ICON_SSI_CRC_ERROR_COUNT,
             accuracy_decimals=0,
-            state_class=STATE_CLASS_TOTAL_INCREASING, # Error count only increases or is reset by service
+            state_class=STATE_CLASS_TOTAL_INCREASING, # Error counts typically only increase or reset
+        ),
+
+        # --- Binary Sensor Entity Definitions ---
+        # Optional binary sensor for push button functionality (if supported by MT6701 via SSI)
+        cv.Optional(CONF_PUSH_BUTTON_SSI): binary_sensor.binary_sensor_schema(
+            device_class=DEVICE_CLASS_BUTTON,
+            # Icon can be overridden (e.g., icon=ICON_PUSH_BUTTON),
+            # otherwise it defaults based on device_class.
         ),
     }
-).extend(cv.polling_component_schema()) # Standard polling settings (update_interval)
+).extend(cv.polling_component_schema()) # Inherits standard polling component settings (e.g., update_interval)
 
 
 # --- Code Generation Function ---
 async def to_code(config):
-    """Generate C++ code for the MT6701 component."""
-    
-    # Create a Pvariable for the C++ component instance using the generated ID
-    comp_var = cg.new_Pvariable(config[CONF_ID]) 
-    await cg.register_component(comp_var, config) # Register as a generic component
+    """Generates C++ code for the MT6701 component based on YAML configuration."""
 
-    # Configure the selected interface (I2C or SSI)
+    # Create a Pvariable for the component instance
+    comp_var = cg.new_Pvariable(config[CONF_ID])
+    # Register the component with ESPHome core
+    await cg.register_component(comp_var, config)
+
+    # Determine and register the communication interface (I2C or SSI/SPI)
+    # config[CONF_INTERFACE] is a dict like {'i2c': {...i2c_config...}} or {'ssi': {...ssi_config...}}
     interface_type, interface_config_payload = next(iter(config[CONF_INTERFACE].items()))
-    if interface_type == CONF_I2C:
-        await i2c.register_i2c_device(comp_var, interface_config_payload) # Setup as I2C device
-        cg.add(comp_var.set_interface_i2c()) # Call C++ method to set interface type
-    elif interface_type == CONF_SSI:
-        await spi.register_spi_device(comp_var, interface_config_payload) # Setup as SPI device
-        cg.add(comp_var.set_interface_ssi()) # Call C++ method to set interface type
-        # Note: CONF_CLOCK_SPEED for SSI is handled by spi.register_spi_device,
-        # which configures spi_settings_.data_rate on the C++ SPIDevice base.
 
-    # Set operational parameters by calling C++ setters
-    # These use a direct mapping from config key to C++ setter and value.
-    parameter_map = {
+    if interface_type == CONF_I2C:
+        await i2c.register_i2c_device(comp_var, interface_config_payload)
+        cg.add(comp_var.set_interface_i2c()) # Call C++ method to inform component of I2C mode
+    elif interface_type == CONF_SSI:
+        await spi.register_spi_device(comp_var, interface_config_payload)
+        cg.add(comp_var.set_interface_ssi()) # Call C++ method to inform component of SSI/SPI mode
+
+    # Map general configuration keys to their corresponding C++ setter methods on the component
+    parameter_setters = {
         CONF_ZERO_OFFSET_DEGREES: comp_var.set_zero_offset_degrees,
         CONF_DIRECTION_INVERTED: comp_var.set_direction_inverted,
-        CONF_VELOCITY_FILTER_TYPE: comp_var.set_velocity_filter_type_str,
+        CONF_VELOCITY_FILTER_TYPE: comp_var.set_velocity_filter_type_str, # Assumes C++ setter takes a string
         CONF_VELOCITY_FILTER_CUTOFF_FREQUENCY: comp_var.set_velocity_filter_cutoff_hz,
         CONF_MIN_VELOCITY_UPDATE_PERIOD: comp_var.set_min_velocity_update_period_us,
     }
-    for conf_key, setter_func in parameter_map.items():
-        if conf_key in config:
-            cg.add(setter_func(config[conf_key]))
+    for conf_key, setter_method in parameter_setters.items():
+        if conf_key in config: # Check if the optional parameter is provided in YAML
+            cg.add(setter_method(config[conf_key]))
 
-    # Register the required main angle sensor
-    # This sensor must be defined in the YAML.
-    if CONF_MAIN_ANGLE_SENSOR in config: 
+    # Setup for the main (required) angle sensor
+    # This check is technically redundant due to cv.Required, but harmless.
+    if CONF_MAIN_ANGLE_SENSOR in config:
         main_sensor_var = await sensor.new_sensor(config[CONF_MAIN_ANGLE_SENSOR])
         cg.add(comp_var.set_angle_sensor(main_sensor_var))
 
-    # Register optional sensors and binary sensors
-    # This uses a list of tuples to map config keys to C++ setters and sensor types.
-    optional_entities_setup = [
+    # Define and setup optional sensor and binary_sensor entities
+    # Each tuple: (configuration_key, component_setter_method, esphome_entity_module)
+    optional_entities = [
         (CONF_ACCUMULATED_ANGLE, comp_var.set_accumulated_angle_sensor, sensor),
         (CONF_VELOCITY_RPM, comp_var.set_velocity_rpm_sensor, sensor),
         (CONF_RAW_COUNT, comp_var.set_raw_count_sensor, sensor),
@@ -250,18 +248,27 @@ async def to_code(config):
         (CONF_ACCUMULATED_RADIANS, comp_var.set_accumulated_radians_sensor, sensor),
         (CONF_MAGNETIC_FIELD_STATUS, comp_var.set_magnetic_field_status_sensor, sensor),
         (CONF_LOSS_OF_TRACK_STATUS, comp_var.set_loss_of_track_status_sensor, sensor),
-        (CONF_PUSH_BUTTON_SSI, comp_var.set_push_button_ssi_binary_sensor, binary_sensor),
         (CONF_SSI_CRC_ERROR_COUNT, comp_var.set_ssi_crc_error_sensor, sensor),
+        (CONF_PUSH_BUTTON_SSI, comp_var.set_push_button_ssi_binary_sensor, binary_sensor),
     ]
 
-    for conf_key, setter_func, entity_module in optional_entities_setup:
-        if conf_key in config:
-            entity_config = config[conf_key]
+    for conf_key, setter_method, entity_module in optional_entities:
+        if conf_key in config: # Check if this optional entity is configured
+            entity_config_payload = config[conf_key]
+            entity_var = None
+
             if entity_module == sensor:
-                var = await sensor.new_sensor(entity_config)
+                entity_var = await sensor.new_sensor(entity_config_payload)
             elif entity_module == binary_sensor:
-                var = await binary_sensor.new_binary_sensor(entity_config)
+                entity_var = await binary_sensor.new_binary_sensor(entity_config_payload)
             else:
-                # Should not happen with the current setup
-                continue 
-            cg.add(setter_func(var))
+                # This case should not be reached with the current 'optional_entities' definition.
+                # Adding a log for safety, though it implies a programming error in this script.
+                cg.logger.warning(
+                    f"MT6701: Unknown entity module type for configuration key '{conf_key}'."
+                )
+                continue # Skip to the next entity
+
+            # If entity_var was successfully created, add the call to its C++ setter
+            if entity_var:
+                cg.add(setter_method(entity_var))
