@@ -1,6 +1,3 @@
-# Python script for ESPHome to define the MT6701 sensor component's
-# YAML configuration schema and C++ code generation.
-
 import esphome.codegen as cg
 import esphome.config_validation as cv
 from esphome.components import i2c, sensor, spi, binary_sensor
@@ -12,12 +9,12 @@ from esphome.const import (
     UNIT_EMPTY,
     STATE_CLASS_MEASUREMENT,
     STATE_CLASS_TOTAL_INCREASING,
-    DEVICE_CLASS_ROTATION,
+    # DEVICE_CLASS_ROTATION, # Zakomentowano, aby uniknąć ImportError
     DEVICE_CLASS_BUTTON,
 )
 
 # --- Custom Definitions ---
-mt6701_ns = cg.esphome_ns.namespace("esphome::mt6701") # Corrected namespace
+mt6701_ns = cg.esphome_ns.namespace("esphome::mt6701")
 MT6701SensorComponent = mt6701_ns.class_(
     "MT6701SensorComponent", cg.PollingComponent, i2c.I2CDevice, spi.SPIDevice
 )
@@ -66,14 +63,12 @@ CONF_PUSH_BUTTON_SSI = "push_button_ssi"
 # --- Interface Schemas ---
 I2C_INTERFACE_SCHEMA = i2c.i2c_device_schema(default_address=0x06)
 
-# SSI (SPI) Schema based on reference code (devcfg.mode = 0)
-# Mode 0: CPOL=0 (SCLK idle LOW), CPHA=0 (sample on leading/first edge)
 SSI_INTERFACE_SCHEMA = spi.spi_device_schema(
     cs_pin_required=True,
     clk_pin_required=True,
     miso_pin_required=True,
-    mosi_pin_required=False, # MT6701 DI not used for reads
-    default_mode=0  # Corrected to Mode 0 (CPOL=0, CPHA=0)
+    mosi_pin_required=False,
+    default_mode=0
 )
 
 # --- Main Component Configuration Schema ---
@@ -99,14 +94,16 @@ CONFIG_SCHEMA = cv.Schema(
             icon=ICON_ANGLE_DEGREES,
             accuracy_decimals=1,
             state_class=STATE_CLASS_MEASUREMENT,
-            device_class=DEVICE_CLASS_ROTATION,
+            # device_class=DEVICE_CLASS_ROTATION, # Zakomentowano
+            device_class=None, # Ustawiono na None
         ),
         cv.Optional(CONF_ACCUMULATED_ANGLE): sensor.sensor_schema(
             unit_of_measurement=UNIT_DEGREES,
             icon=ICON_ACCUMULATED_ANGLE,
             accuracy_decimals=1,
             state_class=STATE_CLASS_MEASUREMENT,
-            device_class=DEVICE_CLASS_ROTATION,
+            # device_class=DEVICE_CLASS_ROTATION, # Zakomentowano
+            device_class=None, # Ustawiono na None
         ),
         cv.Optional(CONF_VELOCITY_RPM): sensor.sensor_schema(
             unit_of_measurement=UNIT_REVOLUTIONS_PER_MINUTE,
