@@ -1,0 +1,164 @@
+#include "Dom3ll_IAQ.h"
+#include "esphome/core/log.h"
+#include <cmath> // Required for std::isnan
+
+namespace esphome {
+namespace dom3ll_iaq {
+
+static const char *const TAG = "bme680_iaq.sensor";
+
+BME680IaqSensor::BME680IaqSensor() : PollingComponent(3000) {}
+
+float BME680IaqSensor::get_setup_priority() const { return setup_priority::LATE; }
+
+void BME680IaqSensor::setup() {
+  ESP_LOGI(TAG, "Initializing BME680 IAQ Sensor component...");
+  this->gas_res_buffer_ = new float[this->gas_baseline_samples_];
+  this->avg_gas_res_buffer_ = new float[AVG_RES_BUFFER_MAX_SAMPLES];
+  
+  // Load initial state from persistent globals
+  this->is_calibrated_ = this->is_calibrated_global_->value();
+  this->gas_baseline_ = this->gas_baseline_global_->value();
+  
+  ESP_LOGD(TAG, "Initial state loaded: is_calibrated=%s, gas_baseline=%.0f",
+           YESNO(this->is_calibrated_), this->gas_baseline_);
+}
+
+void BME680IaqSensor::dump_config() {
+  LOG_SENSOR("  ", "IAQ", this);
+  LOG_UPDATE_INTERVAL(this);
+  ESP_LOGCONFIG(TAG, "  Humidity Weighting: %.2f", this->hum_weighting_);
+  ESP_LOGCONFIG(TAG, "  Humidity Baseline: %.1f%%", this->hum_baseline_);
+  ESP_LOGCONFIG(TAG, "  Burn-in Time: %d s", this->burn_in_time_s_);
+  ESP_LOGCONFIG(TAG, "  Baseline Samples: %d", this->gas_baseline_samples_);
+}
+
+void BME680IaqSensor::reset_calibration_() {
+  ESP_LOGI(TAG, "Reset flag detected. Resetting IAQ calibration...");
+  this->is_calibrated_ = false;
+  this->burn_in_start_time_ = 0;
+  this->gas_res_buffer_count_ = 0;
+  this->avg_gas_res_buffer_idx_ = 0;
+  this->avg_gas_res_buffer_count_ = 0;
+  
+  // Reset persistent globals to their initial state
+  this->is_calibrated_global_->value() = false;
+  this->gas_baseline_global_->value() = 50000.0f; 
+  this->reset_flag_global_->value() = false;      
+}
+
+void BME680IaqSensor::update() {
+  // STAGE 0: Check for calibration reset request
+  if (this->reset_flag_global_ != nullptr && this->reset_flag_global_->value()) {
+    this->reset_calibration_();
+  }
+
+  // Sync local state with global state
+  this->is_calibrated_ = this->is_calibrated_global_->value();
+  
+  // STAGE 1: Read sensor values and validate
+  const float current_gas_resistance = this->gas_resistance_sensor_->state;
+  const float current_humidity = this->humidity_sensor_->state;
+
+  if (std::isnan(current_gas_resistance) || std::isnan(current_humidity)) {
+    ESP_LOGW(TAG, "Sensor data is NaN. Skipping IAQ calculation.");
+    return;
+  }
+
+  // STAGE 2: Initial calibration (burn-in) phase
+  if (!this->is_calibrated_) {
+    if (this->burn_in_start_time_ == 0) {
+      this->burn_in_start_time_ = millis();
+      this->gas_res_buffer_count_ = 0;
+      ESP_LOGI(TAG, "Starting gas baseline calibration (%d seconds)...", this->burn_in_time_s_);
+    }
+
+    if (this->gas_res_buffer_count_ < this->gas_baseline_samples_) {
+      this->gas_res_buffer_[this->gas_res_buffer_count_++] = current_gas_resistance;
+      ESP_LOGD(TAG, "Burn-in: sample %d/%d, value: %.0f Ohm", this->gas_res_buffer_count_, this->gas_baseline_samples_, current_gas_resistance);
+    }
+
+    const bool burn_in_time_elapsed = (millis() - this->burn_in_start_time_) >= (uint32_t)this->burn_in_time_s_ * 1000UL;
+    if (burn_in_time_elapsed) {
+      if (this->gas_res_buffer_count_ < this->gas_baseline_samples_ / 2) {
+        ESP_LOGW(TAG, "Not enough samples (%d) after burn-in time. Resetting calibration.", this->gas_res_buffer_count_);
+        this->burn_in_start_time_ = 0;
+        return;
+      }
+      
+      float sum = 0;
+      for (int i = 0; i < this->gas_res_buffer_count_; ++i) {
+        sum += this->gas_res_buffer_[i];
+      }
+      this->gas_baseline_ = sum / this->gas_res_buffer_count_;
+      
+      this->is_calibrated_ = true;
+      this->is_calibrated_global_->value() = true;
+      this->gas_baseline_global_->value() = this->gas_baseline_;
+      this->last_baseline_adaptation_time_ = millis();
+      
+      ESP_LOGI(TAG, "Calibration complete. Gas baseline set to: %.0f Ohm (from %d samples)", this->gas_baseline_, this->gas_res_buffer_count_);
+    }
+  }
+
+  // STAGE 3: Long-term baseline adaptation
+  if (this->is_calibrated_) {
+    this->avg_gas_res_buffer_[this->avg_gas_res_buffer_idx_] = current_gas_resistance;
+    this->avg_gas_res_buffer_idx_ = (this->avg_gas_res_buffer_idx_ + 1) % AVG_RES_BUFFER_MAX_SAMPLES;
+    if (this->avg_gas_res_buffer_count_ < AVG_RES_BUFFER_MAX_SAMPLES) {
+      this->avg_gas_res_buffer_count_++;
+    }
+
+    const bool adaptation_time_elapsed = (millis() - this->last_baseline_adaptation_time_) >= BASELINE_ADAPTATION_INTERVAL_MS;
+    if (adaptation_time_elapsed) {
+      this->last_baseline_adaptation_time_ = millis();
+      if (this->avg_gas_res_buffer_count_ >= AVG_RES_BUFFER_MAX_SAMPLES / 2) {
+        float sum = 0;
+        for (int i = 0; i < this->avg_gas_res_buffer_count_; ++i) {
+          sum += this->avg_gas_res_buffer_[i];
+        }
+        const float current_avg_resistance = sum / this->avg_gas_res_buffer_count_;
+        
+        if (current_avg_resistance > this->gas_baseline_ * SIGNIFICANTLY_HIGHER_THRESHOLD) {
+          this->gas_baseline_ = (this->gas_baseline_ * (1.0f - ADAPTATION_UP_FACTOR)) + (current_avg_resistance * ADAPTATION_UP_FACTOR);
+          ESP_LOGI(TAG, "Gas baseline adapted UP to: %.0f Ohm", this->gas_baseline_);
+        }
+      }
+      this->gas_baseline_ = this->gas_baseline_ * (1.0f - ADAPTATION_DECAY_FACTOR);
+      ESP_LOGI(TAG, "Gas baseline after decay: %.0f Ohm", this->gas_baseline_);
+      this->gas_baseline_global_->value() = this->gas_baseline_;
+    }
+  }
+
+  // STAGE 4: IAQ Calculation and Publishing
+  if (!this->is_calibrated_) {
+    publish_state(NAN);
+    return;
+  }
+
+  const float hum_offset = current_humidity - this->hum_baseline_;
+  float hum_score;
+  if (hum_offset >= 0) {
+    hum_score = std::max(0.0f, ((100.0f - this->hum_baseline_ - hum_offset) / (100.0f - this->hum_baseline_)) * (this->hum_weighting_ * 100.0f));
+  } else {
+    hum_score = std::max(0.0f, ((this->hum_baseline_ + hum_offset) / this->hum_baseline_) * (this->hum_weighting_ * 100.0f));
+  }
+
+  const float gas_weighting = 1.0f - this->hum_weighting_;
+  float gas_score;
+  if (this->gas_baseline_ <= 1.0f) {
+    gas_score = 0;
+  } else {
+    gas_score = (current_gas_resistance / this->gas_baseline_) * (gas_weighting * 100.0f);
+  }
+  gas_score = std::max(0.0f, std::min(gas_score, gas_weighting * 100.0f));
+
+  const float iaq_score = std::max(0.0f, std::min(100.0f, hum_score + gas_score));
+  
+  ESP_LOGD(TAG, "IAQ: %.1f%% (H_sc:%.1f, H:%.1f%% | G_sc:%.1f, G_res:%.0f/G_base:%.0f)",
+           iaq_score, hum_score, current_humidity, gas_score, current_gas_resistance, this->gas_baseline_);
+  publish_state(iaq_score);
+}
+
+}  // namespace dom3ll_iaq
+}  // namespace esphome

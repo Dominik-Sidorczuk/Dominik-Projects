@@ -1,0 +1,74 @@
+#pragma once
+
+#include "esphome/core/component.h"
+#include "esphome/components/sensor/sensor.h"
+#include "esphome/core/hal.h"
+#include "esphome/core/log.h"
+#include "esphome/components/globals/globals_component.h"
+#include <cmath> // Required for std::isnan
+
+namespace esphome {
+namespace dom3ll_iaq {
+
+class BME680IaqSensor : public PollingComponent, public sensor::Sensor {
+ public:
+  BME680IaqSensor();
+
+  // Setters for dependencies
+  void set_gas_resistance_sensor(sensor::Sensor *sensor) { this->gas_resistance_sensor_ = sensor; }
+  void set_humidity_sensor(sensor::Sensor *sensor) { this->humidity_sensor_ = sensor; }
+  void set_is_calibrated_global(globals::RestoringGlobalsComponent<bool> *global) { this->is_calibrated_global_ = global; }
+  void set_gas_baseline_global(globals::RestoringGlobalsComponent<float> *global) { this->gas_baseline_global_ = global; }
+  void set_reset_flag_global(globals::GlobalsComponent<bool> *global) { this->reset_flag_global_ = global; }
+  
+  // Setters for configuration parameters
+  void set_hum_baseline(float value) { this->hum_baseline_ = value; }
+  void set_hum_weighting(float value) { this->hum_weighting_ = value; }
+  void set_burn_in_time(int value) { this->burn_in_time_s_ = value; }
+  void set_gas_baseline_samples(int value) { this->gas_baseline_samples_ = value; }
+  
+  // Core component methods
+  void setup() override;
+  void dump_config() override;
+  void update() override;
+  float get_setup_priority() const override;
+
+ protected:
+  void reset_calibration_();
+  
+  // Algorithm constants
+  static constexpr int AVG_RES_BUFFER_MAX_SAMPLES = 60;
+  static constexpr uint32_t BASELINE_ADAPTATION_INTERVAL_MS = 3600000UL;
+  static constexpr float ADAPTATION_UP_FACTOR = 0.05f;
+  static constexpr float ADAPTATION_DECAY_FACTOR = 0.0002f;
+  static constexpr float SIGNIFICANTLY_HIGHER_THRESHOLD = 1.10f;
+
+  // Pointers to dependencies
+  sensor::Sensor *gas_resistance_sensor_{nullptr};
+  sensor::Sensor *humidity_sensor_{nullptr};
+  globals::RestoringGlobalsComponent<bool> *is_calibrated_global_{nullptr};
+  globals::RestoringGlobalsComponent<float> *gas_baseline_global_{nullptr};
+  globals::GlobalsComponent<bool> *reset_flag_global_{nullptr};
+
+  // Configuration parameters
+  float hum_baseline_;
+  float hum_weighting_;
+  int burn_in_time_s_;
+  int gas_baseline_samples_;
+
+  // Internal state variables
+  bool is_calibrated_{false};
+  float gas_baseline_{0.0};
+  uint32_t burn_in_start_time_{0};
+  uint32_t last_baseline_adaptation_time_{0};
+  
+  // Data buffers
+  float *gas_res_buffer_{nullptr};
+  int gas_res_buffer_count_{0};
+  float *avg_gas_res_buffer_{nullptr};
+  int avg_gas_res_buffer_idx_{0};
+  int avg_gas_res_buffer_count_{0};
+};
+
+}  // namespace dom3ll_iaq
+}  // namespace esphome

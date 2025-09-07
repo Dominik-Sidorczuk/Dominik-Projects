@@ -1,0 +1,74 @@
+import esphome.codegen as cg
+import esphome.config_validation as cv
+from esphome.components import sensor, globals
+from esphome.const import (
+    CONF_ID,
+    CONF_HUMIDITY,
+    CONF_GAS_RESISTANCE,
+    CONF_UPDATE_INTERVAL,
+)
+
+# Przestrzeń nazw i klasa C++
+dom3ll_iaq_ns = cg.esphome_ns.namespace("dom3ll_iaq")
+BME680IaqSensor = dom3ll_iaq_ns.class_("BME680IaqSensor", sensor.Sensor, cg.PollingComponent)
+
+# Nowe klucze konfiguracyjne
+CONF_IS_CALIBRATED = "is_calibrated"
+CONF_GAS_BASELINE = "gas_baseline"
+# Zmieniono nazwę klucza, aby wymusić odświeżenie cache
+CONF_CALIBRATION_RESET_TRIGGER = "calibration_reset_trigger" 
+CONF_HUM_BASELINE = "humidity_baseline"
+CONF_HUM_WEIGHTING = "humidity_weighting"
+CONF_BURN_IN_TIME = "burn_in_time"
+CONF_GAS_BASELINE_SAMPLES = "gas_baseline_samples"
+
+# Schemat walidacji konfiguracji YAML
+CONFIG_SCHEMA = (
+    sensor.sensor_schema(BME680IaqSensor)
+    .extend(
+        {
+            # Zależności od innych sensorów i globali stanu
+            cv.Required(CONF_GAS_RESISTANCE): cv.use_id(sensor.Sensor),
+            cv.Required(CONF_HUMIDITY): cv.use_id(sensor.Sensor),
+            cv.Required(CONF_IS_CALIBRATED): cv.use_id(globals.GlobalsComponent),
+            cv.Required(CONF_GAS_BASELINE): cv.use_id(globals.GlobalsComponent),
+            # Użycie nowej, unikalnej nazwy klucza
+            cv.Required(CONF_CALIBRATION_RESET_TRIGGER): cv.use_id(globals.GlobalsComponent),
+
+            # Parametry konfiguracyjne z wartościami domyślnymi
+            cv.Optional(CONF_HUM_BASELINE, default=40.0): cv.float_,
+            cv.Optional(CONF_HUM_WEIGHTING, default=0.25): cv.float_range(min=0.0, max=1.0),
+            cv.Optional(CONF_BURN_IN_TIME, default=300): cv.positive_int,
+            cv.Optional(CONF_GAS_BASELINE_SAMPLES, default=100): cv.positive_int,
+        }
+    )
+    .extend(cv.polling_component_schema("3s"))
+)
+
+async def to_code(config):
+    var = cg.new_Pvariable(config[CONF_ID])
+    await cg.register_component(var, config)
+    await sensor.register_sensor(var, config)
+
+    # Przekazanie zależności
+    gas_res = await cg.get_variable(config[CONF_GAS_RESISTANCE])
+    cg.add(var.set_gas_resistance_sensor(gas_res))
+    
+    hum = await cg.get_variable(config[CONF_HUMIDITY])
+    cg.add(var.set_humidity_sensor(hum))
+
+    is_calib_global = await cg.get_variable(config[CONF_IS_CALIBRATED])
+    cg.add(var.set_is_calibrated_global(is_calib_global))
+
+    gas_base_global = await cg.get_variable(config[CONF_GAS_BASELINE])
+    cg.add(var.set_gas_baseline_global(gas_base_global))
+
+    # Przekazanie wskaźnika do globala z nową nazwą klucza
+    reset_trigger_global = await cg.get_variable(config[CONF_CALIBRATION_RESET_TRIGGER])
+    cg.add(var.set_reset_flag_global(reset_trigger_global)) # Metoda w C++ pozostaje ta sama
+
+    # Przekazanie parametrów bezpośrednio z konfiguracji YAML
+    cg.add(var.set_hum_baseline(config[CONF_HUM_BASELINE]))
+    cg.add(var.set_hum_weighting(config[CONF_HUM_WEIGHTING]))
+    cg.add(var.set_burn_in_time(config[CONF_BURN_IN_TIME]))
+    cg.add(var.set_gas_baseline_samples(config[CONF_GAS_BASELINE_SAMPLES]))

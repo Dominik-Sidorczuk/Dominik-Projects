@@ -1,145 +1,218 @@
-#pragma once
+#ifndef MT6701_H
+#define MT6701_H
 
 #include "esphome/core/component.h"
+#include "esphome/core/hal.h" // Dla esphome::GPIOPin
+#include "esphome/core/log.h"
 #include "esphome/components/sensor/sensor.h"
+#ifdef MT6701_HAS_BINARY_SENSOR
 #include "esphome/components/binary_sensor/binary_sensor.h"
+#endif
 #include "esphome/components/i2c/i2c.h"
 #include "esphome/components/spi/spi.h"
-#include "esphome/core/hal.h"     // For PI
-
-#include <string>
-#include <cmath>  // For fabsf, fmodf, std::abs, cosf, sinf, sqrtf
+#include <cmath>
+#include <vector> 
 
 namespace esphome {
 namespace mt6701 {
 
-// --- MT6701 Chip-Specific Constants ---
-static constexpr uint16_t MT6701_RESOLUTION_COUNTS = 1 << 14; // 14-bit resolution
-static constexpr float COUNTS_PER_REVOLUTION = static_cast<float>(MT6701_RESOLUTION_COUNTS);
-static constexpr float COUNTS_TO_DEGREES_FACTOR = 360.0f / COUNTS_PER_REVOLUTION;
-static constexpr float COUNTS_TO_RADIANS_FACTOR = (2.0f * PI) / COUNTS_PER_REVOLUTION;
-static constexpr float DEGREES_PER_US_TO_RPM_FACTOR = (1.0f / 360.0f) * 60.0f * 1000000.0f;
+// Stałe dla MT6701
+static constexpr uint16_t MT6701_RESOLUTION_COUNTS_PER_ELECTRICAL_CYCLE = 16384; // Zliczenia na jeden cykl elektryczny sensora
 
-// Constants for SSI Interface
-static constexpr uint8_t SSI_ANGLE_DATA_BITS = 14;
-static constexpr uint8_t SSI_STATUS_DATA_BITS = 4;
-static constexpr uint8_t SSI_CRC_BITS = 6;
-static constexpr uint8_t SSI_TOTAL_FRAME_BITS = SSI_ANGLE_DATA_BITS + SSI_STATUS_DATA_BITS + SSI_CRC_BITS; // 24 bits
-static constexpr uint8_t SSI_FRAME_SIZE_BYTES = (SSI_TOTAL_FRAME_BITS + 7) / 8; // 3 bytes
-static constexpr uint8_t SSI_CRC6_ITU_POLY_REDUCED = 0x03; // G(x)=x^6+x^1. Verify with datasheet.
-static constexpr uint16_t SSI_RAW_ANGLE_MASK = (1 << SSI_ANGLE_DATA_BITS) - 1; // 0x3FFF
-static constexpr uint8_t SSI_STATUS_MASK = (1 << SSI_STATUS_DATA_BITS) - 1;    // 0x0F
-static constexpr uint8_t SSI_CRC_MASK = (1 << SSI_CRC_BITS) - 1;          // 0x3F
+// Liczba cykli elektrycznych sensora na jeden pełny obrót mechaniczny (fizyczny) magnesu.
+// Ustawione na 1.0f zakładając standardowy magnes dwubiegunowy (1 obrót fizyczny = 1 cykl elektryczny).
+// Jeśli obserwujesz, że 90 stopni fizycznie = 360 stopni elektrycznie (pełen zakres 0-16383),
+// to zmień tę wartość na 4.0f.
+static constexpr float ELECTRICAL_CYCLES_PER_MECHANICAL_REVOLUTION = 4.0f; 
 
-enum class MT6701InterfaceType { NONE = 0, I2C, SSI };
-enum class VelocityFilterType { NONE = 0, EMA, BUTTERWORTH_2ND_ORDER };
-enum class MT6701Register : uint8_t { ANGLE_DATA_H = 0x03, ANGLE_DATA_L = 0x04 };
+static constexpr float COUNTS_TO_DEGREES_FACTOR = 360.0f / (static_cast<float>(MT6701_RESOLUTION_COUNTS_PER_ELECTRICAL_CYCLE) * ELECTRICAL_CYCLES_PER_MECHANICAL_REVOLUTION);
+static constexpr float COUNTS_TO_RADIANS_FACTOR = (2.0f * M_PI) / (static_cast<float>(MT6701_RESOLUTION_COUNTS_PER_ELECTRICAL_CYCLE) * ELECTRICAL_CYCLES_PER_MECHANICAL_REVOLUTION);
 
-// SPI Mode 0: CPOL=0 (SCLK idle LOW), CPHA=0 (sample on leading/first edge)
-// Based on user-provided reference code.
-class MT6701SensorComponent : public PollingComponent, public Component, public i2c::I2CDevice,
-                              public spi::SPIDevice<spi::BIT_ORDER_MSB_FIRST,
-                                                    spi::CLOCK_POLARITY_LOW,       // CPOL = 0
-                                                    spi::CLOCK_PHASE_LEADING_EDGE> { // CPHA = 0
+// Stałe specyficzne dla interfejsu SSI
+static constexpr uint8_t SSI_FRAME_SIZE_BYTES = 3;
+static constexpr uint16_t SSI_RAW_ANGLE_MASK = 0x3FFF; 
+static constexpr uint8_t SSI_STATUS_MASK = 0x0F;
+static constexpr uint8_t SSI_CRC_MASK = 0x3F;
+static constexpr uint8_t SSI_CRC6_ITU_POLY_REDUCED = 0x03;
+static constexpr int SSI_ANGLE_DATA_BITS = 14;
+static constexpr int SSI_STATUS_DATA_BITS = 4;
+static constexpr int SSI_CRC_BITS = 6;
+
+// Domyślne wartości dla nowych parametrów konfiguracyjnych
+static constexpr float DEFAULT_ANGLE_EMA_ALPHA = 0.5f; 
+static constexpr float DEFAULT_ANGLE_FILTER_CUTOFF_HZ = 20.0f; 
+static constexpr int DEFAULT_RPM_ACCUMULATION_SAMPLES = 5; 
+
+enum class MT6701Register : uint8_t {
+  ANGLE_DATA_H = 0x03,
+  ANGLE_DATA_L = 0x04,
+};
+
+enum class MT6701InterfaceType {
+  NONE = 0,
+  I2C = 1,
+  SSI = 2,
+};
+
+enum class FilterType {
+  NONE = 0,
+  EMA = 1,
+  BUTTERWORTH_2ND_ORDER = 2,
+};
+
+class MT6701SensorComponent : public PollingComponent,
+                              public i2c::I2CDevice,
+                              public esphome::spi::SPIDevice<
+                                  esphome::spi::BIT_ORDER_MSB_FIRST,
+                                  esphome::spi::CLOCK_POLARITY_LOW,
+                                  esphome::spi::CLOCK_PHASE_TRAILING,
+                                  esphome::spi::DATA_RATE_4MHZ
+                              > {
  public:
-  MT6701SensorComponent() = default;
+  MT6701SensorComponent() :
+    PollingComponent(),
+    i2c::I2CDevice(),
+    esphome::spi::SPIDevice<
+        esphome::spi::BIT_ORDER_MSB_FIRST,
+        esphome::spi::CLOCK_POLARITY_LOW,
+        esphome::spi::CLOCK_PHASE_TRAILING,
+        esphome::spi::DATA_RATE_4MHZ
+    >() {}
+
+   MT6701SensorComponent(esphome::spi::SPIComponent *parent_spi_bus, esphome::GPIOPin *cs_pin_obj) :
+     PollingComponent(),
+     i2c::I2CDevice(),
+     esphome::spi::SPIDevice<
+         esphome::spi::BIT_ORDER_MSB_FIRST,
+         esphome::spi::CLOCK_POLARITY_LOW,
+         esphome::spi::CLOCK_PHASE_TRAILING,
+         esphome::spi::DATA_RATE_4MHZ
+     >() {
+     this->set_spi_parent(parent_spi_bus);
+     this->set_cs_pin(cs_pin_obj);
+   }
 
   void setup() override;
   void dump_config() override;
   void update() override;
-  float get_setup_priority() const override { return esphome::setup_priority::DATA; }
 
-  // Configuration setters
-  void set_interface_i2c() { this->interface_type_ = MT6701InterfaceType::I2C; }
-  void set_interface_ssi() { this->interface_type_ = MT6701InterfaceType::SSI; }
-  void set_zero_offset_degrees(float offset_degrees) { this->zero_offset_degrees_ = offset_degrees; }
+  void set_interface_i2c() { this->interface_type_ = MT6701InterfaceType::I2C; ESP_LOGD("mt6701", "Interface set to I2C");}
+  void set_interface_ssi() { this->interface_type_ = MT6701InterfaceType::SSI; ESP_LOGD("mt6701", "Interface set to SSI");}
+  void set_zero_offset_degrees(float offset) { this->zero_offset_degrees_ = offset; }
   void set_direction_inverted(bool inverted) { this->direction_inverted_ = inverted; }
-  void set_velocity_filter_type_str(const std::string &type_str);
-  void set_velocity_filter_cutoff_hz(float freq_hz) { this->velocity_filter_cutoff_hz_ = freq_hz; }
-  void set_min_velocity_update_period_us(uint32_t period_us) { this->min_velocity_update_period_us_ = period_us; }
 
-  // Sensor setters
-  void set_angle_sensor(sensor::Sensor *sensor) { this->angle_sensor_ = sensor; }
-  void set_accumulated_angle_sensor(sensor::Sensor *sensor) { this->accumulated_angle_sensor_ = sensor; }
-  void set_velocity_rpm_sensor(sensor::Sensor *sensor) { this->velocity_rpm_sensor_ = sensor; }
-  void set_raw_count_sensor(sensor::Sensor *sensor) { this->raw_count_sensor_ = sensor; }
-  void set_raw_radians_sensor(sensor::Sensor *sensor) { this->raw_radians_sensor_ = sensor; }
-  void set_accumulated_count_sensor(sensor::Sensor *sensor) { this->accumulated_count_sensor_ = sensor; }
-  void set_accumulated_radians_sensor(sensor::Sensor *sensor) { this->accumulated_radians_sensor_ = sensor; }
-  void set_magnetic_field_status_sensor(sensor::Sensor *sensor) { this->magnetic_field_status_sensor_ = sensor; }
-  void set_loss_of_track_status_sensor(sensor::Sensor *sensor) { this->loss_of_track_status_sensor_ = sensor; }
-  void set_push_button_ssi_binary_sensor(binary_sensor::BinarySensor *bsensor) { this->push_button_ssi_binary_sensor_ = bsensor; }
-  void set_ssi_crc_error_sensor(sensor::Sensor *sensor) { this->ssi_crc_error_sensor_ = sensor; }
+  void set_angle_filter_type(FilterType type) { this->angle_filter_type_ = type; }
+  void set_angle_filter_cutoff_hz(float freq) { this->angle_filter_cutoff_hz_ = freq; }
+  void set_angle_ema_alpha(float alpha) { this->angle_ema_alpha_ = alpha; }
 
-  // Service call handlers
-  void on_set_zero_offset();
-  void on_reset_crc_error_count();
+  void set_velocity_filter_type(FilterType type) { this->velocity_filter_type_ = type; }
+  void set_velocity_filter_cutoff_hz(float freq) { this->velocity_filter_cutoff_hz_ = freq; }
+  void set_rpm_accumulation_samples(int samples) { this->rpm_accumulation_samples_ = samples; }
+  void set_min_velocity_update_period_us(uint32_t period) { this->min_velocity_update_period_us_ = period; }
+
+
+  void set_angle_sensor(sensor::Sensor *s) { this->angle_sensor_ = s; }
+  void set_accumulated_angle_sensor(sensor::Sensor *s) { this->accumulated_angle_sensor_ = s; }
+  void set_velocity_rpm_sensor(sensor::Sensor *s) { this->velocity_rpm_sensor_ = s; }
+  void set_raw_count_sensor(sensor::Sensor *s) { this->raw_count_sensor_ = s; } 
+  void set_filtered_angle_count_sensor(sensor::Sensor *s) { this->filtered_angle_count_sensor_ = s; } 
+  void set_raw_radians_sensor(sensor::Sensor *s) { this->raw_radians_sensor_ = s; }
+  void set_accumulated_count_sensor(sensor::Sensor *s) { this->accumulated_count_sensor_ = s; }
+  void set_accumulated_radians_sensor(sensor::Sensor *s) { this->accumulated_radians_sensor_ = s; }
+  void set_magnetic_field_status_sensor(sensor::Sensor *s) { this->magnetic_field_status_sensor_ = s; }
+  void set_loss_of_track_status_sensor(sensor::Sensor *s) { this->loss_of_track_status_sensor_ = s; }
+  void set_ssi_crc_error_sensor(sensor::Sensor *s) { this->ssi_crc_error_sensor_ = s; }
+#ifdef MT6701_HAS_BINARY_SENSOR
+  void set_push_button_ssi_binary_sensor(binary_sensor::BinarySensor *s) { this->push_button_ssi_binary_sensor_ = s; }
+#endif
 
  protected:
-  // Data reading methods
   bool read_sensor_data_();
   bool read_i2c_angle_data_(uint16_t &raw_angle_out);
   bool read_ssi_frame_data_(uint16_t &raw_angle_out, uint8_t &status_bits_out, uint8_t &received_crc_out);
-  
-  // Data processing methods
-  void process_angle_data_(uint16_t raw_angle_from_sensor);
+  void process_angle_data_(uint16_t current_raw_angle_value);
   void process_ssi_status_bits_(uint8_t status_bits);
-  
-  // CRC methods
-  uint8_t calculate_ssi_crc6_itu_(uint32_t data_18bit) const;
   bool verify_ssi_crc_(uint16_t angle_data, uint8_t status_data, uint8_t received_crc);
+  uint8_t calculate_ssi_crc6_itu_(uint32_t data_18bit) const;
 
-  // Filter methods
-  void calculate_butterworth_coeffs_();
-  float apply_butterworth_filter_(float raw_velocity);
-  float apply_ema_filter_(float raw_velocity, float dt_s);
+  float apply_angle_filter_(float raw_angle);
+  void calculate_angle_butterworth_coeffs_();
+  float apply_velocity_filter_(float raw_velocity); 
+  void calculate_velocity_butterworth_coeffs_(); 
 
-  // Helper methods for publishing sensor states
-  template <typename T>
-  void publish_sensor_state_(esphome::sensor::Sensor *sensor, T state);
-  void publish_sensor_state_(esphome::binary_sensor::BinarySensor *sensor, bool state);
+  template <typename T_> void publish_sensor_state_(sensor::Sensor *sensor, T_ state);
+#ifdef MT6701_HAS_BINARY_SENSOR
+  void publish_sensor_state_(binary_sensor::BinarySensor *sensor, bool state);
+#endif
   void publish_all_nan_or_default_();
+  void on_set_zero_offset();
+  void on_reset_crc_error_count();
 
-  // Member variables
   MT6701InterfaceType interface_type_{MT6701InterfaceType::NONE};
   float zero_offset_degrees_{0.0f};
   bool direction_inverted_{false};
-  
-  VelocityFilterType velocity_filter_type_{VelocityFilterType::EMA}; // Default to EMA
-  float velocity_filter_cutoff_hz_{0.0f}; // 0.0f means filter is disabled or uses raw value
-  uint32_t min_velocity_update_period_us_{1000}; // Default 1ms
 
-  // Pointers to sensor objects
+  FilterType angle_filter_type_{FilterType::EMA}; 
+  float angle_filter_cutoff_hz_{DEFAULT_ANGLE_FILTER_CUTOFF_HZ};
+  float angle_ema_alpha_{DEFAULT_ANGLE_EMA_ALPHA};
+
+  FilterType velocity_filter_type_{FilterType::EMA}; 
+  float velocity_filter_cutoff_hz_{10.0f}; 
+  int rpm_accumulation_samples_{DEFAULT_RPM_ACCUMULATION_SAMPLES};
+  uint32_t min_velocity_update_period_us_{1000}; 
+
   sensor::Sensor *angle_sensor_{nullptr};
   sensor::Sensor *accumulated_angle_sensor_{nullptr};
   sensor::Sensor *velocity_rpm_sensor_{nullptr};
   sensor::Sensor *raw_count_sensor_{nullptr};
+  sensor::Sensor *filtered_angle_count_sensor_{nullptr}; 
   sensor::Sensor *raw_radians_sensor_{nullptr};
   sensor::Sensor *accumulated_count_sensor_{nullptr};
   sensor::Sensor *accumulated_radians_sensor_{nullptr};
   sensor::Sensor *magnetic_field_status_sensor_{nullptr};
   sensor::Sensor *loss_of_track_status_sensor_{nullptr};
-  binary_sensor::BinarySensor *push_button_ssi_binary_sensor_{nullptr};
   sensor::Sensor *ssi_crc_error_sensor_{nullptr};
+#ifdef MT6701_HAS_BINARY_SENSOR
+  binary_sensor::BinarySensor *push_button_ssi_binary_sensor_{nullptr};
+#endif
 
-  // Internal state variables
-  uint16_t current_raw_sensor_value_{0}; // Last successfully read raw angle value
-  int32_t internal_accumulated_count_{0}; // Accumulated count for multi-turn tracking
-  uint16_t previous_raw_sensor_value_for_velocity_{0}; // Previous raw value for velocity calculation
-  uint32_t last_velocity_update_time_us_{0}; // Timestamp of the last velocity calculation
+  uint16_t current_raw_angle_value_{0}; 
+  float filtered_angle_value_counts_{0.0f}; 
+  uint16_t previous_filtered_angle_counts_{0}; 
+  uint16_t previous_raw_angle_value_for_accum_{0}; // <<< DODANA DEKLARACJA
+  bool first_angle_sample_{true}; 
 
-  // Filter states
-  float filtered_velocity_rpm_{0.0f}; // Current filtered velocity value
-  bool first_velocity_sample_{true};  // Flag for initializing filters/velocity
-  // Butterworth filter coefficients
-  float b0_{1.0f}, b1_{0.0f}, b2_{0.0f}; // Numerator coeffs (initialized for pass-through)
-  float a1_{0.0f}, a2_{0.0f};          // Denominator coeffs (for 1 + a1*z^-1 + a2*z^-2)
-  // Butterworth history for input (x) and output (y)
-  float x_n1_{0.0f}, x_n2_{0.0f};
-  float y_n1_{0.0f}, y_n2_{0.0f};
+  int32_t internal_accumulated_count_{0}; // Akumuluje zliczenia *elektryczne*
 
-  uint32_t ssi_crc_error_count_{0}; // Counter for SSI CRC errors
+  uint32_t last_sample_time_us_{0}; 
+ 
+  int32_t rpm_accumulated_diff_sum_{0};
+  uint32_t rpm_accumulated_dt_us_sum_{0};
+  int rpm_sample_counter_{0};
+  bool first_rpm_calculation_{true}; 
+  float current_filtered_rpm_{0.0f}; 
+
+  float angle_b0_{1.0f}, angle_b1_{0.0f}, angle_b2_{0.0f};
+  float angle_a1_{0.0f}, angle_a2_{0.0f};
+  float angle_x_n1_{0.0f}, angle_x_n2_{0.0f};
+  float angle_y_n1_{0.0f}, angle_y_n2_{0.0f};
+
+  float velocity_b0_{1.0f}, velocity_b1_{0.0f}, velocity_b2_{0.0f};
+  float velocity_a1_{0.0f}, velocity_a2_{0.0f};
+  float velocity_x_n1_{0.0f}, velocity_x_n2_{0.0f};
+  float velocity_y_n1_{0.0f}, velocity_y_n2_{0.0f};
+ 
+  uint32_t ssi_crc_error_count_{0};
 };
+
+template <typename T_>
+void MT6701SensorComponent::publish_sensor_state_(sensor::Sensor *sensor, T_ state) {
+  if (sensor != nullptr) {
+    sensor->publish_state(state);
+  }
+}
 
 } // namespace mt6701
 } // namespace esphome
+
+#endif // MT6701_H
