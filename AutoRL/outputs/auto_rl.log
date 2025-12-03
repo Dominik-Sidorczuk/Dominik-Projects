@@ -1,0 +1,1265 @@
+2025-12-03 23:26:31,708 | __main__ | INFO | 🚀 Starting AutoRL in mode: POPULATION on cuda
+2025-12-03 23:26:31,709 | __main__ | INFO | 📂 Output Directory: /run/media/dominik/F2B452FDB452C42F/Python/Dominik-Projects/AutoRL/outputs
+2025-12-03 23:26:31,710 | __main__ | INFO | 🔧 Multiprocessing Start Method: spawn
+2025-12-03 23:26:31,710 | __main__ | INFO | 🌱 Global Seed set to: 42
+2025-12-03 23:26:31,711 | __main__ | INFO | ✅ CUDA Available: AMD Radeon Graphics
+2025-12-03 23:26:31,711 | __main__ | INFO |    Memory Allocated: 0.00 MB
+2025-12-03 23:26:31,712 | __main__ | INFO | 🚀 CUDA Benchmark: False
+2025-12-03 23:26:31,712 | __main__ | INFO | 👥 PBT Manager (EVI-Aware) Start | Size: 18
+2025-12-03 23:26:31,712 | src.run.runners | INFO | 👥 Initializing Population of 18 agents...
+2025-12-03 23:26:31,713 | src.run.runners | INFO | 🚀 Trainer Init: cuda | AMP: True
+2025-12-03 23:26:31,839 | src.core.agent | INFO | [AGENT] Init on cuda. Strategy: NoisyNet
+2025-12-03 23:26:32,208 | src.run.runners | INFO | 💾 Buffer: 1630 steps/env | Type: HP (Numba)
+2025-12-03 23:26:32,220 | src.run.runners | INFO | 🚀 Trainer Init: cuda | AMP: True
+2025-12-03 23:26:32,268 | src.core.agent | INFO | [AGENT] Init on cuda. Strategy: NoisyNet
+2025-12-03 23:26:32,269 | src.run.runners | INFO | 💾 Buffer: 1630 steps/env | Type: HP (Numba)
+2025-12-03 23:26:32,273 | src.run.runners | INFO | 🚀 Trainer Init: cuda | AMP: True
+2025-12-03 23:26:32,322 | src.core.agent | INFO | [AGENT] Init on cuda. Strategy: NoisyNet
+2025-12-03 23:26:32,322 | src.run.runners | INFO | 💾 Buffer: 1630 steps/env | Type: HP (Numba)
+2025-12-03 23:26:32,326 | src.run.runners | INFO | 🚀 Trainer Init: cuda | AMP: True
+2025-12-03 23:26:32,374 | src.core.agent | INFO | [AGENT] Init on cuda. Strategy: NoisyNet
+2025-12-03 23:26:32,374 | src.run.runners | INFO | 💾 Buffer: 1630 steps/env | Type: HP (Numba)
+2025-12-03 23:26:32,377 | src.run.runners | INFO | 🚀 Trainer Init: cuda | AMP: True
+2025-12-03 23:26:32,429 | src.core.agent | INFO | [AGENT] Init on cuda. Strategy: NoisyNet
+2025-12-03 23:26:32,430 | src.run.runners | INFO | 💾 Buffer: 1630 steps/env | Type: HP (Numba)
+2025-12-03 23:26:32,434 | src.run.runners | INFO | 🚀 Trainer Init: cuda | AMP: True
+2025-12-03 23:26:32,484 | src.core.agent | INFO | [AGENT] Init on cuda. Strategy: NoisyNet
+2025-12-03 23:26:32,484 | src.run.runners | INFO | 💾 Buffer: 1630 steps/env | Type: HP (Numba)
+2025-12-03 23:26:32,488 | src.run.runners | INFO | 🚀 Trainer Init: cuda | AMP: True
+2025-12-03 23:26:32,535 | src.core.agent | INFO | [AGENT] Init on cuda. Strategy: NoisyNet
+2025-12-03 23:26:32,536 | src.run.runners | INFO | 💾 Buffer: 1630 steps/env | Type: HP (Numba)
+2025-12-03 23:26:32,539 | src.run.runners | INFO | 🚀 Trainer Init: cuda | AMP: True
+2025-12-03 23:26:32,587 | src.core.agent | INFO | [AGENT] Init on cuda. Strategy: NoisyNet
+2025-12-03 23:26:32,588 | src.run.runners | INFO | 💾 Buffer: 1630 steps/env | Type: HP (Numba)
+2025-12-03 23:26:32,592 | src.run.runners | INFO | 🚀 Trainer Init: cuda | AMP: True
+2025-12-03 23:26:32,643 | src.core.agent | INFO | [AGENT] Init on cuda. Strategy: NoisyNet
+2025-12-03 23:26:32,643 | src.run.runners | INFO | 💾 Buffer: 1630 steps/env | Type: HP (Numba)
+2025-12-03 23:26:32,647 | src.run.runners | INFO | 🚀 Trainer Init: cuda | AMP: True
+2025-12-03 23:26:32,697 | src.core.agent | INFO | [AGENT] Init on cuda. Strategy: NoisyNet
+2025-12-03 23:26:32,697 | src.run.runners | INFO | 💾 Buffer: 1630 steps/env | Type: HP (Numba)
+2025-12-03 23:26:32,701 | src.run.runners | INFO | 🚀 Trainer Init: cuda | AMP: True
+2025-12-03 23:26:32,750 | src.core.agent | INFO | [AGENT] Init on cuda. Strategy: NoisyNet
+2025-12-03 23:26:32,751 | src.run.runners | INFO | 💾 Buffer: 1630 steps/env | Type: HP (Numba)
+2025-12-03 23:26:32,755 | src.run.runners | INFO | 🚀 Trainer Init: cuda | AMP: True
+2025-12-03 23:26:32,803 | src.core.agent | INFO | [AGENT] Init on cuda. Strategy: NoisyNet
+2025-12-03 23:26:32,804 | src.run.runners | INFO | 💾 Buffer: 1630 steps/env | Type: HP (Numba)
+2025-12-03 23:26:32,807 | src.run.runners | INFO | 🚀 Trainer Init: cuda | AMP: True
+2025-12-03 23:26:32,857 | src.core.agent | INFO | [AGENT] Init on cuda. Strategy: NoisyNet
+2025-12-03 23:26:32,857 | src.run.runners | INFO | 💾 Buffer: 1630 steps/env | Type: HP (Numba)
+2025-12-03 23:26:32,861 | src.run.runners | INFO | 🚀 Trainer Init: cuda | AMP: True
+2025-12-03 23:26:32,911 | src.core.agent | INFO | [AGENT] Init on cuda. Strategy: NoisyNet
+2025-12-03 23:26:32,912 | src.run.runners | INFO | 💾 Buffer: 1630 steps/env | Type: HP (Numba)
+2025-12-03 23:26:32,915 | src.run.runners | INFO | 🚀 Trainer Init: cuda | AMP: True
+2025-12-03 23:26:32,965 | src.core.agent | INFO | [AGENT] Init on cuda. Strategy: NoisyNet
+2025-12-03 23:26:32,966 | src.run.runners | INFO | 💾 Buffer: 1630 steps/env | Type: HP (Numba)
+2025-12-03 23:26:32,970 | src.run.runners | INFO | 🚀 Trainer Init: cuda | AMP: True
+2025-12-03 23:26:33,021 | src.core.agent | INFO | [AGENT] Init on cuda. Strategy: NoisyNet
+2025-12-03 23:26:33,021 | src.run.runners | INFO | 💾 Buffer: 1630 steps/env | Type: HP (Numba)
+2025-12-03 23:26:33,026 | src.run.runners | INFO | 🚀 Trainer Init: cuda | AMP: True
+2025-12-03 23:26:33,077 | src.core.agent | INFO | [AGENT] Init on cuda. Strategy: NoisyNet
+2025-12-03 23:26:33,077 | src.run.runners | INFO | 💾 Buffer: 1630 steps/env | Type: HP (Numba)
+2025-12-03 23:26:33,081 | src.run.runners | INFO | 🚀 Trainer Init: cuda | AMP: True
+2025-12-03 23:26:33,130 | src.core.agent | INFO | [AGENT] Init on cuda. Strategy: NoisyNet
+2025-12-03 23:26:33,131 | src.run.runners | INFO | 💾 Buffer: 1630 steps/env | Type: HP (Numba)
+2025-12-03 23:26:33,134 | src.run.runners | INFO | 🚀 Starting PBT Loop...
+2025-12-03 23:26:33,134 | src.run.runners | INFO | 📢 Starting FIRST rollout (compiling Numba, warming up Env)...
+2025-12-03 23:26:33,135 | src.run.runners | INFO | 📢 Starting FIRST rollout (compiling Numba, warming up Env)...
+2025-12-03 23:26:33,135 | src.core.vector_runner | INFO | ⚡ VectorRunner: Starting loop. Steps: 100
+2025-12-03 23:26:33,136 | src.run.runners | INFO | 📢 Starting FIRST rollout (compiling Numba, warming up Env)...
+2025-12-03 23:26:33,136 | src.core.vector_runner | INFO | ⚡ VectorRunner: Starting loop. Steps: 100
+2025-12-03 23:26:33,137 | src.run.runners | INFO | 📢 Starting FIRST rollout (compiling Numba, warming up Env)...
+2025-12-03 23:26:33,137 | src.core.vector_runner | INFO |    -> Step 0/100 [Obs processing...]
+2025-12-03 23:26:33,138 | src.core.vector_runner | INFO | ⚡ VectorRunner: Starting loop. Steps: 100
+2025-12-03 23:26:33,138 | src.run.runners | INFO | 📢 Starting FIRST rollout (compiling Numba, warming up Env)...
+2025-12-03 23:26:33,138 | src.core.vector_runner | INFO |    -> Step 0/100 [Obs processing...]
+2025-12-03 23:26:33,139 | src.run.runners | INFO | 📢 Starting FIRST rollout (compiling Numba, warming up Env)...
+2025-12-03 23:26:33,139 | src.run.runners | INFO | 📢 Starting FIRST rollout (compiling Numba, warming up Env)...
+2025-12-03 23:26:33,140 | src.run.runners | INFO | 📢 Starting FIRST rollout (compiling Numba, warming up Env)...
+2025-12-03 23:26:33,140 | src.core.vector_runner | INFO | ⚡ VectorRunner: Starting loop. Steps: 100
+2025-12-03 23:26:33,141 | src.run.runners | INFO | 📢 Starting FIRST rollout (compiling Numba, warming up Env)...
+2025-12-03 23:26:33,141 | src.run.runners | INFO | 📢 Starting FIRST rollout (compiling Numba, warming up Env)...
+2025-12-03 23:26:33,142 | src.run.runners | INFO | 📢 Starting FIRST rollout (compiling Numba, warming up Env)...
+2025-12-03 23:26:33,142 | src.core.vector_runner | INFO |    -> Step 0/100 [Obs processing...]
+2025-12-03 23:26:33,143 | src.run.runners | INFO | 📢 Starting FIRST rollout (compiling Numba, warming up Env)...
+2025-12-03 23:26:33,143 | src.core.vector_runner | INFO | ⚡ VectorRunner: Starting loop. Steps: 100
+2025-12-03 23:26:33,144 | src.run.runners | INFO | 📢 Starting FIRST rollout (compiling Numba, warming up Env)...
+2025-12-03 23:26:33,144 | src.run.runners | INFO | 📢 Starting FIRST rollout (compiling Numba, warming up Env)...
+2025-12-03 23:26:33,145 | src.run.runners | INFO | 📢 Starting FIRST rollout (compiling Numba, warming up Env)...
+2025-12-03 23:26:33,145 | src.run.runners | INFO | 📢 Starting FIRST rollout (compiling Numba, warming up Env)...
+2025-12-03 23:26:33,146 | src.core.vector_runner | INFO | ⚡ VectorRunner: Starting loop. Steps: 100
+2025-12-03 23:26:33,146 | src.run.runners | INFO | 📢 Starting FIRST rollout (compiling Numba, warming up Env)...
+2025-12-03 23:26:33,147 | src.core.vector_runner | INFO | ⚡ VectorRunner: Starting loop. Steps: 100
+2025-12-03 23:26:33,147 | src.run.runners | INFO | 📢 Starting FIRST rollout (compiling Numba, warming up Env)...
+2025-12-03 23:26:33,148 | src.core.vector_runner | INFO | ⚡ VectorRunner: Starting loop. Steps: 100
+2025-12-03 23:26:33,148 | src.core.vector_runner | INFO |    -> Step 0/100 [Obs processing...]
+2025-12-03 23:26:33,149 | src.core.vector_runner | INFO | ⚡ VectorRunner: Starting loop. Steps: 100
+2025-12-03 23:26:33,149 | src.core.vector_runner | INFO | ⚡ VectorRunner: Starting loop. Steps: 100
+2025-12-03 23:26:33,149 | src.core.vector_runner | INFO | ⚡ VectorRunner: Starting loop. Steps: 100
+2025-12-03 23:26:33,150 | src.core.vector_runner | INFO | ⚡ VectorRunner: Starting loop. Steps: 100
+2025-12-03 23:26:33,150 | src.core.vector_runner | INFO |    -> Step 0/100 [Obs processing...]
+2025-12-03 23:26:33,151 | src.core.vector_runner | INFO | ⚡ VectorRunner: Starting loop. Steps: 100
+2025-12-03 23:26:33,151 | src.core.vector_runner | INFO | ⚡ VectorRunner: Starting loop. Steps: 100
+2025-12-03 23:26:33,152 | src.core.vector_runner | INFO | ⚡ VectorRunner: Starting loop. Steps: 100
+2025-12-03 23:26:33,152 | src.core.vector_runner | INFO | ⚡ VectorRunner: Starting loop. Steps: 100
+2025-12-03 23:26:33,153 | src.core.vector_runner | INFO |    -> Step 0/100 [Obs processing...]
+2025-12-03 23:26:33,153 | src.core.vector_runner | INFO | ⚡ VectorRunner: Starting loop. Steps: 100
+2025-12-03 23:26:33,153 | src.core.vector_runner | INFO |    -> Step 0/100 [Obs processing...]
+2025-12-03 23:26:33,154 | src.core.vector_runner | INFO | ⚡ VectorRunner: Starting loop. Steps: 100
+2025-12-03 23:26:33,154 | src.core.vector_runner | INFO |    -> Step 0/100 [Obs processing...]
+2025-12-03 23:26:33,155 | src.core.vector_runner | INFO |    -> Step 0/100 [Obs processing...]
+2025-12-03 23:26:33,155 | src.core.vector_runner | INFO |    -> Step 0/100 [Obs processing...]
+2025-12-03 23:26:33,155 | src.core.vector_runner | INFO |    -> Step 0/100 [Obs processing...]
+2025-12-03 23:26:33,156 | src.core.vector_runner | INFO |    -> Step 0/100 [Obs processing...]
+2025-12-03 23:26:33,157 | src.core.vector_runner | INFO |    -> Step 0/100 [Obs processing...]
+2025-12-03 23:26:33,157 | src.core.vector_runner | INFO |    -> Step 0/100 [Obs processing...]
+2025-12-03 23:26:33,158 | src.core.vector_runner | INFO |    -> Step 0/100 [Obs processing...]
+2025-12-03 23:26:33,158 | src.core.vector_runner | INFO |    -> Step 0/100 [Obs processing...]
+2025-12-03 23:26:33,159 | src.core.vector_runner | INFO |    -> Step 0/100 [Obs processing...]
+2025-12-03 23:26:33,159 | src.core.vector_runner | INFO |    -> Step 0/100 [Obs processing...]
+2025-12-03 23:26:44,864 | src.core.vector_runner | INFO |    -> Step 50/100 [Obs processing...]
+2025-12-03 23:26:44,890 | src.core.vector_runner | INFO |    -> Step 50/100 [Obs processing...]
+2025-12-03 23:26:44,929 | src.core.vector_runner | INFO |    -> Step 50/100 [Obs processing...]
+2025-12-03 23:26:44,971 | src.core.vector_runner | INFO |    -> Step 50/100 [Obs processing...]
+2025-12-03 23:26:44,975 | src.core.vector_runner | INFO |    -> Step 50/100 [Obs processing...]
+2025-12-03 23:26:44,983 | src.core.vector_runner | INFO |    -> Step 50/100 [Obs processing...]
+2025-12-03 23:26:44,995 | src.core.vector_runner | INFO |    -> Step 50/100 [Obs processing...]
+2025-12-03 23:26:45,021 | src.core.vector_runner | INFO |    -> Step 50/100 [Obs processing...]
+2025-12-03 23:26:45,024 | src.core.vector_runner | INFO |    -> Step 50/100 [Obs processing...]
+2025-12-03 23:26:45,086 | src.core.vector_runner | INFO |    -> Step 50/100 [Obs processing...]
+2025-12-03 23:26:45,110 | src.core.vector_runner | INFO |    -> Step 50/100 [Obs processing...]
+2025-12-03 23:26:45,119 | src.core.vector_runner | INFO |    -> Step 50/100 [Obs processing...]
+2025-12-03 23:26:45,131 | src.core.vector_runner | INFO |    -> Step 50/100 [Obs processing...]
+2025-12-03 23:26:45,171 | src.core.vector_runner | INFO |    -> Step 50/100 [Obs processing...]
+2025-12-03 23:26:45,277 | src.core.vector_runner | INFO |    -> Step 50/100 [Obs processing...]
+2025-12-03 23:26:45,292 | src.core.vector_runner | INFO |    -> Step 50/100 [Obs processing...]
+2025-12-03 23:26:45,352 | src.core.vector_runner | INFO |    -> Step 50/100 [Obs processing...]
+2025-12-03 23:26:45,406 | src.core.vector_runner | INFO |    -> Step 50/100 [Obs processing...]
+2025-12-03 23:26:56,542 | src.core.vector_runner | INFO | ⚡ VectorRunner: Loop done. Validating data...
+2025-12-03 23:26:56,545 | src.core.vector_runner | INFO | ⚡ VectorRunner: Transferring to GPU/Memory...
+2025-12-03 23:26:56,624 | src.core.vector_runner | INFO | ⚡ VectorRunner: Loop done. Validating data...
+2025-12-03 23:26:56,650 | src.core.vector_runner | INFO | ⚡ VectorRunner: Transferring to GPU/Memory...
+2025-12-03 23:26:56,698 | src.core.vector_runner | INFO | ⚡ VectorRunner: Loop done. Validating data...
+2025-12-03 23:26:56,703 | src.core.vector_runner | INFO | ⚡ VectorRunner: Transferring to GPU/Memory...
+2025-12-03 23:26:56,784 | src.core.vector_runner | INFO | ⚡ VectorRunner: Loop done. Validating data...
+2025-12-03 23:26:56,785 | src.core.vector_runner | INFO | ⚡ VectorRunner: Transferring to GPU/Memory...
+2025-12-03 23:26:56,852 | src.core.vector_runner | INFO | ⚡ VectorRunner: Loop done. Validating data...
+2025-12-03 23:26:56,865 | src.core.vector_runner | INFO | ⚡ VectorRunner: Loop done. Validating data...
+2025-12-03 23:26:56,865 | src.core.vector_runner | INFO | ⚡ VectorRunner: Transferring to GPU/Memory...
+2025-12-03 23:26:56,878 | src.core.vector_runner | INFO | ⚡ VectorRunner: Transferring to GPU/Memory...
+2025-12-03 23:26:56,904 | src.core.vector_runner | INFO | ⚡ VectorRunner: Loop done. Validating data...
+2025-12-03 23:26:56,905 | src.core.vector_runner | INFO | ⚡ VectorRunner: Transferring to GPU/Memory...
+2025-12-03 23:26:56,932 | src.core.vector_runner | INFO | ⚡ VectorRunner: Loop done. Validating data...
+2025-12-03 23:26:56,933 | src.core.vector_runner | INFO | ⚡ VectorRunner: Transferring to GPU/Memory...
+2025-12-03 23:26:56,955 | src.core.vector_runner | INFO | ⚡ VectorRunner: Loop done. Validating data...
+2025-12-03 23:26:56,964 | src.core.vector_runner | INFO | ⚡ VectorRunner: Transferring to GPU/Memory...
+2025-12-03 23:26:56,978 | src.core.vector_runner | INFO | ⚡ VectorRunner: Loop done. Validating data...
+2025-12-03 23:26:56,986 | src.core.vector_runner | INFO | ⚡ VectorRunner: Loop done. Validating data...
+2025-12-03 23:26:56,987 | src.core.vector_runner | INFO | ⚡ VectorRunner: Transferring to GPU/Memory...
+2025-12-03 23:26:56,987 | src.core.vector_runner | INFO | ⚡ VectorRunner: Transferring to GPU/Memory...
+2025-12-03 23:26:57,000 | src.core.vector_runner | INFO | ⚡ VectorRunner: Loop done. Validating data...
+2025-12-03 23:26:57,001 | src.core.vector_runner | INFO | ⚡ VectorRunner: Transferring to GPU/Memory...
+2025-12-03 23:26:57,002 | src.core.vector_runner | INFO | ⚡ VectorRunner: Loop done. Validating data...
+2025-12-03 23:26:57,008 | src.core.vector_runner | INFO | ⚡ VectorRunner: Transferring to GPU/Memory...
+2025-12-03 23:26:57,016 | src.core.vector_runner | INFO | ⚡ VectorRunner: Loop done. Validating data...
+2025-12-03 23:26:57,016 | src.core.vector_runner | INFO | ⚡ VectorRunner: Transferring to GPU/Memory...
+2025-12-03 23:26:57,029 | src.core.vector_runner | INFO | ⚡ VectorRunner: Loop done. Validating data...
+2025-12-03 23:26:57,030 | src.core.vector_runner | INFO | ⚡ VectorRunner: Transferring to GPU/Memory...
+2025-12-03 23:26:57,044 | src.core.vector_runner | INFO | ⚡ VectorRunner: Loop done. Validating data...
+2025-12-03 23:26:57,045 | src.core.vector_runner | INFO | ⚡ VectorRunner: Transferring to GPU/Memory...
+2025-12-03 23:26:57,059 | src.core.vector_runner | INFO | ⚡ VectorRunner: Loop done. Validating data...
+2025-12-03 23:26:57,072 | src.core.vector_runner | INFO | ⚡ VectorRunner: Transferring to GPU/Memory...
+2025-12-03 23:26:57,138 | src.core.vector_runner | INFO | ⚡ VectorRunner: Loop done. Validating data...
+2025-12-03 23:26:57,139 | src.core.vector_runner | INFO | ⚡ VectorRunner: Transferring to GPU/Memory...
+2025-12-03 23:26:57,436 | src.run.runners | INFO | ✅ First rollout complete. Duration: 24.28s. Collected: 9200 steps.
+2025-12-03 23:26:57,437 | src.run.runners | INFO | Agent 15 Step 9200: Loss=0.0000 | Return=0.00
+2025-12-03 23:26:57,442 | src.run.runners | INFO | ✅ First rollout complete. Duration: 24.29s. Collected: 9200 steps.
+2025-12-03 23:26:57,443 | src.run.runners | INFO | Agent 17 Step 9200: Loss=0.0000 | Return=0.00
+2025-12-03 23:26:57,474 | src.run.runners | INFO | ✅ First rollout complete. Duration: 24.32s. Collected: 9200 steps.
+2025-12-03 23:26:57,475 | src.run.runners | INFO | Agent 16 Step 9200: Loss=0.0000 | Return=0.00
+2025-12-03 23:26:57,477 | src.run.runners | INFO | ✅ First rollout complete. Duration: 24.32s. Collected: 9200 steps.
+2025-12-03 23:26:57,477 | src.run.runners | INFO | Agent 14 Step 9200: Loss=0.0000 | Return=-378.75
+2025-12-03 23:26:57,508 | src.run.runners | INFO | ✅ First rollout complete. Duration: 24.36s. Collected: 9200 steps.
+2025-12-03 23:26:57,509 | src.run.runners | INFO | Agent 12 Step 9200: Loss=0.0000 | Return=0.00
+2025-12-03 23:26:57,537 | src.run.runners | INFO | ✅ First rollout complete. Duration: 24.40s. Collected: 9200 steps.
+2025-12-03 23:26:57,538 | src.run.runners | INFO | Agent 2 Step 9200: Loss=0.0000 | Return=0.00
+2025-12-03 23:26:57,540 | src.run.runners | INFO | ✅ First rollout complete. Duration: 24.39s. Collected: 9200 steps.
+2025-12-03 23:26:57,542 | src.run.runners | INFO | Agent 13 Step 9200: Loss=0.0000 | Return=0.00
+2025-12-03 23:26:57,553 | src.run.runners | INFO | ✅ First rollout complete. Duration: 24.40s. Collected: 9200 steps.
+2025-12-03 23:26:57,553 | src.run.runners | INFO | Agent 11 Step 9200: Loss=0.0000 | Return=0.00
+2025-12-03 23:26:57,557 | src.run.runners | INFO | ✅ First rollout complete. Duration: 24.42s. Collected: 9200 steps.
+2025-12-03 23:26:57,558 | src.run.runners | INFO | Agent 1 Step 9200: Loss=0.0000 | Return=0.00
+2025-12-03 23:26:57,586 | src.run.runners | INFO | ✅ First rollout complete. Duration: 24.45s. Collected: 9200 steps.
+2025-12-03 23:26:57,586 | src.run.runners | INFO | ✅ First rollout complete. Duration: 24.44s. Collected: 9200 steps.
+2025-12-03 23:26:57,587 | src.run.runners | INFO | ✅ First rollout complete. Duration: 24.45s. Collected: 9200 steps.
+2025-12-03 23:26:57,588 | src.run.runners | INFO | Agent 3 Step 9200: Loss=0.0000 | Return=0.00
+2025-12-03 23:26:57,588 | src.run.runners | INFO | Agent 10 Step 9200: Loss=0.0000 | Return=-331.40
+2025-12-03 23:26:57,589 | src.run.runners | INFO | Agent 0 Step 9200: Loss=0.0000 | Return=0.00
+2025-12-03 23:26:57,600 | src.run.runners | INFO | ✅ First rollout complete. Duration: 24.45s. Collected: 9200 steps.
+2025-12-03 23:26:57,603 | src.run.runners | INFO | ✅ First rollout complete. Duration: 24.46s. Collected: 9200 steps.
+2025-12-03 23:26:57,603 | src.run.runners | INFO | Agent 6 Step 9200: Loss=0.0000 | Return=0.00
+2025-12-03 23:26:57,604 | src.run.runners | INFO | Agent 5 Step 9200: Loss=0.0000 | Return=0.00
+2025-12-03 23:26:57,618 | src.run.runners | INFO | ✅ First rollout complete. Duration: 24.47s. Collected: 9200 steps.
+2025-12-03 23:26:57,624 | src.run.runners | INFO | Agent 9 Step 9200: Loss=0.0000 | Return=0.00
+2025-12-03 23:26:57,625 | src.run.runners | INFO | ✅ First rollout complete. Duration: 24.48s. Collected: 9200 steps.
+2025-12-03 23:26:57,634 | src.run.runners | INFO | Agent 8 Step 9200: Loss=0.0000 | Return=0.00
+2025-12-03 23:26:57,674 | src.run.runners | INFO | ✅ First rollout complete. Duration: 24.53s. Collected: 9200 steps.
+2025-12-03 23:26:57,688 | src.run.runners | INFO | Agent 4 Step 9200: Loss=0.0000 | Return=0.00
+2025-12-03 23:26:57,833 | src.run.runners | INFO | ✅ First rollout complete. Duration: 24.69s. Collected: 9200 steps.
+2025-12-03 23:26:57,849 | src.run.runners | INFO | Agent 7 Step 9200: Loss=0.0000 | Return=-219.67
+2025-12-03 23:28:13,328 | src.run.runners | INFO | Agent 17 Step 18400: Loss=0.0001 | Return=-500.00
+2025-12-03 23:28:16,618 | src.run.runners | INFO | Agent 12 Step 18400: Loss=0.0658 | Return=-500.00
+2025-12-03 23:28:16,618 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 12 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:28:16,619 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:28:18,875 | src.run.runners | INFO | Agent 16 Step 18400: Loss=0.0427 | Return=-500.00
+2025-12-03 23:28:22,306 | src.run.runners | INFO | Agent 6 Step 18400: Loss=0.0676 | Return=-500.00
+2025-12-03 23:28:22,307 | src.run.runners | INFO | Agent 13 Step 18400: Loss=0.0058 | Return=-500.00
+2025-12-03 23:28:37,942 | src.run.runners | INFO | Agent 0 Step 18400: Loss=0.0053 | Return=-500.00
+2025-12-03 23:28:37,943 | src.run.runners | INFO | Agent 10 Step 18400: Loss=0.0266 | Return=-485.37
+2025-12-03 23:28:37,944 | src.run.runners | INFO | Agent 3 Step 18400: Loss=0.3030 | Return=-500.00
+2025-12-03 23:28:37,961 | src.run.runners | INFO | Agent 2 Step 18400: Loss=0.1160 | Return=-500.00
+2025-12-03 23:28:37,981 | src.run.runners | INFO | Agent 9 Step 18400: Loss=0.1064 | Return=-500.00
+2025-12-03 23:28:37,981 | src.run.runners | INFO | Agent 8 Step 18400: Loss=0.0723 | Return=-500.00
+2025-12-03 23:28:37,982 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 8 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:28:37,982 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:28:37,984 | src.run.runners | INFO | Agent 15 Step 18400: Loss=0.1358 | Return=-500.00
+2025-12-03 23:28:37,985 | src.run.runners | INFO | Agent 7 Step 18400: Loss=0.0722 | Return=-323.39
+2025-12-03 23:28:37,986 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 7 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:28:37,986 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:28:37,987 | src.run.runners | INFO | Agent 11 Step 18400: Loss=0.0707 | Return=-500.00
+2025-12-03 23:28:37,988 | src.run.runners | INFO | Agent 5 Step 18400: Loss=0.0317 | Return=-500.00
+2025-12-03 23:28:37,988 | src.run.runners | INFO | Agent 14 Step 18400: Loss=0.0481 | Return=-494.73
+2025-12-03 23:28:37,989 | src.run.runners | INFO | Agent 1 Step 18400: Loss=0.0694 | Return=-500.00
+2025-12-03 23:28:37,990 | src.run.runners | INFO | Agent 4 Step 18400: Loss=0.3722 | Return=-500.00
+2025-12-03 23:29:02,875 | src.run.runners | INFO | Agent 17 Step 27600: Loss=0.0210 | Return=-500.00
+2025-12-03 23:29:07,772 | src.run.runners | INFO | Agent 12 Step 27600: Loss=0.0171 | Return=-499.90
+2025-12-03 23:29:07,772 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 12 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:29:07,773 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:29:11,102 | src.run.runners | INFO | Agent 16 Step 27600: Loss=0.0403 | Return=-488.22
+2025-12-03 23:29:13,737 | src.run.runners | INFO | Agent 13 Step 27600: Loss=0.0207 | Return=-500.00
+2025-12-03 23:29:17,240 | src.run.runners | INFO | Agent 6 Step 27600: Loss=0.0078 | Return=-500.00
+2025-12-03 23:29:43,844 | src.run.runners | INFO | Agent 17 Step 36800: Loss=0.0001 | Return=-500.00
+2025-12-03 23:29:48,764 | src.run.runners | INFO | Agent 12 Step 36800: Loss=0.0159 | Return=-460.17
+2025-12-03 23:29:48,764 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 12 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:29:48,765 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:29:52,585 | src.run.runners | INFO | Agent 16 Step 36800: Loss=0.0140 | Return=-339.17
+2025-12-03 23:29:55,329 | src.run.runners | INFO | Agent 13 Step 36800: Loss=0.0167 | Return=-500.00
+2025-12-03 23:30:00,092 | src.run.runners | INFO | Agent 6 Step 36800: Loss=0.0066 | Return=-500.00
+2025-12-03 23:30:21,036 | src.run.runners | INFO | Agent 17 Step 46000: Loss=0.0002 | Return=-500.00
+2025-12-03 23:30:24,935 | src.run.runners | INFO | Agent 10 Step 27600: Loss=0.0001 | Return=-490.26
+2025-12-03 23:30:24,936 | src.run.runners | INFO | Agent 11 Step 27600: Loss=0.0326 | Return=-500.00
+2025-12-03 23:30:24,939 | src.run.runners | INFO | Agent 2 Step 27600: Loss=0.0767 | Return=-500.00
+2025-12-03 23:30:24,940 | src.run.runners | INFO | Agent 3 Step 27600: Loss=0.4541 | Return=-500.00
+2025-12-03 23:30:24,941 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 3 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:30:24,942 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:30:24,942 | src.run.runners | INFO | Agent 1 Step 27600: Loss=0.0132 | Return=-500.00
+2025-12-03 23:30:25,010 | src.run.runners | INFO | Agent 4 Step 27600: Loss=0.0012 | Return=-500.00
+2025-12-03 23:30:25,011 | src.run.runners | INFO | Agent 5 Step 27600: Loss=0.0319 | Return=-500.00
+2025-12-03 23:30:25,015 | src.run.runners | INFO | Agent 8 Step 27600: Loss=0.0382 | Return=-500.00
+2025-12-03 23:30:25,017 | src.run.runners | INFO | Agent 7 Step 27600: Loss=0.0138 | Return=-409.04
+2025-12-03 23:30:25,017 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 7 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:30:25,018 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:30:34,880 | src.run.runners | INFO | Agent 12 Step 46000: Loss=0.0199 | Return=-443.40
+2025-12-03 23:30:34,883 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 12 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:30:34,884 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:30:42,363 | src.run.runners | INFO | Agent 16 Step 46000: Loss=0.0045 | Return=-355.55
+2025-12-03 23:30:42,859 | src.run.runners | INFO | Agent 14 Step 27600: Loss=0.0593 | Return=-497.36
+2025-12-03 23:30:42,860 | src.run.runners | INFO | Agent 15 Step 27600: Loss=0.1099 | Return=-500.00
+2025-12-03 23:30:42,863 | src.run.runners | INFO | Agent 9 Step 27600: Loss=0.0226 | Return=-500.00
+2025-12-03 23:30:43,030 | src.run.runners | INFO | Agent 0 Step 27600: Loss=0.1344 | Return=-500.00
+2025-12-03 23:30:45,892 | src.run.runners | INFO | Agent 13 Step 46000: Loss=0.0020 | Return=-500.00
+2025-12-03 23:30:53,372 | src.run.runners | INFO | Agent 6 Step 46000: Loss=0.0006 | Return=-500.00
+2025-12-03 23:31:09,795 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:31:09,796 | src.run.runners | INFO | 🧬 Agent 17 PBT Check. Score: -500.00
+2025-12-03 23:31:18,796 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:31:18,798 | src.run.runners | INFO | 🧬 Agent 12 PBT Check. Score: -500.00
+2025-12-03 23:31:26,259 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:31:26,260 | src.run.runners | INFO | 🧬 Agent 16 PBT Check. Score: -500.00
+2025-12-03 23:31:26,819 | src.run.runners | INFO | Agent 4 Step 36800: Loss=0.0036 | Return=-500.00
+2025-12-03 23:31:26,829 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 4 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:31:26,829 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:31:28,377 | src.run.runners | INFO | Agent 5 Step 36800: Loss=0.0084 | Return=-500.00
+2025-12-03 23:31:29,718 | src.run.runners | INFO | Agent 1 Step 36800: Loss=0.0066 | Return=-500.00
+2025-12-03 23:31:29,922 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:31:29,923 | src.run.runners | INFO | 🧬 Agent 13 PBT Check. Score: -500.00
+2025-12-03 23:31:38,102 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:31:38,103 | src.run.runners | INFO | 🧬 Agent 6 PBT Check. Score: -500.00
+2025-12-03 23:31:47,623 | src.run.runners | INFO | Agent 3 Step 36800: Loss=0.0532 | Return=-488.65
+2025-12-03 23:31:47,624 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 3 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:31:47,625 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:31:47,626 | src.run.runners | INFO | Agent 8 Step 36800: Loss=0.0008 | Return=-457.33
+2025-12-03 23:31:47,626 | src.run.runners | INFO | Agent 10 Step 36800: Loss=0.0010 | Return=-500.00
+2025-12-03 23:31:47,629 | src.run.runners | INFO | Agent 2 Step 36800: Loss=0.0138 | Return=-500.00
+2025-12-03 23:31:47,912 | src.run.runners | INFO | Agent 11 Step 36800: Loss=0.0012 | Return=-500.00
+2025-12-03 23:31:53,150 | src.run.runners | INFO | Agent 17 Step 55200: Loss=0.0045 | Return=-500.00
+2025-12-03 23:32:03,126 | src.run.runners | INFO | Agent 7 Step 36800: Loss=0.0281 | Return=-405.78
+2025-12-03 23:32:03,126 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 7 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:32:03,127 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:32:03,778 | src.run.runners | INFO | Agent 12 Step 55200: Loss=0.0092 | Return=-431.01
+2025-12-03 23:32:09,042 | src.run.runners | INFO | Agent 16 Step 55200: Loss=0.0092 | Return=-426.38
+2025-12-03 23:32:11,973 | src.run.runners | INFO | Agent 13 Step 55200: Loss=0.0153 | Return=-500.00
+2025-12-03 23:32:16,529 | src.run.runners | INFO | Agent 4 Step 46000: Loss=0.0047 | Return=-478.75
+2025-12-03 23:32:18,115 | src.run.runners | INFO | Agent 6 Step 55200: Loss=0.0646 | Return=-500.00
+2025-12-03 23:32:23,483 | src.run.runners | INFO | Agent 5 Step 46000: Loss=0.0003 | Return=-500.00
+2025-12-03 23:32:28,998 | src.run.runners | INFO | Agent 17 Step 64400: Loss=0.0004 | Return=-500.00
+2025-12-03 23:32:34,041 | src.run.runners | INFO | Agent 1 Step 46000: Loss=0.0008 | Return=-500.00
+2025-12-03 23:32:40,023 | src.run.runners | INFO | Agent 12 Step 64400: Loss=0.0171 | Return=-429.29
+2025-12-03 23:32:49,368 | src.run.runners | INFO | Agent 16 Step 64400: Loss=0.0099 | Return=-457.45
+2025-12-03 23:32:52,696 | src.run.runners | INFO | Agent 13 Step 64400: Loss=0.0150 | Return=-500.00
+2025-12-03 23:32:53,031 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:32:53,032 | src.run.runners | INFO | 🧬 Agent 4 PBT Check. Score: -500.00
+2025-12-03 23:32:59,721 | src.run.runners | INFO | Agent 6 Step 64400: Loss=0.0002 | Return=-500.00
+2025-12-03 23:33:01,329 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:33:01,330 | src.run.runners | INFO | 🧬 Agent 5 PBT Check. Score: -500.00
+2025-12-03 23:33:07,934 | src.run.runners | INFO | Agent 17 Step 73600: Loss=0.0001 | Return=-500.00
+2025-12-03 23:33:10,854 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:33:10,855 | src.run.runners | INFO | 🧬 Agent 1 PBT Check. Score: -500.00
+2025-12-03 23:33:18,754 | src.run.runners | INFO | Agent 12 Step 73600: Loss=0.0021 | Return=-435.86
+2025-12-03 23:33:29,140 | src.run.runners | INFO | Agent 15 Step 36800: Loss=0.0113 | Return=-496.29
+2025-12-03 23:33:29,170 | src.run.runners | INFO | Agent 14 Step 36800: Loss=0.0010 | Return=-500.00
+2025-12-03 23:33:29,171 | src.run.runners | INFO | Agent 9 Step 36800: Loss=0.0026 | Return=-500.00
+2025-12-03 23:33:29,265 | src.run.runners | INFO | Agent 0 Step 36800: Loss=0.0150 | Return=-500.00
+2025-12-03 23:33:29,947 | src.run.runners | INFO | Agent 16 Step 73600: Loss=0.0000 | Return=-500.00
+2025-12-03 23:33:32,426 | src.run.runners | INFO | Agent 13 Step 73600: Loss=0.0024 | Return=-500.00
+2025-12-03 23:33:41,318 | src.run.runners | INFO | Agent 4 Step 55200: Loss=0.0093 | Return=-423.72
+2025-12-03 23:33:43,169 | src.run.runners | INFO | Agent 6 Step 73600: Loss=0.0001 | Return=-500.00
+2025-12-03 23:33:46,351 | src.run.runners | INFO | Agent 17 Step 82800: Loss=0.0002 | Return=-500.00
+2025-12-03 23:33:52,610 | src.run.runners | INFO | Agent 3 Step 46000: Loss=0.0139 | Return=-453.70
+2025-12-03 23:33:52,613 | src.run.runners | INFO | Agent 2 Step 46000: Loss=0.0081 | Return=-500.00
+2025-12-03 23:33:52,694 | src.run.runners | INFO | Agent 8 Step 46000: Loss=0.0068 | Return=-449.42
+2025-12-03 23:33:52,763 | src.run.runners | INFO | Agent 10 Step 46000: Loss=0.0018 | Return=-500.00
+2025-12-03 23:33:52,766 | src.run.runners | INFO | Agent 11 Step 46000: Loss=0.0019 | Return=-500.00
+2025-12-03 23:33:53,924 | src.run.runners | INFO | Agent 5 Step 55200: Loss=0.7560 | Return=-500.00
+2025-12-03 23:33:53,927 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 5 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:33:53,928 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:33:57,316 | src.run.runners | INFO | Agent 12 Step 82800: Loss=0.0005 | Return=-435.03
+2025-12-03 23:34:04,430 | src.run.runners | INFO | Agent 7 Step 46000: Loss=0.0073 | Return=-399.90
+2025-12-03 23:34:04,432 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 7 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:34:04,433 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:34:07,835 | src.run.runners | INFO | Agent 1 Step 55200: Loss=0.0014 | Return=-500.00
+2025-12-03 23:34:11,065 | src.run.runners | INFO | Agent 16 Step 82800: Loss=0.0000 | Return=-500.00
+2025-12-03 23:34:12,997 | src.run.runners | INFO | Agent 13 Step 82800: Loss=0.0001 | Return=-500.00
+2025-12-03 23:34:25,313 | src.run.runners | INFO | Agent 6 Step 82800: Loss=0.0002 | Return=-500.00
+2025-12-03 23:34:26,436 | src.run.runners | INFO | Agent 17 Step 92000: Loss=0.0001 | Return=-500.00
+2025-12-03 23:34:27,884 | src.run.runners | INFO | Agent 4 Step 64400: Loss=0.0103 | Return=-404.71
+2025-12-03 23:34:29,362 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:34:29,363 | src.run.runners | INFO | 🧬 Agent 11 PBT Check. Score: -500.00
+2025-12-03 23:34:29,412 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:34:29,412 | src.run.runners | INFO | 🧬 Agent 3 PBT Check. Score: -500.00
+2025-12-03 23:34:29,737 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:34:29,740 | src.run.runners | INFO | 🧬 Agent 10 PBT Check. Score: -500.00
+2025-12-03 23:34:29,778 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:34:29,779 | src.run.runners | INFO | 🧬 Agent 8 PBT Check. Score: -500.00
+2025-12-03 23:34:30,118 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:34:30,119 | src.run.runners | INFO | 🧬 Agent 2 PBT Check. Score: -500.00
+2025-12-03 23:34:42,039 | src.run.runners | INFO | Agent 12 Step 92000: Loss=0.0001 | Return=-437.82
+2025-12-03 23:34:44,093 | EvalLoop | INFO | 📊 Eval Result: R=-466.4 | L=116.8 | SR=40.0%
+2025-12-03 23:34:44,094 | src.run.runners | INFO | 🧬 Agent 7 PBT Check. Score: -466.40
+2025-12-03 23:34:45,882 | src.run.runners | INFO | Agent 5 Step 64400: Loss=0.0073 | Return=-451.70
+2025-12-03 23:34:45,882 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 5 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:34:45,883 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:34:56,708 | src.run.runners | INFO | Agent 16 Step 92000: Loss=0.0000 | Return=-500.00
+2025-12-03 23:34:58,593 | src.run.runners | INFO | Agent 13 Step 92000: Loss=0.0026 | Return=-500.00
+2025-12-03 23:35:02,882 | src.run.runners | INFO | Agent 1 Step 64400: Loss=0.0001 | Return=-500.00
+2025-12-03 23:35:04,877 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:35:04,890 | src.run.runners | INFO | 🧬 Agent 17 PBT Check. Score: -500.00
+2025-12-03 23:35:04,890 | src.run.runners | INFO | ♻️  Agent 17 exploits Mentor 7 (Score: -466.40 > -500.00)
+2025-12-03 23:35:04,924 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-03 23:35:04,929 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-03 23:35:04,930 | src.orchestrators.pbt | INFO | 🧬 [PBT] Mutation #17: alpha: 6.00e-01->3.50e-01 | noisy_std_init: 2.00e+00->1.50e-01 | lr: 1.00e-04->3.03e-04
+2025-12-03 23:35:08,508 | src.run.runners | INFO | Agent 6 Step 92000: Loss=0.0000 | Return=-500.00
+2025-12-03 23:35:14,463 | src.run.runners | INFO | Agent 4 Step 73600: Loss=0.0076 | Return=-390.26
+2025-12-03 23:35:19,013 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:35:19,017 | src.run.runners | INFO | 🧬 Agent 12 PBT Check. Score: -500.00
+2025-12-03 23:35:30,356 | src.run.runners | INFO | Agent 5 Step 73600: Loss=0.0155 | Return=-421.27
+2025-12-03 23:35:30,357 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 5 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:35:30,360 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:35:34,512 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:35:34,513 | src.run.runners | INFO | 🧬 Agent 16 PBT Check. Score: -500.00
+2025-12-03 23:35:36,465 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:35:36,465 | src.run.runners | INFO | 🧬 Agent 13 PBT Check. Score: -500.00
+2025-12-03 23:35:36,466 | src.run.runners | INFO | ♻️  Agent 13 exploits Mentor 7 (Score: -466.40 > -500.00)
+2025-12-03 23:35:36,528 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-03 23:35:36,625 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-03 23:35:36,626 | src.orchestrators.pbt | INFO | 🧬 [PBT] Mutation #13: alpha: 6.00e-01->3.50e-01 | beta_start: 4.00e-01->1.00e+00 | noisy_std_init: 2.00e+00->1.65e+00 | lr: 1.00e-04->3.03e-04
+2025-12-03 23:35:39,098 | src.run.runners | INFO | Agent 11 Step 55200: Loss=0.0130 | Return=-500.00
+2025-12-03 23:35:45,000 | src.run.runners | INFO | Agent 17 Step 101200: Loss=0.0300 | Return=-495.75
+2025-12-03 23:35:45,404 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:35:45,404 | src.run.runners | INFO | 🧬 Agent 6 PBT Check. Score: -500.00
+2025-12-03 23:35:48,286 | src.run.runners | INFO | Agent 1 Step 73600: Loss=0.0048 | Return=-500.00
+2025-12-03 23:35:56,715 | src.run.runners | INFO | Agent 12 Step 101200: Loss=0.0170 | Return=-450.49
+2025-12-03 23:35:57,969 | src.run.runners | INFO | Agent 4 Step 82800: Loss=0.0028 | Return=-392.53
+2025-12-03 23:36:08,152 | src.run.runners | INFO | Agent 2 Step 55200: Loss=0.1017 | Return=-500.00
+2025-12-03 23:36:08,325 | src.run.runners | INFO | Agent 8 Step 55200: Loss=0.4147 | Return=-434.45
+2025-12-03 23:36:08,364 | src.run.runners | INFO | Agent 3 Step 55200: Loss=0.0249 | Return=-432.23
+2025-12-03 23:36:08,508 | src.run.runners | INFO | Agent 10 Step 55200: Loss=0.0757 | Return=-494.48
+2025-12-03 23:36:11,937 | src.run.runners | INFO | Agent 16 Step 101200: Loss=0.0011 | Return=-497.98
+2025-12-03 23:36:13,832 | src.run.runners | INFO | Agent 13 Step 101200: Loss=0.0147 | Return=-500.00
+2025-12-03 23:36:18,532 | src.run.runners | INFO | Agent 5 Step 82800: Loss=0.0081 | Return=-400.75
+2025-12-03 23:36:18,533 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 5 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:36:18,533 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:36:21,280 | src.run.runners | INFO | Agent 17 Step 110400: Loss=0.0011 | Return=-488.22
+2025-12-03 23:36:24,857 | src.run.runners | INFO | Agent 6 Step 101200: Loss=0.0018 | Return=-500.00
+2025-12-03 23:36:35,129 | src.run.runners | INFO | Agent 12 Step 110400: Loss=0.0577 | Return=-456.28
+2025-12-03 23:36:42,694 | src.run.runners | INFO | Agent 4 Step 92000: Loss=0.0001 | Return=-375.97
+2025-12-03 23:36:48,094 | src.run.runners | INFO | Agent 1 Step 82800: Loss=0.0001 | Return=-500.00
+2025-12-03 23:36:50,137 | src.run.runners | INFO | Agent 16 Step 110400: Loss=0.0319 | Return=-498.29
+2025-12-03 23:36:52,239 | src.run.runners | INFO | Agent 13 Step 110400: Loss=0.0029 | Return=-500.00
+2025-12-03 23:36:54,822 | src.run.runners | INFO | Agent 17 Step 119600: Loss=0.0002 | Return=-493.83
+2025-12-03 23:36:56,265 | src.run.runners | INFO | Agent 11 Step 64400: Loss=0.0091 | Return=-500.00
+2025-12-03 23:36:58,693 | src.run.runners | INFO | Agent 7 Step 55200: Loss=0.0017 | Return=-409.97
+2025-12-03 23:37:02,264 | src.run.runners | INFO | Agent 5 Step 92000: Loss=0.0063 | Return=-404.04
+2025-12-03 23:37:02,265 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 5 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:37:02,266 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:37:02,998 | src.run.runners | INFO | Agent 6 Step 110400: Loss=0.0142 | Return=-500.00
+2025-12-03 23:37:06,872 | src.run.runners | INFO | Agent 9 Step 46000: Loss=0.0003 | Return=-500.00
+2025-12-03 23:37:06,977 | src.run.runners | INFO | Agent 15 Step 46000: Loss=0.0009 | Return=-496.47
+2025-12-03 23:37:06,980 | src.run.runners | INFO | Agent 0 Step 46000: Loss=0.0105 | Return=-500.00
+2025-12-03 23:37:06,986 | src.run.runners | INFO | Agent 14 Step 46000: Loss=0.0002 | Return=-500.00
+2025-12-03 23:37:11,431 | src.run.runners | INFO | Agent 12 Step 119600: Loss=0.0001 | Return=-455.11
+2025-12-03 23:37:16,794 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:37:16,794 | src.run.runners | INFO | 🧬 Agent 4 PBT Check. Score: -500.00
+2025-12-03 23:37:32,189 | src.run.runners | INFO | Agent 16 Step 119600: Loss=0.0007 | Return=-489.00
+2025-12-03 23:37:33,129 | src.run.runners | INFO | Agent 13 Step 119600: Loss=0.0003 | Return=-500.00
+2025-12-03 23:37:33,464 | src.run.runners | INFO | Agent 1 Step 92000: Loss=0.0000 | Return=-500.00
+2025-12-03 23:37:34,920 | src.run.runners | INFO | Agent 17 Step 128800: Loss=0.0000 | Return=-500.00
+2025-12-03 23:37:38,544 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:37:38,544 | src.run.runners | INFO | 🧬 Agent 5 PBT Check. Score: -500.00
+2025-12-03 23:37:38,545 | src.run.runners | INFO | ♻️  Agent 5 exploits Mentor 7 (Score: -466.40 > -500.00)
+2025-12-03 23:37:38,652 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-03 23:37:38,771 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-03 23:37:38,773 | src.orchestrators.pbt | INFO | 🧬 [PBT] Mutation #5: alpha: 6.00e-01->7.50e-01 | beta_start: 4.00e-01->1.00e+00 | noisy_std_init: 2.00e+00->1.50e-01 | lr: 1.00e-04->3.00e-05
+2025-12-03 23:37:43,313 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:37:43,313 | src.run.runners | INFO | 🧬 Agent 15 PBT Check. Score: -500.00
+2025-12-03 23:37:43,314 | src.run.runners | INFO | ♻️  Agent 15 exploits Mentor 7 (Score: -466.40 > -500.00)
+2025-12-03 23:37:43,316 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:37:43,316 | src.run.runners | INFO | 🧬 Agent 9 PBT Check. Score: -500.00
+2025-12-03 23:37:43,399 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-03 23:37:43,400 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:37:43,401 | src.run.runners | INFO | 🧬 Agent 0 PBT Check. Score: -500.00
+2025-12-03 23:37:43,402 | src.run.runners | INFO | ♻️  Agent 0 exploits Mentor 7 (Score: -466.40 > -500.00)
+2025-12-03 23:37:43,502 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-03 23:37:43,503 | src.orchestrators.pbt | INFO | 🧬 [PBT] Mutation #15: alpha: 6.00e-01->3.50e-01 | beta_start: 4.00e-01->1.00e+00 | noisy_std_init: 2.00e+00->1.50e-01 | lr: 1.00e-04->3.00e-05
+2025-12-03 23:37:43,508 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-03 23:37:43,522 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:37:43,522 | src.run.runners | INFO | 🧬 Agent 14 PBT Check. Score: -500.00
+2025-12-03 23:37:43,678 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-03 23:37:43,680 | src.orchestrators.pbt | INFO | 🧬 [PBT] Mutation #0: alpha: 6.00e-01->3.50e-01 | noisy_std_init: 2.00e+00->1.65e+00 | lr: 1.00e-04->3.03e-04
+2025-12-03 23:37:46,744 | src.run.runners | INFO | Agent 6 Step 119600: Loss=0.0046 | Return=-500.00
+2025-12-03 23:37:48,049 | src.run.runners | INFO | Agent 11 Step 73600: Loss=0.0001 | Return=-500.00
+2025-12-03 23:37:55,955 | src.run.runners | INFO | Agent 12 Step 128800: Loss=0.0001 | Return=-455.27
+2025-12-03 23:38:07,480 | src.run.runners | INFO | Agent 4 Step 101200: Loss=0.0196 | Return=-376.45
+2025-12-03 23:38:11,591 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:38:11,592 | src.run.runners | INFO | 🧬 Agent 1 PBT Check. Score: -500.00
+2025-12-03 23:38:14,283 | src.run.runners | INFO | Agent 13 Step 128800: Loss=0.0002 | Return=-500.00
+2025-12-03 23:38:15,694 | src.run.runners | INFO | Agent 17 Step 138000: Loss=0.0000 | Return=-500.00
+2025-12-03 23:38:17,115 | src.run.runners | INFO | Agent 3 Step 64400: Loss=0.0040 | Return=-428.04
+2025-12-03 23:38:17,118 | src.run.runners | INFO | Agent 8 Step 64400: Loss=0.0014 | Return=-441.13
+2025-12-03 23:38:17,120 | src.run.runners | INFO | Agent 2 Step 64400: Loss=0.0137 | Return=-500.00
+2025-12-03 23:38:17,225 | src.run.runners | INFO | Agent 16 Step 128800: Loss=0.0000 | Return=-486.06
+2025-12-03 23:38:36,140 | src.run.runners | INFO | Agent 5 Step 101200: Loss=0.0003 | Return=-423.25
+2025-12-03 23:38:36,298 | src.run.runners | INFO | Agent 6 Step 128800: Loss=0.0027 | Return=-498.68
+2025-12-03 23:38:38,477 | src.run.runners | INFO | Agent 12 Step 138000: Loss=0.0001 | Return=-453.20
+2025-12-03 23:38:42,051 | src.run.runners | INFO | Agent 10 Step 64400: Loss=0.0056 | Return=-488.96
+2025-12-03 23:38:52,992 | src.run.runners | INFO | Agent 11 Step 82800: Loss=0.0001 | Return=-500.00
+2025-12-03 23:38:53,272 | src.run.runners | INFO | Agent 4 Step 110400: Loss=0.0090 | Return=-401.44
+2025-12-03 23:38:55,094 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:38:55,094 | src.run.runners | INFO | 🧬 Agent 17 PBT Check. Score: -500.00
+2025-12-03 23:38:55,095 | src.run.runners | INFO | ♻️  Agent 17 exploits Mentor 7 (Score: -466.40 > -500.00)
+2025-12-03 23:38:55,147 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-03 23:38:55,210 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-03 23:38:55,212 | src.orchestrators.pbt | INFO | 🧬 [PBT] Mutation #17: alpha: 3.50e-01->7.50e-01 | beta_start: 4.00e-01->9.80e-01 | lr: 3.03e-04->3.00e-05
+2025-12-03 23:38:56,227 | src.run.runners | INFO | Agent 13 Step 138000: Loss=0.0043 | Return=-500.00
+2025-12-03 23:39:00,398 | src.run.runners | INFO | Agent 1 Step 101200: Loss=0.6253 | Return=-500.00
+2025-12-03 23:39:00,679 | src.run.runners | INFO | Agent 16 Step 138000: Loss=0.0000 | Return=-484.16
+2025-12-03 23:39:13,401 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:39:13,402 | src.run.runners | INFO | 🧬 Agent 12 PBT Check. Score: -500.00
+2025-12-03 23:39:15,632 | src.run.runners | INFO | Agent 6 Step 138000: Loss=0.0000 | Return=-498.69
+2025-12-03 23:39:18,441 | src.run.runners | INFO | Agent 7 Step 64400: Loss=0.0036 | Return=-418.64
+2025-12-03 23:39:20,492 | src.run.runners | INFO | Agent 5 Step 110400: Loss=0.0001 | Return=-415.28
+2025-12-03 23:39:28,473 | EvalLoop | INFO | 📊 Eval Result: R=-473.0 | L=118.4 | SR=20.0%
+2025-12-03 23:39:28,474 | src.run.runners | INFO | 🧬 Agent 13 PBT Check. Score: -473.00
+2025-12-03 23:39:33,205 | src.run.runners | INFO | Agent 17 Step 147200: Loss=1.5434 | Return=-499.46
+2025-12-03 23:39:34,289 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:39:34,289 | src.run.runners | INFO | 🧬 Agent 16 PBT Check. Score: -500.00
+2025-12-03 23:39:34,900 | src.run.runners | INFO | Agent 4 Step 119600: Loss=0.0083 | Return=-375.07
+2025-12-03 23:39:37,205 | src.run.runners | INFO | Agent 11 Step 92000: Loss=0.0110 | Return=-500.00
+2025-12-03 23:39:42,275 | src.run.runners | INFO | Agent 1 Step 110400: Loss=0.0012 | Return=-500.00
+2025-12-03 23:39:44,572 | src.run.runners | INFO | Agent 3 Step 73600: Loss=0.0028 | Return=-412.50
+2025-12-03 23:39:44,573 | src.run.runners | INFO | Agent 8 Step 73600: Loss=0.0073 | Return=-436.83
+2025-12-03 23:39:44,574 | src.run.runners | INFO | Agent 2 Step 73600: Loss=0.0011 | Return=-500.00
+2025-12-03 23:39:48,240 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:39:48,241 | src.run.runners | INFO | 🧬 Agent 6 PBT Check. Score: -500.00
+2025-12-03 23:39:51,105 | src.run.runners | INFO | Agent 12 Step 147200: Loss=0.4864 | Return=-442.26
+2025-12-03 23:39:51,105 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 12 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:39:51,106 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:40:05,357 | src.run.runners | INFO | Agent 5 Step 119600: Loss=0.0001 | Return=-403.22
+2025-12-03 23:40:07,567 | src.run.runners | INFO | Agent 13 Step 147200: Loss=0.7973 | Return=-500.00
+2025-12-03 23:40:07,568 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 13 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:40:07,568 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:40:11,045 | src.run.runners | INFO | Agent 17 Step 156400: Loss=22.9512 | Return=-498.95
+2025-12-03 23:40:13,033 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:40:13,034 | src.run.runners | INFO | 🧬 Agent 11 PBT Check. Score: -500.00
+2025-12-03 23:40:13,034 | src.run.runners | INFO | ♻️  Agent 11 exploits Mentor 13 (Score: -473.00 > -500.00)
+2025-12-03 23:40:13,103 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-03 23:40:13,185 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-03 23:40:13,187 | src.orchestrators.pbt | INFO | 🧬 [PBT] Mutation #11: alpha: 6.00e-01->3.50e-01 | noisy_std_init: 2.00e+00->1.50e-01 | lr: 1.00e-04->3.03e-04
+2025-12-03 23:40:16,076 | src.run.runners | INFO | Agent 16 Step 147200: Loss=0.6457 | Return=-489.42
+2025-12-03 23:40:20,138 | src.run.runners | INFO | Agent 4 Step 128800: Loss=0.0003 | Return=-384.39
+2025-12-03 23:40:27,416 | src.run.runners | INFO | Agent 12 Step 156400: Loss=20.3243 | Return=-442.51
+2025-12-03 23:40:28,545 | src.run.runners | INFO | Agent 6 Step 147200: Loss=0.3109 | Return=-499.31
+2025-12-03 23:40:28,546 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 6 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:40:28,546 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:40:35,021 | src.run.runners | INFO | Agent 10 Step 73600: Loss=0.0004 | Return=-494.22
+2025-12-03 23:40:39,766 | src.run.runners | INFO | Agent 1 Step 119600: Loss=0.0924 | Return=-500.00
+2025-12-03 23:40:41,558 | src.run.runners | INFO | Agent 13 Step 156400: Loss=16.5381 | Return=-494.51
+2025-12-03 23:40:41,558 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 13 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:40:41,559 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:40:43,364 | src.run.runners | INFO | Agent 17 Step 165600: Loss=5.8711 | Return=-487.40
+2025-12-03 23:40:52,533 | src.run.runners | INFO | Agent 16 Step 156400: Loss=14.9551 | Return=-494.05
+2025-12-03 23:40:52,534 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 16 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:40:52,534 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:40:54,637 | src.run.runners | INFO | Agent 5 Step 128800: Loss=0.0000 | Return=-404.40
+2025-12-03 23:41:00,312 | src.run.runners | INFO | Agent 4 Step 138000: Loss=0.0001 | Return=-387.93
+2025-12-03 23:41:03,427 | src.run.runners | INFO | Agent 12 Step 165600: Loss=4.5746 | Return=-426.35
+2025-12-03 23:41:07,160 | src.run.runners | INFO | Agent 6 Step 156400: Loss=20.9411 | Return=-475.86
+2025-12-03 23:41:07,161 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 6 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:41:07,161 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:41:17,534 | src.run.runners | INFO | Agent 17 Step 174800: Loss=4.4266 | Return=-500.00
+2025-12-03 23:41:18,367 | src.run.runners | INFO | Agent 13 Step 165600: Loss=2.4146 | Return=-468.49
+2025-12-03 23:41:18,368 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 13 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:41:18,368 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:41:23,523 | src.run.runners | INFO | Agent 11 Step 101200: Loss=0.1290 | Return=-500.00
+2025-12-03 23:41:23,524 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 11 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:41:23,525 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:41:31,266 | src.run.runners | INFO | Agent 1 Step 128800: Loss=0.0119 | Return=-500.00
+2025-12-03 23:41:32,092 | src.run.runners | INFO | Agent 2 Step 82800: Loss=0.0006 | Return=-500.00
+2025-12-03 23:41:35,611 | src.run.runners | INFO | Agent 16 Step 165600: Loss=11.7650 | Return=-462.21
+2025-12-03 23:41:35,612 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 16 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:41:35,612 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:41:38,100 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:41:38,101 | src.run.runners | INFO | 🧬 Agent 4 PBT Check. Score: -500.00
+2025-12-03 23:41:38,101 | src.run.runners | INFO | ♻️  Agent 4 exploits Mentor 13 (Score: -473.00 > -500.00)
+2025-12-03 23:41:38,172 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-03 23:41:38,273 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-03 23:41:38,275 | src.orchestrators.pbt | INFO | 🧬 [PBT] Mutation #4: alpha: 6.00e-01->3.50e-01 | beta_start: 4.00e-01->1.00e+00 | noisy_std_init: 2.00e+00->1.65e+00 | lr: 1.00e-04->3.03e-04
+2025-12-03 23:41:41,829 | src.run.runners | INFO | Agent 5 Step 138000: Loss=0.0006 | Return=-398.61
+2025-12-03 23:41:43,603 | src.run.runners | INFO | Agent 12 Step 174800: Loss=12.3155 | Return=-417.55
+2025-12-03 23:41:52,709 | src.run.runners | INFO | Agent 6 Step 165600: Loss=6.3244 | Return=-461.45
+2025-12-03 23:41:52,709 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 6 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:41:52,710 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:41:58,166 | src.run.runners | INFO | Agent 17 Step 184000: Loss=5.1827 | Return=-500.00
+2025-12-03 23:42:03,709 | src.run.runners | INFO | Agent 13 Step 174800: Loss=2.3395 | Return=-403.13
+2025-12-03 23:42:03,710 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 13 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:42:03,710 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:42:16,865 | src.run.runners | INFO | Agent 16 Step 174800: Loss=7.1826 | Return=-437.81
+2025-12-03 23:42:16,866 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 16 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:42:16,866 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:42:18,214 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:42:18,225 | src.run.runners | INFO | 🧬 Agent 5 PBT Check. Score: -500.00
+2025-12-03 23:42:18,229 | src.run.runners | INFO | ♻️  Agent 5 exploits Mentor 13 (Score: -473.00 > -500.00)
+2025-12-03 23:42:18,233 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-03 23:42:18,279 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-03 23:42:18,280 | src.orchestrators.pbt | INFO | 🧬 [PBT] Mutation #5: noisy_std_init: 1.50e-01->3.67e-01
+2025-12-03 23:42:19,513 | src.run.runners | INFO | Agent 1 Step 138000: Loss=0.0000 | Return=-500.00
+2025-12-03 23:42:21,352 | src.run.runners | INFO | Agent 11 Step 110400: Loss=0.0193 | Return=-473.20
+2025-12-03 23:42:21,352 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 11 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:42:21,353 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:42:21,757 | src.run.runners | INFO | Agent 4 Step 147200: Loss=0.5881 | Return=-401.54
+2025-12-03 23:42:21,758 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 4 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:42:21,758 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:42:24,300 | src.run.runners | INFO | Agent 12 Step 184000: Loss=3.1748 | Return=-425.76
+2025-12-03 23:42:25,959 | src.run.runners | INFO | Agent 8 Step 82800: Loss=0.0096 | Return=-434.13
+2025-12-03 23:42:26,019 | src.run.runners | INFO | Agent 3 Step 82800: Loss=0.0004 | Return=-425.30
+2025-12-03 23:42:33,288 | src.run.runners | INFO | Agent 2 Step 92000: Loss=0.0001 | Return=-500.00
+2025-12-03 23:42:34,478 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:42:34,479 | src.run.runners | INFO | 🧬 Agent 17 PBT Check. Score: -500.00
+2025-12-03 23:42:34,480 | src.run.runners | INFO | ♻️  Agent 17 exploits Mentor 7 (Score: -466.40 > -500.00)
+2025-12-03 23:42:34,562 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-03 23:42:34,648 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-03 23:42:34,650 | src.orchestrators.pbt | INFO | 🧬 [PBT] Mutation #17: beta_start: 9.80e-01->4.00e-01 | lr: 3.00e-05->7.35e-05
+2025-12-03 23:42:35,121 | src.run.runners | INFO | Agent 6 Step 174800: Loss=4.9561 | Return=-445.99
+2025-12-03 23:42:35,122 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 6 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:42:35,122 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:42:42,944 | src.run.runners | INFO | Agent 13 Step 184000: Loss=1.8552 | Return=-393.19
+2025-12-03 23:42:42,945 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 13 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:42:42,946 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:42:49,814 | src.run.runners | INFO | Agent 7 Step 73600: Loss=0.0003 | Return=-416.03
+2025-12-03 23:42:55,162 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:42:55,162 | src.run.runners | INFO | 🧬 Agent 1 PBT Check. Score: -500.00
+2025-12-03 23:42:58,885 | src.run.runners | INFO | Agent 16 Step 184000: Loss=3.0535 | Return=-410.06
+2025-12-03 23:42:58,885 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 16 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:42:58,886 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:42:59,408 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:42:59,408 | src.run.runners | INFO | 🧬 Agent 12 PBT Check. Score: -500.00
+2025-12-03 23:42:59,409 | src.run.runners | INFO | ♻️  Agent 12 exploits Mentor 13 (Score: -473.00 > -500.00)
+2025-12-03 23:42:59,461 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-03 23:42:59,556 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-03 23:42:59,558 | src.orchestrators.pbt | INFO | 🧬 [PBT] Mutation #12: alpha: 6.00e-01->3.50e-01 | beta_start: 4.00e-01->1.00e+00 | noisy_std_init: 2.00e+00->1.50e-01 | lr: 1.00e-04->3.03e-04
+2025-12-03 23:42:59,652 | src.run.runners | INFO | Agent 10 Step 82800: Loss=0.0000 | Return=-498.77
+2025-12-03 23:43:03,904 | src.run.runners | INFO | Agent 5 Step 147200: Loss=3.4693 | Return=-406.40
+2025-12-03 23:43:05,646 | src.run.runners | INFO | Agent 4 Step 156400: Loss=3.8441 | Return=-432.78
+2025-12-03 23:43:07,426 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:43:07,427 | src.run.runners | INFO | 🧬 Agent 2 PBT Check. Score: -500.00
+2025-12-03 23:43:09,471 | src.run.runners | INFO | Agent 11 Step 119600: Loss=0.0209 | Return=-439.27
+2025-12-03 23:43:09,472 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 11 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:43:09,473 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:43:13,204 | src.run.runners | INFO | Agent 17 Step 193200: Loss=5.3812 | Return=-500.00
+2025-12-03 23:43:13,204 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 17 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:43:13,205 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:43:16,739 | src.run.runners | INFO | Agent 6 Step 184000: Loss=2.8878 | Return=-442.79
+2025-12-03 23:43:16,740 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 6 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:43:16,741 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:43:18,506 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:43:18,519 | src.run.runners | INFO | 🧬 Agent 13 PBT Check. Score: -500.00
+2025-12-03 23:43:35,268 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:43:35,268 | src.run.runners | INFO | 🧬 Agent 16 PBT Check. Score: -500.00
+2025-12-03 23:43:37,239 | src.run.runners | INFO | Agent 1 Step 147200: Loss=0.7937 | Return=-500.00
+2025-12-03 23:43:37,240 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 1 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:43:37,241 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:43:39,173 | src.run.runners | INFO | Agent 3 Step 92000: Loss=0.0000 | Return=-420.26
+2025-12-03 23:43:39,210 | src.run.runners | INFO | Agent 8 Step 92000: Loss=0.0004 | Return=-455.96
+2025-12-03 23:43:39,386 | src.run.runners | INFO | Agent 12 Step 193200: Loss=17.0772 | Return=-429.58
+2025-12-03 23:43:47,197 | src.run.runners | INFO | Agent 5 Step 156400: Loss=3.1005 | Return=-399.62
+2025-12-03 23:43:48,060 | src.run.runners | INFO | Agent 4 Step 165600: Loss=1.5463 | Return=-417.02
+2025-12-03 23:43:50,102 | src.run.runners | INFO | Agent 17 Step 202400: Loss=4.9003 | Return=-458.73
+2025-12-03 23:43:50,103 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 17 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:43:50,103 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:43:50,559 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:43:50,560 | src.run.runners | INFO | 🧬 Agent 6 PBT Check. Score: -500.00
+2025-12-03 23:43:57,349 | src.run.runners | INFO | Agent 13 Step 193200: Loss=6.8462 | Return=-428.71
+2025-12-03 23:43:57,350 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 13 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:43:57,350 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:44:00,480 | src.run.runners | INFO | Agent 11 Step 128800: Loss=0.0063 | Return=-402.14
+2025-12-03 23:44:00,480 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 11 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:44:00,481 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:44:10,261 | src.run.runners | INFO | Agent 2 Step 101200: Loss=0.0024 | Return=-500.00
+2025-12-03 23:44:12,424 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:44:12,424 | src.run.runners | INFO | 🧬 Agent 8 PBT Check. Score: -500.00
+2025-12-03 23:44:12,952 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:44:12,953 | src.run.runners | INFO | 🧬 Agent 3 PBT Check. Score: -500.00
+2025-12-03 23:44:14,997 | src.run.runners | INFO | Agent 16 Step 193200: Loss=11.2123 | Return=-422.55
+2025-12-03 23:44:18,821 | src.run.runners | INFO | Agent 12 Step 202400: Loss=13.3044 | Return=-370.85
+2025-12-03 23:44:29,256 | src.run.runners | INFO | Agent 17 Step 211600: Loss=2.8267 | Return=-429.44
+2025-12-03 23:44:31,752 | src.run.runners | INFO | Agent 6 Step 193200: Loss=12.9921 | Return=-462.41
+2025-12-03 23:44:31,753 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 6 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:44:31,753 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:44:33,958 | src.run.runners | INFO | Agent 1 Step 156400: Loss=23.9010 | Return=-465.12
+2025-12-03 23:44:33,958 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 1 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:44:33,959 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:44:34,910 | src.run.runners | INFO | Agent 13 Step 202400: Loss=2.7738 | Return=-425.06
+2025-12-03 23:44:34,910 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 13 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:44:34,911 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:44:35,073 | src.run.runners | INFO | Agent 4 Step 174800: Loss=3.7038 | Return=-418.86
+2025-12-03 23:44:38,408 | src.run.runners | INFO | Agent 5 Step 165600: Loss=1.2106 | Return=-406.61
+2025-12-03 23:44:51,324 | src.run.runners | INFO | Agent 15 Step 55200: Loss=0.0003 | Return=-498.04
+2025-12-03 23:44:51,483 | src.run.runners | INFO | Agent 14 Step 55200: Loss=0.0164 | Return=-500.00
+2025-12-03 23:44:51,534 | src.run.runners | INFO | Agent 9 Step 55200: Loss=0.3395 | Return=-500.00
+2025-12-03 23:44:51,641 | src.run.runners | INFO | Agent 0 Step 55200: Loss=0.1722 | Return=-500.00
+2025-12-03 23:44:57,907 | src.run.runners | INFO | Agent 16 Step 202400: Loss=8.0214 | Return=-419.62
+2025-12-03 23:44:58,948 | src.run.runners | INFO | Agent 12 Step 211600: Loss=4.2661 | Return=-364.57
+2025-12-03 23:45:08,470 | src.run.runners | INFO | Agent 17 Step 220800: Loss=1.7171 | Return=-405.82
+2025-12-03 23:45:15,392 | src.run.runners | INFO | Agent 13 Step 211600: Loss=1.4941 | Return=-413.41
+2025-12-03 23:45:15,393 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 13 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:45:15,393 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:45:15,809 | src.run.runners | INFO | Agent 6 Step 202400: Loss=8.0909 | Return=-457.49
+2025-12-03 23:45:15,809 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 6 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:45:15,810 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:45:21,517 | src.run.runners | INFO | Agent 4 Step 184000: Loss=1.2962 | Return=-423.47
+2025-12-03 23:45:24,798 | src.run.runners | INFO | Agent 11 Step 138000: Loss=0.0140 | Return=-406.56
+2025-12-03 23:45:24,799 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 11 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:45:24,800 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:45:29,842 | src.run.runners | INFO | Agent 5 Step 174800: Loss=0.6659 | Return=-428.90
+2025-12-03 23:45:29,843 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 5 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:45:29,843 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:45:33,435 | src.run.runners | INFO | Agent 10 Step 92000: Loss=0.0000 | Return=-494.03
+2025-12-03 23:45:35,433 | src.run.runners | INFO | Agent 12 Step 220800: Loss=5.3785 | Return=-417.74
+2025-12-03 23:45:36,827 | src.run.runners | INFO | Agent 1 Step 165600: Loss=9.6878 | Return=-451.21
+2025-12-03 23:45:37,126 | src.run.runners | INFO | Agent 16 Step 211600: Loss=4.3835 | Return=-436.44
+2025-12-03 23:45:41,355 | src.run.runners | INFO | Agent 2 Step 110400: Loss=0.0108 | Return=-500.00
+2025-12-03 23:45:46,723 | src.run.runners | INFO | Agent 17 Step 230000: Loss=1.8347 | Return=-396.24
+2025-12-03 23:45:56,902 | src.run.runners | INFO | Agent 7 Step 82800: Loss=0.0009 | Return=-425.61
+2025-12-03 23:45:57,124 | src.run.runners | INFO | Agent 13 Step 220800: Loss=2.9492 | Return=-417.23
+2025-12-03 23:45:57,124 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 13 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:45:57,125 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:45:59,263 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:45:59,263 | src.run.runners | INFO | 🧬 Agent 4 PBT Check. Score: -500.00
+2025-12-03 23:45:59,946 | src.run.runners | INFO | Agent 6 Step 211600: Loss=4.3795 | Return=-428.99
+2025-12-03 23:45:59,947 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 6 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:45:59,947 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:46:02,668 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:46:02,681 | src.run.runners | INFO | 🧬 Agent 11 PBT Check. Score: -500.00
+2025-12-03 23:46:08,258 | src.run.runners | INFO | Agent 8 Step 101200: Loss=0.0025 | Return=-447.46
+2025-12-03 23:46:08,274 | src.run.runners | INFO | Agent 3 Step 101200: Loss=0.0017 | Return=-424.33
+2025-12-03 23:46:11,228 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:46:11,228 | src.run.runners | INFO | 🧬 Agent 10 PBT Check. Score: -500.00
+2025-12-03 23:46:16,083 | src.run.runners | INFO | Agent 5 Step 184000: Loss=1.5886 | Return=-416.57
+2025-12-03 23:46:16,546 | EvalLoop | INFO | 📊 Eval Result: R=-377.4 | L=94.6 | SR=40.0%
+2025-12-03 23:46:16,547 | src.run.runners | INFO | 🧬 Agent 17 PBT Check. Score: -377.40
+2025-12-03 23:46:18,578 | src.run.runners | INFO | Agent 12 Step 230000: Loss=5.8806 | Return=-421.30
+2025-12-03 23:46:21,124 | src.run.runners | INFO | Agent 16 Step 220800: Loss=4.0664 | Return=-468.02
+2025-12-03 23:46:29,197 | src.run.runners | INFO | Agent 1 Step 174800: Loss=4.6698 | Return=-402.22
+2025-12-03 23:46:29,198 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 1 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:46:29,198 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:46:39,223 | src.run.runners | INFO | Agent 13 Step 230000: Loss=1.3044 | Return=-405.26
+2025-12-03 23:46:39,224 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 13 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:46:39,225 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:46:43,641 | src.run.runners | INFO | Agent 2 Step 119600: Loss=0.0118 | Return=-500.00
+2025-12-03 23:46:45,179 | src.run.runners | INFO | Agent 6 Step 220800: Loss=2.4788 | Return=-435.24
+2025-12-03 23:46:45,180 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 6 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:46:45,180 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:46:46,270 | src.run.runners | INFO | Agent 4 Step 193200: Loss=14.4362 | Return=-414.74
+2025-12-03 23:46:51,553 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:46:51,554 | src.run.runners | INFO | 🧬 Agent 5 PBT Check. Score: -500.00
+2025-12-03 23:46:51,555 | src.run.runners | INFO | ♻️  Agent 5 exploits Mentor 17 (Score: -377.40 > -500.00)
+2025-12-03 23:46:51,669 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-03 23:46:51,752 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-03 23:46:51,753 | src.orchestrators.pbt | INFO | 🧬 [PBT] Mutation #5: noisy_std_init: 3.67e-01->1.50e-01
+2025-12-03 23:46:53,939 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:46:53,940 | src.run.runners | INFO | 🧬 Agent 12 PBT Check. Score: -500.00
+2025-12-03 23:46:56,560 | src.run.runners | INFO | Agent 17 Step 239200: Loss=4.5015 | Return=-425.09
+2025-12-03 23:46:56,562 | src.run.runners | INFO | Agent 11 Step 147200: Loss=1.0634 | Return=-443.35
+2025-12-03 23:47:03,290 | src.run.runners | INFO | Agent 16 Step 230000: Loss=3.5628 | Return=-459.87
+2025-12-03 23:47:16,414 | src.run.runners | INFO | Agent 1 Step 184000: Loss=3.4255 | Return=-387.46
+2025-12-03 23:47:16,415 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 1 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:47:16,415 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:47:17,898 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:47:17,901 | src.run.runners | INFO | 🧬 Agent 13 PBT Check. Score: -500.00
+2025-12-03 23:47:17,901 | src.run.runners | INFO | ♻️  Agent 13 exploits Mentor 17 (Score: -377.40 > -500.00)
+2025-12-03 23:47:17,907 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-03 23:47:18,076 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-03 23:47:18,080 | src.orchestrators.pbt | INFO | 🧬 [PBT] Mutation #13: noisy_std_init: 1.65e+00->1.50e-01 | lr: 3.03e-04->3.00e-05
+2025-12-03 23:47:24,586 | src.run.runners | INFO | Agent 8 Step 110400: Loss=0.0006 | Return=-432.25
+2025-12-03 23:47:27,926 | src.run.runners | INFO | Agent 6 Step 230000: Loss=3.2354 | Return=-412.35
+2025-12-03 23:47:27,927 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 6 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:47:27,927 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:47:29,973 | src.run.runners | INFO | Agent 4 Step 202400: Loss=10.7489 | Return=-396.62
+2025-12-03 23:47:33,789 | src.run.runners | INFO | Agent 12 Step 239200: Loss=3.6472 | Return=-407.61
+2025-12-03 23:47:36,988 | src.run.runners | INFO | Agent 17 Step 248400: Loss=2.6462 | Return=-426.18
+2025-12-03 23:47:37,014 | src.run.runners | INFO | Agent 3 Step 110400: Loss=0.0057 | Return=-418.58
+2025-12-03 23:47:37,839 | src.run.runners | INFO | Agent 5 Step 193200: Loss=5.2457 | Return=-415.55
+2025-12-03 23:47:37,958 | src.run.runners | INFO | Agent 2 Step 128800: Loss=0.0001 | Return=-500.00
+2025-12-03 23:47:40,632 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:47:40,633 | src.run.runners | INFO | 🧬 Agent 16 PBT Check. Score: -500.00
+2025-12-03 23:47:40,633 | src.run.runners | INFO | ♻️  Agent 16 exploits Mentor 17 (Score: -377.40 > -500.00)
+2025-12-03 23:47:40,757 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-03 23:47:40,873 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-03 23:47:40,875 | src.orchestrators.pbt | INFO | 🧬 [PBT] Mutation #16: alpha: 6.00e-01->3.50e-01 | beta_start: 4.00e-01->1.00e+00 | noisy_std_init: 2.00e+00->1.50e-01 | lr: 1.00e-04->3.00e-05
+2025-12-03 23:47:48,780 | src.run.runners | INFO | Agent 11 Step 156400: Loss=15.3481 | Return=-446.79
+2025-12-03 23:47:52,394 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:47:52,394 | src.run.runners | INFO | 🧬 Agent 1 PBT Check. Score: -500.00
+2025-12-03 23:47:58,744 | src.run.runners | INFO | Agent 13 Step 239200: Loss=3.2341 | Return=-407.57
+2025-12-03 23:48:00,531 | src.run.runners | INFO | Agent 10 Step 101200: Loss=0.0278 | Return=-491.43
+2025-12-03 23:48:02,894 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:48:02,894 | src.run.runners | INFO | 🧬 Agent 6 PBT Check. Score: -500.00
+2025-12-03 23:48:02,895 | src.run.runners | INFO | ♻️  Agent 6 exploits Mentor 17 (Score: -377.40 > -500.00)
+2025-12-03 23:48:02,971 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-03 23:48:03,027 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-03 23:48:03,029 | src.orchestrators.pbt | INFO | 🧬 [PBT] Mutation #6: alpha: 6.00e-01->7.50e-01 | beta_start: 4.00e-01->1.00e+00 | noisy_std_init: 2.00e+00->1.65e+00 | lr: 1.00e-04->3.00e-05
+2025-12-03 23:48:13,610 | src.run.runners | INFO | Agent 4 Step 211600: Loss=7.6217 | Return=-343.18
+2025-12-03 23:48:14,206 | src.run.runners | INFO | Agent 12 Step 248400: Loss=4.4767 | Return=-411.72
+2025-12-03 23:48:15,192 | src.run.runners | INFO | Agent 17 Step 257600: Loss=1.3750 | Return=-431.08
+2025-12-03 23:48:20,616 | src.run.runners | INFO | Agent 16 Step 239200: Loss=4.0167 | Return=-427.52
+2025-12-03 23:48:27,500 | src.run.runners | INFO | Agent 5 Step 202400: Loss=1.0966 | Return=-416.62
+2025-12-03 23:48:34,515 | src.run.runners | INFO | Agent 13 Step 248400: Loss=1.8984 | Return=-416.70
+2025-12-03 23:48:42,181 | src.run.runners | INFO | Agent 6 Step 239200: Loss=2.8855 | Return=-408.14
+2025-12-03 23:48:42,182 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 6 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:48:42,183 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:48:48,677 | src.run.runners | INFO | Agent 1 Step 193200: Loss=4.6559 | Return=-410.77
+2025-12-03 23:48:48,677 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 1 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:48:48,678 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:48:50,002 | src.run.runners | INFO | Agent 12 Step 257600: Loss=3.6512 | Return=-401.52
+2025-12-03 23:48:50,294 | src.run.runners | INFO | Agent 17 Step 266800: Loss=2.1260 | Return=-434.12
+2025-12-03 23:48:56,040 | src.run.runners | INFO | Agent 4 Step 220800: Loss=6.1803 | Return=-358.08
+2025-12-03 23:48:59,184 | src.run.runners | INFO | Agent 16 Step 248400: Loss=2.8573 | Return=-414.59
+2025-12-03 23:49:03,062 | src.run.runners | INFO | Agent 11 Step 165600: Loss=3.4088 | Return=-414.46
+2025-12-03 23:49:14,207 | src.run.runners | INFO | Agent 13 Step 257600: Loss=1.0119 | Return=-401.23
+2025-12-03 23:49:15,013 | src.run.runners | INFO | Agent 5 Step 211600: Loss=3.7488 | Return=-430.39
+2025-12-03 23:49:28,336 | src.run.runners | INFO | Agent 6 Step 248400: Loss=1.6657 | Return=-405.58
+2025-12-03 23:49:30,178 | src.run.runners | INFO | Agent 12 Step 266800: Loss=3.8912 | Return=-368.95
+2025-12-03 23:49:30,599 | src.run.runners | INFO | Agent 17 Step 276000: Loss=7.6380 | Return=-418.29
+2025-12-03 23:49:31,304 | src.run.runners | INFO | Agent 2 Step 138000: Loss=0.0000 | Return=-500.00
+2025-12-03 23:49:34,351 | src.run.runners | INFO | Agent 8 Step 119600: Loss=0.0002 | Return=-446.99
+2025-12-03 23:49:41,246 | src.run.runners | INFO | Agent 16 Step 257600: Loss=2.2082 | Return=-408.16
+2025-12-03 23:49:42,800 | src.run.runners | INFO | Agent 4 Step 230000: Loss=6.5139 | Return=-376.97
+2025-12-03 23:49:47,857 | src.run.runners | INFO | Agent 1 Step 202400: Loss=11.3805 | Return=-417.62
+2025-12-03 23:49:47,858 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 1 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:49:47,858 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:49:54,277 | src.run.runners | INFO | Agent 13 Step 266800: Loss=0.3847 | Return=-400.81
+2025-12-03 23:50:00,638 | src.run.runners | INFO | Agent 5 Step 220800: Loss=2.7645 | Return=-424.41
+2025-12-03 23:50:01,704 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:50:01,705 | src.run.runners | INFO | 🧬 Agent 17 PBT Check. Score: -500.00
+2025-12-03 23:50:01,918 | src.run.runners | INFO | Agent 11 Step 174800: Loss=4.9503 | Return=-416.54
+2025-12-03 23:50:02,462 | src.run.runners | INFO | Agent 7 Step 92000: Loss=0.0004 | Return=-424.96
+2025-12-03 23:50:02,788 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:50:02,789 | src.run.runners | INFO | 🧬 Agent 2 PBT Check. Score: -500.00
+2025-12-03 23:50:06,783 | src.run.runners | INFO | Agent 6 Step 257600: Loss=0.2347 | Return=-410.54
+2025-12-03 23:50:08,187 | src.run.runners | INFO | Agent 12 Step 276000: Loss=2.8847 | Return=-356.68
+2025-12-03 23:50:15,609 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:50:15,610 | src.run.runners | INFO | 🧬 Agent 4 PBT Check. Score: -500.00
+2025-12-03 23:50:15,610 | src.run.runners | INFO | ♻️  Agent 4 exploits Mentor 7 (Score: -466.40 > -500.00)
+2025-12-03 23:50:15,648 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-03 23:50:15,703 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-03 23:50:15,705 | src.orchestrators.pbt | INFO | 🧬 [PBT] Mutation #4: alpha: 3.50e-01->7.50e-01 | beta_start: 1.00e+00->4.00e-01 | lr: 3.03e-04->7.42e-04
+2025-12-03 23:50:19,771 | src.run.runners | INFO | Agent 16 Step 266800: Loss=2.2051 | Return=-403.29
+2025-12-03 23:50:32,528 | src.run.runners | INFO | Agent 3 Step 119600: Loss=0.0102 | Return=-414.24
+2025-12-03 23:50:37,600 | src.run.runners | INFO | Agent 1 Step 211600: Loss=9.3042 | Return=-456.84
+2025-12-03 23:50:37,600 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 1 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:50:37,601 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:50:38,910 | src.run.runners | INFO | Agent 13 Step 276000: Loss=12.2762 | Return=-404.93
+2025-12-03 23:50:41,374 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:50:41,377 | src.run.runners | INFO | 🧬 Agent 7 PBT Check. Score: -500.00
+2025-12-03 23:50:45,143 | src.run.runners | INFO | Agent 17 Step 285200: Loss=2.1702 | Return=-419.40
+2025-12-03 23:50:45,144 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 17 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:50:45,144 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:50:46,405 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:50:46,406 | src.run.runners | INFO | 🧬 Agent 12 PBT Check. Score: -500.00
+2025-12-03 23:50:46,487 | src.run.runners | INFO | Agent 8 Step 128800: Loss=0.0001 | Return=-465.71
+2025-12-03 23:50:49,966 | src.run.runners | INFO | Agent 5 Step 230000: Loss=1.9950 | Return=-395.14
+2025-12-03 23:50:52,835 | src.run.runners | INFO | Agent 6 Step 266800: Loss=0.2760 | Return=-409.83
+2025-12-03 23:50:58,194 | src.run.runners | INFO | Agent 11 Step 184000: Loss=3.0166 | Return=-392.25
+2025-12-03 23:51:01,919 | src.run.runners | INFO | Agent 4 Step 239200: Loss=11.0710 | Return=-381.93
+2025-12-03 23:51:04,689 | src.run.runners | INFO | Agent 16 Step 276000: Loss=1.5884 | Return=-411.13
+2025-12-03 23:51:08,073 | src.run.runners | INFO | Agent 2 Step 147200: Loss=0.4492 | Return=-500.00
+2025-12-03 23:51:12,002 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:51:12,003 | src.run.runners | INFO | 🧬 Agent 13 PBT Check. Score: -500.00
+2025-12-03 23:51:18,495 | src.run.runners | INFO | Agent 1 Step 220800: Loss=4.9622 | Return=-461.92
+2025-12-03 23:51:18,496 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 1 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:51:18,497 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:51:20,362 | src.run.runners | INFO | Agent 10 Step 110400: Loss=0.0247 | Return=-495.44
+2025-12-03 23:51:22,141 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:51:22,141 | src.run.runners | INFO | 🧬 Agent 5 PBT Check. Score: -500.00
+2025-12-03 23:51:23,303 | src.run.runners | INFO | Agent 17 Step 294400: Loss=1.5786 | Return=-423.27
+2025-12-03 23:51:25,692 | src.run.runners | INFO | Agent 12 Step 285200: Loss=3.8448 | Return=-370.13
+2025-12-03 23:51:30,905 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:51:30,906 | src.run.runners | INFO | 🧬 Agent 11 PBT Check. Score: -500.00
+2025-12-03 23:51:32,878 | src.run.runners | INFO | Agent 6 Step 276000: Loss=7.4118 | Return=-426.12
+2025-12-03 23:51:32,879 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 6 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:51:32,879 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:51:37,125 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:51:37,126 | src.run.runners | INFO | 🧬 Agent 16 PBT Check. Score: -500.00
+2025-12-03 23:51:40,671 | src.run.runners | INFO | Agent 4 Step 248400: Loss=4.9140 | Return=-415.12
+2025-12-03 23:51:48,345 | src.run.runners | INFO | Agent 13 Step 285200: Loss=4.2856 | Return=-402.93
+2025-12-03 23:51:54,660 | src.run.runners | INFO | Agent 8 Step 138000: Loss=0.0001 | Return=-453.54
+2025-12-03 23:52:06,072 | src.run.runners | INFO | Agent 15 Step 64400: Loss=0.0000 | Return=-500.00
+2025-12-03 23:52:06,150 | src.run.runners | INFO | Agent 0 Step 64400: Loss=0.0152 | Return=-462.70
+2025-12-03 23:52:06,153 | src.run.runners | INFO | Agent 9 Step 64400: Loss=0.0108 | Return=-500.00
+2025-12-03 23:52:06,156 | src.run.runners | INFO | Agent 14 Step 64400: Loss=0.0139 | Return=-500.00
+2025-12-03 23:52:07,885 | src.run.runners | INFO | Agent 17 Step 303600: Loss=0.8802 | Return=-405.83
+2025-12-03 23:52:11,980 | src.run.runners | INFO | Agent 12 Step 294400: Loss=3.4973 | Return=-409.64
+2025-12-03 23:52:14,274 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:52:14,275 | src.run.runners | INFO | 🧬 Agent 6 PBT Check. Score: -500.00
+2025-12-03 23:52:14,715 | src.run.runners | INFO | Agent 5 Step 239200: Loss=16.0796 | Return=-415.39
+2025-12-03 23:52:15,132 | src.run.runners | INFO | Agent 1 Step 230000: Loss=2.0897 | Return=-460.99
+2025-12-03 23:52:15,133 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 1 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:52:15,133 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:52:17,306 | src.run.runners | INFO | Agent 2 Step 156400: Loss=24.8453 | Return=-500.00
+2025-12-03 23:52:19,340 | src.run.runners | INFO | Agent 3 Step 128800: Loss=0.0012 | Return=-402.45
+2025-12-03 23:52:28,419 | src.run.runners | INFO | Agent 16 Step 285200: Loss=15.7270 | Return=-416.11
+2025-12-03 23:52:28,420 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 16 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:52:28,420 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:52:38,010 | src.run.runners | INFO | Agent 4 Step 257600: Loss=6.1339 | Return=-352.68
+2025-12-03 23:52:40,776 | src.run.runners | INFO | Agent 11 Step 193200: Loss=8.1293 | Return=-398.78
+2025-12-03 23:52:42,086 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:52:42,087 | src.run.runners | INFO | 🧬 Agent 8 PBT Check. Score: -500.00
+2025-12-03 23:52:42,295 | src.run.runners | INFO | Agent 13 Step 294400: Loss=6.5150 | Return=-412.29
+2025-12-03 23:52:56,307 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:52:56,308 | src.run.runners | INFO | 🧬 Agent 1 PBT Check. Score: -500.00
+2025-12-03 23:52:56,449 | src.run.runners | INFO | Agent 17 Step 312800: Loss=1.2821 | Return=-414.07
+2025-12-03 23:52:59,047 | src.run.runners | INFO | Agent 12 Step 303600: Loss=4.3463 | Return=-405.03
+2025-12-03 23:53:05,155 | src.run.runners | INFO | Agent 6 Step 285200: Loss=7.6665 | Return=-408.89
+2025-12-03 23:53:10,640 | src.run.runners | INFO | Agent 16 Step 294400: Loss=16.4025 | Return=-414.16
+2025-12-03 23:53:10,640 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 16 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:53:10,641 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:53:11,443 | src.run.runners | INFO | Agent 5 Step 248400: Loss=9.7270 | Return=-409.30
+2025-12-03 23:53:20,648 | src.run.runners | INFO | Agent 4 Step 266800: Loss=2.7096 | Return=-350.35
+2025-12-03 23:53:20,939 | src.run.runners | INFO | Agent 13 Step 303600: Loss=6.2217 | Return=-428.15
+2025-12-03 23:53:30,901 | src.run.runners | INFO | Agent 17 Step 322000: Loss=6.4889 | Return=-414.91
+2025-12-03 23:53:35,606 | src.run.runners | INFO | Agent 12 Step 312800: Loss=2.9724 | Return=-395.26
+2025-12-03 23:53:43,349 | src.run.runners | INFO | Agent 6 Step 294400: Loss=8.6921 | Return=-415.75
+2025-12-03 23:53:43,350 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 6 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:53:43,351 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:53:47,474 | src.run.runners | INFO | Agent 16 Step 303600: Loss=17.7200 | Return=-409.41
+2025-12-03 23:53:48,380 | src.run.runners | INFO | Agent 1 Step 239200: Loss=3.5038 | Return=-462.51
+2025-12-03 23:53:48,381 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 1 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:53:48,382 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:53:49,029 | src.run.runners | INFO | Agent 11 Step 202400: Loss=3.6093 | Return=-413.21
+2025-12-03 23:53:49,030 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 11 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:53:49,031 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:53:54,970 | src.run.runners | INFO | Agent 5 Step 257600: Loss=7.9552 | Return=-415.69
+2025-12-03 23:53:56,438 | src.run.runners | INFO | Agent 2 Step 165600: Loss=8.6801 | Return=-500.00
+2025-12-03 23:53:57,672 | src.run.runners | INFO | Agent 13 Step 312800: Loss=3.1129 | Return=-423.94
+2025-12-03 23:54:01,119 | src.run.runners | INFO | Agent 4 Step 276000: Loss=4.9315 | Return=-384.12
+2025-12-03 23:54:04,598 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:54:04,598 | src.run.runners | INFO | 🧬 Agent 17 PBT Check. Score: -500.00
+2025-12-03 23:54:10,924 | src.run.runners | INFO | Agent 12 Step 322000: Loss=2.8620 | Return=-392.54
+2025-12-03 23:54:22,919 | src.run.runners | INFO | Agent 7 Step 101200: Loss=0.0099 | Return=-421.48
+2025-12-03 23:54:25,413 | src.run.runners | INFO | Agent 6 Step 303600: Loss=6.2521 | Return=-414.31
+2025-12-03 23:54:29,940 | src.run.runners | INFO | Agent 16 Step 312800: Loss=12.5525 | Return=-400.26
+2025-12-03 23:54:31,129 | EvalLoop | INFO | 📊 Eval Result: R=-406.0 | L=102.2 | SR=80.0%
+2025-12-03 23:54:31,130 | src.run.runners | INFO | 🧬 Agent 4 PBT Check. Score: -406.00
+2025-12-03 23:54:34,367 | src.run.runners | INFO | Agent 1 Step 248400: Loss=1.6680 | Return=-454.38
+2025-12-03 23:54:34,368 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 1 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:54:34,368 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:54:36,659 | src.run.runners | INFO | Agent 8 Step 147200: Loss=0.6327 | Return=-419.19
+2025-12-03 23:54:36,660 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 8 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:54:36,661 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:54:38,337 | src.run.runners | INFO | Agent 13 Step 322000: Loss=4.6667 | Return=-416.46
+2025-12-03 23:54:39,703 | src.run.runners | INFO | Agent 5 Step 266800: Loss=7.4846 | Return=-404.95
+2025-12-03 23:54:41,748 | src.run.runners | INFO | Agent 11 Step 211600: Loss=8.2935 | Return=-415.67
+2025-12-03 23:54:41,748 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 11 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:54:41,749 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:54:43,450 | src.run.runners | INFO | Agent 17 Step 331200: Loss=4.8583 | Return=-429.32
+2025-12-03 23:54:44,700 | src.run.runners | INFO | Agent 10 Step 119600: Loss=0.0161 | Return=-500.00
+2025-12-03 23:54:49,054 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:54:49,055 | src.run.runners | INFO | 🧬 Agent 12 PBT Check. Score: -500.00
+2025-12-03 23:54:49,056 | src.run.runners | INFO | ♻️  Agent 12 exploits Mentor 4 (Score: -406.00 > -500.00)
+2025-12-03 23:54:49,219 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-03 23:54:49,380 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-03 23:54:49,385 | src.orchestrators.pbt | INFO | 🧬 [PBT] Mutation #12: lr: 3.03e-04->7.42e-04
+2025-12-03 23:54:58,383 | src.run.runners | INFO | Agent 3 Step 138000: Loss=0.0001 | Return=-405.59
+2025-12-03 23:55:01,957 | src.run.runners | INFO | Agent 2 Step 174800: Loss=5.2410 | Return=-500.00
+2025-12-03 23:55:01,958 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 2 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:55:01,958 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:55:06,660 | src.run.runners | INFO | Agent 6 Step 312800: Loss=3.6383 | Return=-409.78
+2025-12-03 23:55:09,684 | src.run.runners | INFO | Agent 16 Step 322000: Loss=12.1416 | Return=-406.74
+2025-12-03 23:55:12,908 | EvalLoop | INFO | 📊 Eval Result: R=-494.0 | L=123.6 | SR=20.0%
+2025-12-03 23:55:12,909 | src.run.runners | INFO | 🧬 Agent 13 PBT Check. Score: -494.00
+2025-12-03 23:55:12,910 | src.run.runners | INFO | ♻️  Agent 13 exploits Mentor 4 (Score: -406.00 > -494.00)
+2025-12-03 23:55:12,943 | src.run.runners | INFO | Agent 4 Step 285200: Loss=4.1179 | Return=-388.29
+2025-12-03 23:55:13,008 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-03 23:55:13,117 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-03 23:55:13,118 | src.orchestrators.pbt | INFO | 🧬 [PBT] Mutation #13: alpha: 3.50e-01->7.50e-01 | lr: 3.00e-05->7.35e-05
+2025-12-03 23:55:22,420 | src.run.runners | INFO | Agent 17 Step 340400: Loss=1.5866 | Return=-424.44
+2025-12-03 23:55:23,270 | src.run.runners | INFO | Agent 1 Step 257600: Loss=1.3177 | Return=-453.96
+2025-12-03 23:55:23,270 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 1 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:55:23,271 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:55:24,942 | src.run.runners | INFO | Agent 5 Step 276000: Loss=6.0592 | Return=-411.84
+2025-12-03 23:55:27,045 | src.run.runners | INFO | Agent 12 Step 331200: Loss=4.2207 | Return=-415.45
+2025-12-03 23:55:30,899 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:55:30,912 | src.run.runners | INFO | 🧬 Agent 3 PBT Check. Score: -500.00
+2025-12-03 23:55:30,912 | src.run.runners | INFO | ♻️  Agent 3 exploits Mentor 13 (Score: -494.00 > -500.00)
+2025-12-03 23:55:31,005 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-03 23:55:31,109 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-03 23:55:31,111 | src.orchestrators.pbt | INFO | 🧬 [PBT] Mutation #3: alpha: 6.00e-01->7.50e-01 | noisy_std_init: 2.00e+00->1.65e+00 | lr: 1.00e-04->3.03e-04
+2025-12-03 23:55:36,609 | src.run.runners | INFO | Agent 11 Step 220800: Loss=1.6687 | Return=-441.08
+2025-12-03 23:55:36,610 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 11 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:55:36,610 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:55:41,219 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:55:41,220 | src.run.runners | INFO | 🧬 Agent 16 PBT Check. Score: -500.00
+2025-12-03 23:55:41,220 | src.run.runners | INFO | ♻️  Agent 16 exploits Mentor 13 (Score: -494.00 > -500.00)
+2025-12-03 23:55:41,250 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-03 23:55:41,321 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-03 23:55:41,322 | src.orchestrators.pbt | INFO | 🧬 [PBT] Mutation #16: alpha: 3.50e-01->7.50e-01 | beta_start: 1.00e+00->4.00e-01 | noisy_std_init: 1.50e-01->3.67e-01
+2025-12-03 23:55:44,718 | src.run.runners | INFO | Agent 6 Step 322000: Loss=5.4583 | Return=-384.85
+2025-12-03 23:55:50,497 | src.run.runners | INFO | Agent 13 Step 331200: Loss=1.5303 | Return=-413.08
+2025-12-03 23:55:54,068 | src.run.runners | INFO | Agent 4 Step 294400: Loss=3.0151 | Return=-381.97
+2025-12-03 23:55:55,596 | src.run.runners | INFO | Agent 2 Step 184000: Loss=5.7835 | Return=-461.33
+2025-12-03 23:55:55,597 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 2 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:55:55,597 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:55:56,441 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:55:56,441 | src.run.runners | INFO | 🧬 Agent 5 PBT Check. Score: -500.00
+2025-12-03 23:55:57,519 | src.run.runners | INFO | Agent 17 Step 349600: Loss=2.8937 | Return=-409.62
+2025-12-03 23:56:00,410 | src.run.runners | INFO | Agent 8 Step 156400: Loss=23.8779 | Return=-410.54
+2025-12-03 23:56:00,411 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 8 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:56:00,412 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:56:04,308 | src.run.runners | INFO | Agent 12 Step 340400: Loss=2.8012 | Return=-418.53
+2025-12-03 23:56:06,418 | src.run.runners | INFO | Agent 1 Step 266800: Loss=2.5624 | Return=-443.29
+2025-12-03 23:56:06,418 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 1 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:56:06,419 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:56:18,408 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:56:18,408 | src.run.runners | INFO | 🧬 Agent 6 PBT Check. Score: -500.00
+2025-12-03 23:56:18,409 | src.run.runners | INFO | ♻️  Agent 6 exploits Mentor 4 (Score: -406.00 > -500.00)
+2025-12-03 23:56:18,460 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-03 23:56:18,479 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-03 23:56:18,480 | src.orchestrators.pbt | INFO | 🧬 [PBT] Mutation #6: alpha: 7.50e-01->3.50e-01 | beta_start: 1.00e+00->4.00e-01 | noisy_std_init: 1.65e+00->1.50e-01 | lr: 3.00e-05->7.35e-05
+2025-12-03 23:56:23,730 | src.run.runners | INFO | Agent 16 Step 331200: Loss=1.7016 | Return=-401.13
+2025-12-03 23:56:26,571 | src.run.runners | INFO | Agent 11 Step 230000: Loss=2.8506 | Return=-431.11
+2025-12-03 23:56:26,572 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 11 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:56:26,572 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:56:31,252 | src.run.runners | INFO | Agent 13 Step 340400: Loss=1.4899 | Return=-405.23
+2025-12-03 23:56:31,995 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:56:31,996 | src.run.runners | INFO | 🧬 Agent 2 PBT Check. Score: -500.00
+2025-12-03 23:56:31,996 | src.run.runners | INFO | ♻️  Agent 2 exploits Mentor 13 (Score: -494.00 > -500.00)
+2025-12-03 23:56:32,036 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-03 23:56:32,092 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-03 23:56:32,095 | src.orchestrators.pbt | INFO | 🧬 [PBT] Mutation #2: alpha: 6.00e-01->7.50e-01 | noisy_std_init: 2.00e+00->1.65e+00 | lr: 1.00e-04->3.03e-04
+2025-12-03 23:56:37,555 | src.run.runners | INFO | Agent 17 Step 358800: Loss=2.6472 | Return=-406.35
+2025-12-03 23:56:38,760 | src.run.runners | INFO | Agent 4 Step 303600: Loss=2.2903 | Return=-389.54
+2025-12-03 23:56:42,950 | src.run.runners | INFO | Agent 12 Step 349600: Loss=1.5889 | Return=-411.72
+2025-12-03 23:56:44,287 | src.run.runners | INFO | Agent 5 Step 285200: Loss=9.3662 | Return=-412.25
+2025-12-03 23:57:01,987 | src.run.runners | INFO | Agent 6 Step 331200: Loss=1.3719 | Return=-386.03
+2025-12-03 23:57:02,090 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:57:02,091 | src.run.runners | INFO | 🧬 Agent 11 PBT Check. Score: -500.00
+2025-12-03 23:57:02,091 | src.run.runners | INFO | ♻️  Agent 11 exploits Mentor 4 (Score: -406.00 > -500.00)
+2025-12-03 23:57:02,117 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-03 23:57:02,180 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-03 23:57:02,181 | src.orchestrators.pbt | INFO | 🧬 [PBT] Mutation #11: alpha: 3.50e-01->7.50e-01 | lr: 3.03e-04->7.42e-04
+2025-12-03 23:57:03,978 | src.run.runners | INFO | Agent 16 Step 340400: Loss=1.1867 | Return=-389.09
+2025-12-03 23:57:09,275 | src.run.runners | INFO | Agent 1 Step 276000: Loss=12.7497 | Return=-451.95
+2025-12-03 23:57:09,276 | src.orchestrators.immune | INFO | 🚑 Immune System: Treating Agent 1 for 'ENTROPY_COLLAPSE' (stimulant_ent)
+2025-12-03 23:57:09,277 | src.orchestrators.immune | INFO | 💉 Applied Entropy Boost: 0.825
+2025-12-03 23:57:10,897 | src.run.runners | INFO | Agent 13 Step 349600: Loss=2.4159 | Return=-395.91
+2025-12-03 23:57:16,361 | src.run.runners | INFO | Agent 17 Step 368000: Loss=2.5731 | Return=-367.61
+2025-12-03 23:57:22,125 | src.run.runners | INFO | Agent 12 Step 358800: Loss=1.3407 | Return=-402.26
+2025-12-03 23:57:24,350 | src.run.runners | INFO | Agent 4 Step 312800: Loss=2.2937 | Return=-395.21
+2025-12-03 23:57:30,683 | src.run.runners | INFO | Agent 5 Step 294400: Loss=4.3295 | Return=-408.70
+2025-12-03 23:57:35,912 | src.run.runners | INFO | Agent 2 Step 193200: Loss=6.5697 | Return=-385.69
+2025-12-03 23:57:37,906 | src.run.runners | INFO | Agent 8 Step 165600: Loss=3.4755 | Return=-408.16
+2025-12-03 23:57:38,751 | src.run.runners | INFO | Agent 3 Step 147200: Loss=0.5671 | Return=-430.00
+2025-12-03 23:57:40,360 | src.run.runners | INFO | Agent 6 Step 340400: Loss=1.9175 | Return=-384.68
+2025-12-03 23:57:41,019 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:57:41,019 | src.run.runners | INFO | 🧬 Agent 1 PBT Check. Score: -500.00
+2025-12-03 23:57:41,020 | src.run.runners | INFO | ♻️  Agent 1 exploits Mentor 13 (Score: -494.00 > -500.00)
+2025-12-03 23:57:41,163 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-03 23:57:41,274 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-03 23:57:41,275 | src.orchestrators.pbt | INFO | 🧬 [PBT] Mutation #1: alpha: 6.00e-01->3.50e-01 | noisy_std_init: 2.00e+00->1.50e-01 | lr: 1.00e-04->3.00e-05
+2025-12-03 23:57:41,426 | src.run.runners | INFO | Agent 16 Step 349600: Loss=1.5186 | Return=-360.44
+2025-12-03 23:57:44,273 | src.run.runners | INFO | Agent 10 Step 128800: Loss=0.0004 | Return=-500.00
+2025-12-03 23:57:49,036 | src.run.runners | INFO | Agent 13 Step 358800: Loss=1.3886 | Return=-380.36
+2025-12-03 23:57:50,947 | src.run.runners | INFO | Agent 11 Step 239200: Loss=2.0845 | Return=-409.65
+2025-12-03 23:57:51,659 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:57:51,670 | src.run.runners | INFO | 🧬 Agent 17 PBT Check. Score: -500.00
+2025-12-03 23:57:51,674 | src.run.runners | INFO | ♻️  Agent 17 exploits Mentor 13 (Score: -494.00 > -500.00)
+2025-12-03 23:57:51,877 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-03 23:57:52,039 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-03 23:57:52,041 | src.orchestrators.pbt | INFO | 🧬 [PBT] Mutation #17: beta_start: 4.00e-01->9.80e-01 | lr: 7.35e-05->3.00e-05
+2025-12-03 23:58:02,984 | src.run.runners | INFO | Agent 12 Step 368000: Loss=1.6970 | Return=-390.38
+2025-12-03 23:58:09,937 | src.run.runners | INFO | Agent 4 Step 322000: Loss=2.0174 | Return=-393.69
+2025-12-03 23:58:20,967 | src.run.runners | INFO | Agent 5 Step 303600: Loss=3.3062 | Return=-424.54
+2025-12-03 23:58:26,348 | src.run.runners | INFO | Agent 16 Step 358800: Loss=1.4690 | Return=-369.35
+2025-12-03 23:58:26,977 | src.run.runners | INFO | Agent 6 Step 349600: Loss=1.7143 | Return=-380.34
+2025-12-03 23:58:30,059 | src.run.runners | INFO | Agent 13 Step 368000: Loss=1.6714 | Return=-379.40
+2025-12-03 23:58:31,620 | src.run.runners | INFO | Agent 17 Step 377200: Loss=1.9220 | Return=-375.17
+2025-12-03 23:58:32,349 | src.run.runners | INFO | Agent 7 Step 110400: Loss=0.0001 | Return=-421.03
+2025-12-03 23:58:35,184 | src.run.runners | INFO | Agent 1 Step 285200: Loss=1.1996 | Return=-397.59
+2025-12-03 23:58:37,838 | src.run.runners | INFO | Agent 2 Step 202400: Loss=0.6583 | Return=-398.90
+2025-12-03 23:58:39,146 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:58:39,146 | src.run.runners | INFO | 🧬 Agent 12 PBT Check. Score: -500.00
+2025-12-03 23:58:42,157 | src.run.runners | INFO | Agent 11 Step 248400: Loss=3.4486 | Return=-405.22
+2025-12-03 23:58:44,141 | EvalLoop | INFO | 📊 Eval Result: R=-478.6 | L=119.8 | SR=40.0%
+2025-12-03 23:58:44,153 | src.run.runners | INFO | 🧬 Agent 4 PBT Check. Score: -478.60
+2025-12-03 23:58:53,511 | src.run.runners | INFO | Agent 8 Step 174800: Loss=16.7912 | Return=-434.47
+2025-12-03 23:59:07,433 | src.run.runners | INFO | Agent 5 Step 312800: Loss=3.2351 | Return=-423.56
+2025-12-03 23:59:07,619 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:59:07,620 | src.run.runners | INFO | 🧬 Agent 13 PBT Check. Score: -500.00
+2025-12-03 23:59:09,025 | src.run.runners | INFO | Agent 16 Step 368000: Loss=1.6122 | Return=-406.34
+2025-12-03 23:59:09,606 | src.run.runners | INFO | Agent 6 Step 358800: Loss=1.0756 | Return=-383.28
+2025-12-03 23:59:12,032 | src.run.runners | INFO | Agent 17 Step 386400: Loss=1.7089 | Return=-400.59
+2025-12-03 23:59:19,918 | src.run.runners | INFO | Agent 12 Step 377200: Loss=6.5820 | Return=-394.12
+2025-12-03 23:59:24,241 | src.run.runners | INFO | Agent 3 Step 156400: Loss=1.2718 | Return=-422.74
+2025-12-03 23:59:27,661 | src.run.runners | INFO | Agent 4 Step 331200: Loss=1.7946 | Return=-406.51
+2025-12-03 23:59:28,242 | src.run.runners | INFO | Agent 1 Step 294400: Loss=0.2776 | Return=-391.49
+2025-12-03 23:59:43,348 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-03 23:59:43,349 | src.run.runners | INFO | 🧬 Agent 16 PBT Check. Score: -500.00
+2025-12-03 23:59:43,403 | src.run.runners | INFO | Agent 11 Step 257600: Loss=2.8187 | Return=-427.24
+2025-12-03 23:59:45,004 | src.run.runners | INFO | Agent 13 Step 377200: Loss=2.0357 | Return=-400.51
+2025-12-03 23:59:47,943 | src.run.runners | INFO | Agent 17 Step 395600: Loss=1.5347 | Return=-396.91
+2025-12-03 23:59:49,257 | src.run.runners | INFO | Agent 6 Step 368000: Loss=1.2158 | Return=-381.84
+2025-12-03 23:59:52,775 | src.run.runners | INFO | Agent 5 Step 322000: Loss=2.4022 | Return=-420.72
+2025-12-03 23:59:53,596 | src.run.runners | INFO | Agent 9 Step 73600: Loss=0.0002 | Return=-500.00
+2025-12-03 23:59:55,971 | src.run.runners | INFO | Agent 2 Step 211600: Loss=1.5419 | Return=-422.24
+2025-12-03 23:59:56,534 | src.run.runners | INFO | Agent 12 Step 386400: Loss=2.4865 | Return=-405.15
+2025-12-04 00:00:08,334 | src.run.runners | INFO | Agent 4 Step 340400: Loss=1.5952 | Return=-413.55
+2025-12-04 00:00:14,560 | src.run.runners | INFO | Agent 1 Step 303600: Loss=1.2390 | Return=-387.63
+2025-12-04 00:00:22,288 | src.run.runners | INFO | Agent 16 Step 377200: Loss=10.2559 | Return=-408.22
+2025-12-04 00:00:22,600 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-04 00:00:22,601 | src.run.runners | INFO | 🧬 Agent 6 PBT Check. Score: -500.00
+2025-12-04 00:00:23,173 | src.run.runners | INFO | Agent 13 Step 386400: Loss=1.7707 | Return=-411.76
+2025-12-04 00:00:24,813 | EvalLoop | INFO | 📊 Eval Result: R=-492.0 | L=123.2 | SR=40.0%
+2025-12-04 00:00:24,813 | src.run.runners | INFO | 🧬 Agent 5 PBT Check. Score: -492.00
+2025-12-04 00:00:24,814 | src.run.runners | INFO | ♻️  Agent 5 exploits Mentor 4 (Score: -478.60 > -492.00)
+2025-12-04 00:00:24,912 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-04 00:00:24,973 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-04 00:00:25,122 | src.run.runners | INFO | Agent 17 Step 404800: Loss=1.1980 | Return=-389.11
+2025-12-04 00:00:27,906 | src.run.runners | INFO | Agent 8 Step 184000: Loss=7.0682 | Return=-423.20
+2025-12-04 00:00:31,674 | src.run.runners | INFO | Agent 11 Step 266800: Loss=1.7998 | Return=-419.96
+2025-12-04 00:00:32,293 | src.run.runners | INFO | Agent 10 Step 138000: Loss=0.0014 | Return=-500.00
+2025-12-04 00:00:35,741 | src.run.runners | INFO | Agent 12 Step 395600: Loss=1.4921 | Return=-416.18
+2025-12-04 00:00:51,977 | src.run.runners | INFO | Agent 4 Step 349600: Loss=2.2045 | Return=-430.10
+2025-12-04 00:01:04,261 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-04 00:01:04,262 | src.run.runners | INFO | 🧬 Agent 8 PBT Check. Score: -500.00
+2025-12-04 00:01:04,844 | src.run.runners | INFO | Agent 16 Step 386400: Loss=2.3459 | Return=-432.53
+2025-12-04 00:01:05,260 | src.run.runners | INFO | Agent 13 Step 395600: Loss=1.6537 | Return=-380.75
+2025-12-04 00:01:06,009 | src.run.runners | INFO | Agent 17 Step 414000: Loss=1.3267 | Return=-393.41
+2025-12-04 00:01:06,143 | src.run.runners | INFO | Agent 2 Step 220800: Loss=1.0412 | Return=-411.36
+2025-12-04 00:01:06,272 | src.run.runners | INFO | Agent 6 Step 377200: Loss=3.2855 | Return=-402.70
+2025-12-04 00:01:07,407 | src.run.runners | INFO | Agent 1 Step 312800: Loss=0.8414 | Return=-393.23
+2025-12-04 00:01:07,556 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-04 00:01:07,556 | src.run.runners | INFO | 🧬 Agent 10 PBT Check. Score: -500.00
+2025-12-04 00:01:07,557 | src.run.runners | INFO | ♻️  Agent 10 exploits Mentor 4 (Score: -478.60 > -500.00)
+2025-12-04 00:01:07,739 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-04 00:01:07,932 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-04 00:01:07,933 | src.orchestrators.pbt | INFO | 🧬 [PBT] Mutation #10: alpha: 6.00e-01->7.50e-01 | beta_start: 4.00e-01->1.00e+00 | noisy_std_init: 2.00e+00->1.65e+00 | lr: 1.00e-04->3.03e-04
+2025-12-04 00:01:11,503 | src.run.runners | INFO | Agent 15 Step 73600: Loss=0.0001 | Return=-498.30
+2025-12-04 00:01:11,504 | src.run.runners | INFO | Agent 14 Step 73600: Loss=0.0013 | Return=-500.00
+2025-12-04 00:01:11,505 | src.run.runners | INFO | Agent 0 Step 73600: Loss=0.0003 | Return=-478.85
+2025-12-04 00:01:19,955 | src.run.runners | INFO | Agent 5 Step 331200: Loss=1.1860 | Return=-421.14
+2025-12-04 00:01:20,695 | src.run.runners | INFO | Agent 12 Step 404800: Loss=1.3559 | Return=-409.21
+2025-12-04 00:01:20,888 | src.run.runners | INFO | Agent 3 Step 165600: Loss=1.1067 | Return=-405.38
+2025-12-04 00:01:37,047 | src.run.runners | INFO | Agent 11 Step 276000: Loss=2.3113 | Return=-394.22
+2025-12-04 00:01:43,349 | src.run.runners | INFO | Agent 4 Step 358800: Loss=1.0119 | Return=-412.10
+2025-12-04 00:01:49,441 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-04 00:01:49,442 | src.run.runners | INFO | 🧬 Agent 17 PBT Check. Score: -500.00
+2025-12-04 00:01:52,978 | src.run.runners | INFO | Agent 13 Step 404800: Loss=1.5581 | Return=-387.86
+2025-12-04 00:01:53,497 | src.run.runners | INFO | Agent 16 Step 395600: Loss=1.8543 | Return=-410.88
+2025-12-04 00:01:56,364 | src.run.runners | INFO | Agent 6 Step 386400: Loss=1.6110 | Return=-414.98
+2025-12-04 00:02:01,443 | src.run.runners | INFO | Agent 12 Step 414000: Loss=1.7840 | Return=-413.60
+2025-12-04 00:02:06,511 | src.run.runners | INFO | Agent 1 Step 322000: Loss=1.8162 | Return=-373.90
+2025-12-04 00:02:07,698 | src.run.runners | INFO | Agent 5 Step 340400: Loss=1.3685 | Return=-407.85
+2025-12-04 00:02:09,850 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-04 00:02:09,850 | src.run.runners | INFO | 🧬 Agent 11 PBT Check. Score: -500.00
+2025-12-04 00:02:11,427 | src.run.runners | INFO | Agent 2 Step 230000: Loss=0.6566 | Return=-402.88
+2025-12-04 00:02:26,042 | src.run.runners | INFO | Agent 4 Step 368000: Loss=2.3528 | Return=-374.18
+2025-12-04 00:02:26,325 | src.run.runners | INFO | Agent 7 Step 119600: Loss=0.0001 | Return=-411.55
+2025-12-04 00:02:27,329 | src.run.runners | INFO | Agent 17 Step 423200: Loss=12.2534 | Return=-404.81
+2025-12-04 00:02:27,431 | src.run.runners | INFO | Agent 8 Step 193200: Loss=7.8302 | Return=-414.15
+2025-12-04 00:02:32,252 | src.run.runners | INFO | Agent 13 Step 414000: Loss=2.0986 | Return=-381.39
+2025-12-04 00:02:33,973 | src.run.runners | INFO | Agent 16 Step 404800: Loss=1.8758 | Return=-379.01
+2025-12-04 00:02:36,049 | EvalLoop | INFO | 📊 Eval Result: R=-499.6 | L=125.0 | SR=20.0%
+2025-12-04 00:02:36,063 | src.run.runners | INFO | 🧬 Agent 12 PBT Check. Score: -499.60
+2025-12-04 00:02:36,064 | src.run.runners | INFO | ♻️  Agent 12 exploits Mentor 5 (Score: -492.00 > -499.60)
+2025-12-04 00:02:36,190 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-04 00:02:36,307 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-04 00:02:36,309 | src.orchestrators.pbt | INFO | 🧬 [PBT] Mutation #12: alpha: 3.50e-01->7.50e-01 | beta_start: 1.00e+00->4.00e-01 | noisy_std_init: 1.50e-01->3.67e-01 | lr: 7.42e-04->1.82e-03
+2025-12-04 00:02:38,028 | src.run.runners | INFO | Agent 6 Step 395600: Loss=1.7533 | Return=-401.51
+2025-12-04 00:02:41,144 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-04 00:02:41,145 | src.run.runners | INFO | 🧬 Agent 1 PBT Check. Score: -500.00
+2025-12-04 00:02:41,146 | src.run.runners | INFO | ♻️  Agent 1 exploits Mentor 4 (Score: -478.60 > -500.00)
+2025-12-04 00:02:41,291 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-04 00:02:41,393 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-04 00:02:41,396 | src.orchestrators.pbt | INFO | 🧬 [PBT] Mutation #1: beta_start: 4.00e-01->9.80e-01 | noisy_std_init: 1.50e-01->3.67e-01 | lr: 3.00e-05->7.35e-05
+2025-12-04 00:02:42,265 | src.run.runners | INFO | Agent 3 Step 174800: Loss=1.0427 | Return=-412.37
+2025-12-04 00:02:47,514 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-04 00:02:47,515 | src.run.runners | INFO | 🧬 Agent 2 PBT Check. Score: -500.00
+2025-12-04 00:02:47,516 | src.run.runners | INFO | ♻️  Agent 2 exploits Mentor 5 (Score: -492.00 > -500.00)
+2025-12-04 00:02:47,593 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-04 00:02:47,694 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-04 00:02:47,696 | src.orchestrators.pbt | INFO | 🧬 [PBT] Mutation #2: alpha: 7.50e-01->3.50e-01 | noisy_std_init: 1.65e+00->1.50e-01 | lr: 3.03e-04->3.00e-05
+2025-12-04 00:02:50,806 | src.run.runners | INFO | Agent 5 Step 349600: Loss=1.3017 | Return=-407.60
+2025-12-04 00:02:52,375 | EvalLoop | INFO | 📊 Eval Result: R=-277.8 | L=70.0 | SR=100.0%
+2025-12-04 00:02:52,375 | src.run.runners | INFO | 🧬 Agent 13 PBT Check. Score: -277.80
+2025-12-04 00:02:55,472 | src.run.runners | INFO | Agent 11 Step 285200: Loss=3.0597 | Return=-413.95
+2025-12-04 00:02:59,482 | EvalLoop | INFO | 📊 Eval Result: R=-481.2 | L=120.6 | SR=40.0%
+2025-12-04 00:02:59,483 | src.run.runners | INFO | 🧬 Agent 4 PBT Check. Score: -481.20
+2025-12-04 00:03:06,146 | src.run.runners | INFO | Agent 17 Step 432400: Loss=5.1036 | Return=-402.84
+2025-12-04 00:03:13,185 | src.run.runners | INFO | Agent 16 Step 414000: Loss=1.5230 | Return=-401.10
+2025-12-04 00:03:13,833 | src.run.runners | INFO | Agent 12 Step 423200: Loss=2.1105 | Return=-394.09
+2025-12-04 00:03:20,930 | src.run.runners | INFO | Agent 6 Step 404800: Loss=1.5500 | Return=-400.34
+2025-12-04 00:03:30,803 | src.run.runners | INFO | Agent 13 Step 423200: Loss=3.4105 | Return=-396.07
+2025-12-04 00:03:36,850 | src.run.runners | INFO | Agent 5 Step 358800: Loss=1.2945 | Return=-368.45
+2025-12-04 00:03:37,750 | src.run.runners | INFO | Agent 1 Step 331200: Loss=1.3397 | Return=-389.24
+2025-12-04 00:03:37,754 | src.run.runners | INFO | Agent 10 Step 147200: Loss=0.2324 | Return=-487.69
+2025-12-04 00:03:41,976 | src.run.runners | INFO | Agent 4 Step 377200: Loss=1.1493 | Return=-396.06
+2025-12-04 00:03:46,075 | src.run.runners | INFO | Agent 17 Step 441600: Loss=3.6545 | Return=-412.40
+2025-12-04 00:03:50,791 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-04 00:03:50,791 | src.run.runners | INFO | 🧬 Agent 16 PBT Check. Score: -500.00
+2025-12-04 00:03:50,792 | src.run.runners | INFO | ♻️  Agent 16 exploits Mentor 12 (Score: -499.60 > -500.00)
+2025-12-04 00:03:50,872 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-04 00:03:50,989 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-04 00:03:50,991 | src.orchestrators.pbt | INFO | 🧬 [PBT] Mutation #16: alpha: 7.50e-01->3.50e-01 | noisy_std_init: 3.67e-01->9.00e-01 | lr: 3.00e-05->7.35e-05
+2025-12-04 00:03:54,944 | src.run.runners | INFO | Agent 12 Step 432400: Loss=3.2956 | Return=-406.18
+2025-12-04 00:04:01,546 | src.run.runners | INFO | Agent 6 Step 414000: Loss=1.2786 | Return=-384.58
+2025-12-04 00:04:04,088 | src.run.runners | INFO | Agent 11 Step 294400: Loss=3.1265 | Return=-400.03
+2025-12-04 00:04:10,024 | src.run.runners | INFO | Agent 13 Step 432400: Loss=1.8392 | Return=-424.30
+2025-12-04 00:04:11,523 | src.run.runners | INFO | Agent 8 Step 202400: Loss=7.5982 | Return=-423.90
+2025-12-04 00:04:21,883 | src.run.runners | INFO | Agent 2 Step 239200: Loss=3.7390 | Return=-397.78
+2025-12-04 00:04:23,864 | src.run.runners | INFO | Agent 17 Step 450800: Loss=2.0888 | Return=-407.90
+2025-12-04 00:04:26,884 | src.run.runners | INFO | Agent 5 Step 368000: Loss=1.3116 | Return=-381.39
+2025-12-04 00:04:27,434 | src.run.runners | INFO | Agent 4 Step 386400: Loss=1.5898 | Return=-429.79
+2025-12-04 00:04:28,654 | src.run.runners | INFO | Agent 9 Step 82800: Loss=0.0004 | Return=-500.00
+2025-12-04 00:04:29,801 | src.run.runners | INFO | Agent 16 Step 423200: Loss=1.5632 | Return=-431.66
+2025-12-04 00:04:33,064 | src.run.runners | INFO | Agent 1 Step 340400: Loss=0.9364 | Return=-407.54
+2025-12-04 00:04:33,301 | src.run.runners | INFO | Agent 12 Step 441600: Loss=2.7454 | Return=-422.65
+2025-12-04 00:04:37,673 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-04 00:04:37,674 | src.run.runners | INFO | 🧬 Agent 6 PBT Check. Score: -500.00
+2025-12-04 00:04:37,675 | src.run.runners | INFO | ♻️  Agent 6 exploits Mentor 5 (Score: -492.00 > -500.00)
+2025-12-04 00:04:37,852 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-04 00:04:37,964 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-04 00:04:37,968 | src.orchestrators.pbt | INFO | 🧬 [PBT] Mutation #6: beta_start: 4.00e-01->9.80e-01 | noisy_std_init: 1.50e-01->3.67e-01 | lr: 7.35e-05->1.80e-04
+2025-12-04 00:04:51,268 | src.run.runners | INFO | Agent 13 Step 441600: Loss=3.4873 | Return=-410.05
+2025-12-04 00:05:00,203 | EvalLoop | INFO | 📊 Eval Result: R=-411.8 | L=103.6 | SR=80.0%
+2025-12-04 00:05:00,204 | src.run.runners | INFO | 🧬 Agent 5 PBT Check. Score: -411.80
+2025-12-04 00:05:05,442 | src.run.runners | INFO | Agent 11 Step 303600: Loss=2.7315 | Return=-408.61
+2025-12-04 00:05:06,243 | src.run.runners | INFO | Agent 17 Step 460000: Loss=1.5098 | Return=-407.06
+2025-12-04 00:05:15,661 | src.run.runners | INFO | Agent 16 Step 432400: Loss=1.2867 | Return=-432.60
+2025-12-04 00:05:16,654 | src.run.runners | INFO | Agent 12 Step 450800: Loss=1.5952 | Return=-426.83
+2025-12-04 00:05:17,500 | src.run.runners | INFO | Agent 4 Step 395600: Loss=1.2705 | Return=-420.69
+2025-12-04 00:05:22,469 | src.run.runners | INFO | Agent 6 Step 423200: Loss=1.8492 | Return=-391.38
+2025-12-04 00:05:26,949 | src.run.runners | INFO | Agent 1 Step 349600: Loss=1.5376 | Return=-407.25
+2025-12-04 00:05:30,874 | src.run.runners | INFO | Agent 13 Step 450800: Loss=1.3227 | Return=-381.28
+2025-12-04 00:05:34,322 | src.run.runners | INFO | Agent 2 Step 248400: Loss=3.5798 | Return=-384.39
+2025-12-04 00:05:38,604 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-04 00:05:38,605 | src.run.runners | INFO | 🧬 Agent 17 PBT Check. Score: -500.00
+2025-12-04 00:05:38,605 | src.run.runners | INFO | ♻️  Agent 17 exploits Mentor 5 (Score: -411.80 > -500.00)
+2025-12-04 00:05:38,664 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-04 00:05:38,718 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-04 00:05:38,719 | src.orchestrators.pbt | INFO | 🧬 [PBT] Mutation #17: alpha: 7.50e-01->3.50e-01 | beta_start: 9.80e-01->4.00e-01 | lr: 3.00e-05->7.35e-05
+2025-12-04 00:05:42,088 | src.run.runners | INFO | Agent 5 Step 377200: Loss=8.8969 | Return=-384.57
+2025-12-04 00:05:49,208 | src.run.runners | INFO | Agent 3 Step 184000: Loss=0.4552 | Return=-413.59
+2025-12-04 00:05:55,752 | src.run.runners | INFO | Agent 12 Step 460000: Loss=1.0697 | Return=-441.56
+2025-12-04 00:05:57,276 | src.run.runners | INFO | Agent 16 Step 441600: Loss=1.0536 | Return=-412.48
+2025-12-04 00:05:59,897 | src.run.runners | INFO | Agent 8 Step 211600: Loss=6.3137 | Return=-429.57
+2025-12-04 00:06:02,408 | src.run.runners | INFO | Agent 4 Step 404800: Loss=2.3802 | Return=-407.00
+2025-12-04 00:06:04,627 | src.run.runners | INFO | Agent 11 Step 312800: Loss=2.1896 | Return=-429.38
+2025-12-04 00:06:06,027 | src.run.runners | INFO | Agent 6 Step 432400: Loss=1.8037 | Return=-389.64
+2025-12-04 00:06:11,809 | src.run.runners | INFO | Agent 13 Step 460000: Loss=1.4104 | Return=-394.86
+2025-12-04 00:06:19,159 | src.run.runners | INFO | Agent 1 Step 358800: Loss=1.0346 | Return=-395.93
+2025-12-04 00:06:21,371 | src.run.runners | INFO | Agent 17 Step 469200: Loss=2.9199 | Return=-406.93
+2025-12-04 00:06:27,911 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-04 00:06:27,925 | src.run.runners | INFO | 🧬 Agent 3 PBT Check. Score: -500.00
+2025-12-04 00:06:27,926 | src.run.runners | INFO | ♻️  Agent 3 exploits Mentor 13 (Score: -277.80 > -500.00)
+2025-12-04 00:06:27,941 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-04 00:06:28,026 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-04 00:06:28,028 | src.orchestrators.pbt | INFO | 🧬 [PBT] Mutation #3: lr: 3.03e-04->7.42e-04
+2025-12-04 00:06:28,842 | src.run.runners | INFO | Agent 5 Step 386400: Loss=3.9779 | Return=-398.06
+2025-12-04 00:06:31,506 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-04 00:06:31,507 | src.run.runners | INFO | 🧬 Agent 12 PBT Check. Score: -500.00
+2025-12-04 00:06:31,507 | src.run.runners | INFO | ♻️  Agent 12 exploits Mentor 5 (Score: -411.80 > -500.00)
+2025-12-04 00:06:31,569 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-04 00:06:31,672 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-04 00:06:31,674 | src.orchestrators.pbt | INFO | 🧬 [PBT] Mutation #12: alpha: 7.50e-01->3.50e-01 | beta_start: 4.00e-01->9.80e-01 | noisy_std_init: 3.67e-01->9.00e-01 | lr: 1.82e-03->3.00e-05
+2025-12-04 00:06:37,206 | src.run.runners | INFO | Agent 16 Step 450800: Loss=1.3544 | Return=-426.40
+2025-12-04 00:06:42,141 | EvalLoop | INFO | 📊 Eval Result: R=-445.6 | L=111.6 | SR=60.0%
+2025-12-04 00:06:42,142 | src.run.runners | INFO | 🧬 Agent 13 PBT Check. Score: -445.60
+2025-12-04 00:06:42,142 | src.run.runners | INFO | ♻️  Agent 13 exploits Mentor 5 (Score: -411.80 > -445.60)
+2025-12-04 00:06:42,174 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-04 00:06:42,221 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-04 00:06:42,222 | src.orchestrators.pbt | INFO | 🧬 [PBT] Mutation #13: beta_start: 1.00e+00->4.00e-01 | lr: 7.35e-05->1.80e-04
+2025-12-04 00:06:44,034 | src.run.runners | INFO | Agent 4 Step 414000: Loss=1.7769 | Return=-407.34
+2025-12-04 00:06:44,955 | src.run.runners | INFO | Agent 2 Step 257600: Loss=0.0119 | Return=-387.14
+2025-12-04 00:06:46,240 | src.run.runners | INFO | Agent 6 Step 441600: Loss=1.7807 | Return=-393.83
+2025-12-04 00:06:57,046 | src.run.runners | INFO | Agent 11 Step 322000: Loss=1.8756 | Return=-413.80
+2025-12-04 00:06:58,016 | src.run.runners | INFO | Agent 17 Step 478400: Loss=1.8006 | Return=-392.08
+2025-12-04 00:07:02,844 | src.run.runners | INFO | Agent 10 Step 156400: Loss=0.5532 | Return=-473.03
+2025-12-04 00:07:05,638 | src.run.runners | INFO | Agent 1 Step 368000: Loss=1.1907 | Return=-395.77
+2025-12-04 00:07:07,444 | src.run.runners | INFO | Agent 12 Step 469200: Loss=2.2239 | Return=-426.84
+2025-12-04 00:07:10,289 | src.run.runners | INFO | Agent 7 Step 128800: Loss=0.0001 | Return=-407.38
+2025-12-04 00:07:12,351 | src.run.runners | INFO | Agent 5 Step 395600: Loss=1.7228 | Return=-399.27
+2025-12-04 00:07:16,301 | src.run.runners | INFO | Agent 16 Step 460000: Loss=1.0535 | Return=-445.85
+2025-12-04 00:07:17,236 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-04 00:07:17,237 | src.run.runners | INFO | 🧬 Agent 4 PBT Check. Score: -500.00
+2025-12-04 00:07:17,237 | src.run.runners | INFO | ♻️  Agent 4 exploits Mentor 13 (Score: -445.60 > -500.00)
+2025-12-04 00:07:17,310 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-04 00:07:17,415 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-04 00:07:17,417 | src.orchestrators.pbt | INFO | 🧬 [PBT] Mutation #4: noisy_std_init: 1.65e+00->1.50e-01 | lr: 7.42e-04->1.82e-03
+2025-12-04 00:07:19,602 | src.run.runners | INFO | Agent 13 Step 469200: Loss=2.4725 | Return=-427.04
+2025-12-04 00:07:20,321 | src.run.runners | INFO | Agent 8 Step 220800: Loss=5.0766 | Return=-420.84
+2025-12-04 00:07:28,099 | src.run.runners | INFO | Agent 6 Step 450800: Loss=1.2729 | Return=-400.49
+2025-12-04 00:07:29,671 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-04 00:07:29,672 | src.run.runners | INFO | 🧬 Agent 11 PBT Check. Score: -500.00
+2025-12-04 00:07:35,312 | src.run.runners | INFO | Agent 17 Step 487600: Loss=1.3956 | Return=-396.53
+2025-12-04 00:07:36,678 | src.run.runners | INFO | Agent 2 Step 266800: Loss=0.0056 | Return=-398.19
+2025-12-04 00:07:38,381 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-04 00:07:38,406 | src.run.runners | INFO | 🧬 Agent 1 PBT Check. Score: -500.00
+2025-12-04 00:07:46,070 | src.run.runners | INFO | Agent 12 Step 478400: Loss=1.7323 | Return=-389.76
+2025-12-04 00:07:48,875 | EvalLoop | INFO | 📊 Eval Result: R=-500.0 | L=125.0 | SR=0.0%
+2025-12-04 00:07:48,876 | src.run.runners | INFO | 🧬 Agent 16 PBT Check. Score: -500.00
+2025-12-04 00:07:48,877 | src.run.runners | INFO | ♻️  Agent 16 exploits Mentor 13 (Score: -445.60 > -500.00)
+2025-12-04 00:07:48,898 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-04 00:07:48,971 | src.orchestrators.knowledge_transfer | INFO | [SURGEON] Transplantacja zakończona. Direct: 46, Grafts: 0
+2025-12-04 00:07:48,972 | src.orchestrators.pbt | INFO | 🧬 [PBT] Mutation #16: alpha: 3.50e-01->7.50e-01 | noisy_std_init: 9.00e-01->1.50e-01 | lr: 7.35e-05->3.00e-05
+2025-12-04 00:07:55,806 | src.run.runners | INFO | Agent 5 Step 404800: Loss=1.4581 | Return=-399.37
+2025-12-04 00:07:56,854 | src.run.runners | INFO | Agent 13 Step 478400: Loss=1.5380 | Return=-378.32
+2025-12-04 00:07:58,039 | src.run.runners | INFO | Agent 4 Step 423200: Loss=1.9071 | Return=-364.73
+2025-12-04 00:08:06,102 | src.run.runners | INFO | Agent 6 Step 460000: Loss=1.2476 | Return=-407.72
+2025-12-04 00:08:12,406 | src.run.runners | INFO | Agent 17 Step 496800: Loss=1.0462 | Return=-386.78
