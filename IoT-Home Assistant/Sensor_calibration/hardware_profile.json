@@ -1,0 +1,20 @@
+{
+    "devices": {
+        "alpstuga_air_quality_monitor_temperatura": {
+            "thermal_lag_s": 252.0,
+            "huber_alpha": 0.713
+        },
+        "timmerflotte_temp_hmd_sensor_temperatura": {
+            "thermal_lag_s": 1404.0,
+            "huber_alpha": 0.844
+        },
+        "timmerflotte_temp_hmd_sensor_temperatura_2": {
+            "thermal_lag_s": 1188.0,
+            "huber_alpha": 0.742
+        },
+        "timmerflotte_temp_hmd_sensor_temperatura_3": {
+            "thermal_lag_s": 720.0,
+            "huber_alpha": 0.632
+        }
+    }
+}
